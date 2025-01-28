@@ -87,7 +87,7 @@ firebase.auth().onAuthStateChanged((user) => {
 function logout() {
     firebase.auth().signOut().then(() => {
         // Redirect to login page after successful logout
-        window.location.href = 'Vvvv.html';
+        window.location.href = 'index.html';
     }).catch((error) => {
         Swal.fire({
             title: 'Error',
