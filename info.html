@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <title>Lokan-dz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      width: 80%;
+      margin: 40px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    #info {
+      font-size: 18px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button id="datap" onclick="window.location.href='Dz.html'">Profile</button>
+    <h1>Informations</h1>
+    <div id="info"></div>
+  </div>
+  <script>
+    fetch('https://api.telegram.org/bot7899966999:AAFaQeVG7ZZWoE6Fo1NoR7yJmmgK_38u-Cs/getUpdates', {
+      method: 'GET'
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      const updates = data.result;
+      const lastUpdate = updates[updates.length - 1];
+      const message = lastUpdate.message;
+      const text = message.text;
+
+      document.getElementById('info').innerHTML = text;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  </script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

