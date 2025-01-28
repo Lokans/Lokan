@@ -79,7 +79,7 @@ firebase.auth().onAuthStateChanged((user) => {
     } else {
         // If no user is signed in, redirect to login page
         if (window.location.pathname.includes('info.html')) {
-            window.location.href = 'Vvvv.html';
+            window.location.href = 'index.html';
         }
     }
 });
