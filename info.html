@@ -1,129 +1,132 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="(link unavailable)">
-<link href="(link unavailable)" rel="stylesheet">
-<title>Lokan-dz</title>
-<style>
-body {
-font-family: Arial, sans-serif;
-}
-
-.container {
-width: 80%;
-margin: 40px auto;
-padding: 20px;
-border: 1px solid #ccc;
-border-radius: 10px;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#info {
-font-size: 18px;
-color: #666;
-}
-
-.popup {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background-color: rgba(0, 0, 0, 0.5);
-display: none;
-justify-content: center;
-align-items: center;
-}
-
-.popup-content {
-background-color: #fff;
-padding: 20px;
-border-radius: 10px;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-width: 80%;
-max-width: 500px;
-}
-
-.order-button {
-background-color: #4CAF50;
-color: #fff;
-padding: 10px 20px;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-}
-
-.order-button:hover {
-background-color: #3e8e41;
-}
-
-.alert-box {
-position: fixed;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-background-color: #ccc;
-padding: 20px;
-border-radius: 10px;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-width: 80%;
-max-width: 500px;
-display: none;
-}
-
-.alert-box h2 {
-margin-top: 0;
-}
-
-.alert-box button {
-background-color: #4CAF50;
-color: #fff;
-padding: 10px 20px;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-}
-
-.alert-box button:hover {
-background-color: #3e8e41;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="(link unavailable)">
+  <link href="(link unavailable)" rel="stylesheet">
+  <title>Lokan-dz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      width: 80%;
+      margin: 40px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    #info {
+      font-size: 18px;
+      color: #666;
+    }
+    
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .popup-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 80%;
+      max-width: 500px;
+    }
+    
+    .order-button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .order-button:hover {
+      background-color: #3e8e41;
+    }
+    
+    .alert-box {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #ccc;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 80%;
+      max-width: 500px;
+      display: none;
+    }
+    
+    .alert-box h2 {
+      margin-top: 0;
+    }
+    
+    .alert-box button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .alert-box button:hover {
+      background-color: #3e8e41;
+    }
+  </style>
 </head>
 
 <body>
-<div id="user-name"></div>
-<div class="container">
-<h1>Ooredoo</h1>
-<p>Carte d'expédition 100.00DA</p>
-<p>Prix : 100 Da</p>
-<label for="code">Entrer le code d'achat:</label>
-<input type="text" id="code" name="code">
-</br>
-</br>
-<button class="order-button" onclick="order(this)">Order</button>
-</div>
-<div class="container">
-<h1>Djezzy</h1>
-<p>Carte d'expédition 100.00DA</p>
-<p>Prix : 100 Da</p>
-<label for="code">Entrer le code d'achat:</label>
-<input type="text" id="code" name="code">
-</br>
-</br>
-<button class="order-button" onclick="order(this)">Order</button>
-</div>
-<div class="container">
-<h1>Mobilis</h1>
-<p>Carte d'expédition 100.00DDa</p>
-<p>Prix : 200 $</p>
-<label for="code">Entrer le code d'achat:</label>
-<input type="text" id="code" name="code">
-</br>
-</br>
-<button class="order-button" onclick="order(this)">Order</button>
-</div>
+  <div class="container" id="user-name">
+    <img src="image_url" alt="User Image" width="40" height="40" style="border-radius: 50%; margin-right: 10px;">
+    <span id="user-name-text"></span>
+  </div>
+  <div class="container">
+    <h1>Ooredoo</h1>
+    <p>Carte d'expédition 100.00DA</p>
+    <p>Prix : 100 Da</p>
+    <label for="code">Entrer le code d'achat:</label>
+    <input type="text" id="code" name="code">
+    </br>
+    </br>
+    <button class="order-button" onclick="order(this)">Order</button>
+  </div>
+  <div class="container">
+    <h1>Djezzy</h1>
+    <p>Carte d'expédition 100.00DA</p>
+    <p>Prix : 100 Da</p>
+    <label for="code">Entrer le code d'achat:</label>
+    <input type="text" id="code" name="code">
+    </br>
+    </br>
+    <button class="order-button" onclick="order(this)">Order</button>
+  </div>
+  <div class="container">
+    <h1>Mobilis</h1>
+    <p>Carte d'expédition 100.00DDa</p>
+    <p>Prix : 200 $</p>
+    <label for="code">Entrer le code d'achat:</label>
+    <input type="text" id="code" name="code">
+    </br>
+    </br>
+    <button class="order-button" onclick="order(this)">Order</button>
+  </div>
 <div class="popup" id="popup">
 <div class="popup-content">
 <h2>Opération réussie!</h2>
@@ -139,73 +142,104 @@ background-color: #3e8e41;
 <script>
 const telegramToken = '7899966999:AAFaQeVG7ZZWoE6Fo1NoR7yJmmgK_38u-Cs';
 const chatId = '5365425194';
+let userId = null;
+let userBalance = 0;
 
 function order(element) {
-const container = element.parentNode;
-const produit = container.querySelector('h1').textContent;
-const description = container.querySelector('p:nth-child(2)').textContent;
-const prix = container.querySelector('p:nth-child(3)').textContent;
-const code = container.querySelector('input[type="text"]').value;
-if (code !== '') {
-const message = `Nouvel achat : Produit: ${produit} Description: ${description} Prix: ${prix} Code: ${code}`;
-sendTelegramMessage(message);
-showPopup();
-} else {
-showAlert();
-}
+  const container = element.parentNode;
+  const produit = container.querySelector('h1').textContent;
+  const description = container.querySelector('p:nth-child(2)').textContent;
+  const prix = container.querySelector('p:nth-child(3)').textContent;
+  const code = container.querySelector('input[type="text"]').value;
+  if (code !== '') {
+    const message = `Nouvel achat : Produit: ${produit} Description: ${description} Prix: ${prix} Code: ${code}`;
+    sendTelegramMessage(message);
+    showPopup();
+    updateWallet(userId, prix);
+  } else {
+    showAlert();
+  }
 }
 
 function sendTelegramMessage(message) {
-const url = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
-const params = {
-chat_id: chatId,
-text: message,
-};
-fetch(url, {
-method: 'POST',
-headers: {
-'Content-Type': 'application/json',
-},
-body: JSON.stringify(params),
-})
-.then((response) => response.json())
-.then((data) => console.log(data))
-.catch((error) => console.error(error));
+  const url = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
+  const params = {
+    chat_id: chatId,
+    text: message,
+  };
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(params),
+  })
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.error(error));
 }
 
 function showPopup() {
-document.getElementById('popup').style.display = 'flex';
+  document.getElementById('popup').style.display = 'flex';
 }
 
 function hidePopup() {
-document.getElementById('popup').style.display = 'none';
+  document.getElementById('popup').style.display = 'none';
 }
 
 function showAlert() {
-document.getElementById('alert-box').style.display = 'flex';
+  document.getElementById('alert-box').style.display = 'flex';
 }
 
 function hideAlert() {
-document.getElementById('alert-box').style.display = 'none';
+  document.getElementById('alert-box').style.display = 'none';
 }
 
 function getUpdates() {
-const url = `https://api.telegram.org/bot${telegramToken}/getUpdates`;
-fetch(url)
-.then(response => response.json())
-.then(data => {
-const updates = data.result;
-updates.forEach(update => {
-const message = update.message;
-const userName = message.from.username;
-const chatId = message.chat.id;
-console.log(`Nom d'utilisateur : ${userName}`);
-console.log(`ID de chat : ${chatId}`);
-// Mettre à jour le nom d'utilisateur dans la page
-document.getElementById('user-name').innerHTML = `Bonjour, ${userName}!`;
-});
-})
-.catch(error => console.error(error));
+  const url = `https://api.telegram.org/bot${telegramToken}/getUpdates`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const updates = data.result;
+      updates.forEach(update => {
+        const message = update.message;
+        const userName = message.from.username;
+        const chatId = message.chat.id;
+        console.log(`Nom d'utilisateur : ${userName}`);
+        console.log(`ID de chat : ${chatId}`);
+        // Mettre à jour le nom d'utilisateur dans la page
+        document.getElementById('user-name-text').innerHTML = `${userName}`;
+        userId = chatId;
+        getUserBalance(chatId);
+      });
+    })
+    .catch(error => console.error(error));
+}
+
+function getUserBalance(userId) {
+  const url = `/api/wallets/${userId}`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      userBalance = data.balance;
+      console.log(`Solde : ${userBalance}`);
+    })
+    .catch(error => console.error(error));
+}
+
+function updateWallet(userId, amount) {
+  const url = `/api/wallets/${userId}`;
+  const params = {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ balance: userBalance - amount }),
+  };
+  fetch(url, params)
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.error(error));
 }
 
 // Appeler la fonction getUpdates toutes les 5 secondes
@@ -215,4 +249,4 @@ setInterval(getUpdates, 5000);
 getUpdates();
 </script>
 </body>
-</html>
+  </html>
