@@ -149,10 +149,10 @@ background-color: #3e8e41;
 <p><h2>Erreur!</h2> </br>Veuillez entrer le code d'achat!</p>
 <button onclick="hideAlert()">Fermer</button>
 </div>
-  <script>
-const telegramToken = '7899966999:AAFaQeVG7ZZWoE6Fo1NoR7yJmmgK_38u-Cs';
-const chatId = '5365425194';
-const usersFile = 'users.json';
+    <script>
+    const telegramToken = '7899966999:AAFaQeVG7ZZWoE6Fo1NoR7yJmmgK_38u-Cs';
+    const chatId = '5365425194';
+    const usersFile = 'users.json';
 
     function order(element) {
       const container = element.parentNode;
@@ -161,11 +161,17 @@ const usersFile = 'users.json';
       const prix = container.querySelector('p:nth-child(3)').textContent;
       const code = container.querySelector('input[type="text"]').value;
       const userName = document.getElementById('user-name').textContent;
-
       if (code !== '') {
-        const message = `Nouvel achat :\n Nom d'utilisateur: ${userName}\n Produit: ${produit}\n Description: ${description}\n Prix: ${prix}\n Code: ${code}`;
-        sendTelegramMessage(message);
-        showPopup();
+        getBalance(chatId).then(balance => {
+          if (balance >= parseInt(prix)) {
+            const message = `Nouvel achat :\n Nom d'utilisateur: ${userName}\n Produit: ${produit}\n Description: ${description}\n Prix: ${prix}\n Code: ${code}`;
+            sendTelegramMessage(message);
+            showPopup();
+            updateBalance(chatId, balance - parseInt(prix));
+          } else {
+            showAlertInsufficientBalance();
+          }
+        });
       } else {
         showAlert();
       }
@@ -173,18 +179,8 @@ const usersFile = 'users.json';
 
     function sendTelegramMessage(message) {
       const url = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
-      const params = {
-        chat_id: chatId,
-        text: message,
-      };
-
-      fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(params),
-      })
+      const params = { chat_id: chatId, text: message, };
+      fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json', }, body: JSON.stringify(params), })
         .then((response) => response.json())
         .then((data) => console.log(data))
         .catch((error) => console.error(error));
@@ -207,44 +203,71 @@ const usersFile = 'users.json';
     }
 
     async function getBalance(chatId) {
-  try {
-    const response = await fetch(usersFile);
-    const data = await response.json();
-    const user = data.users.find(user => user.chatId === chatId);
-    if (user) {
-      return user.balance;
-    } else {
-      return 0;
+      try {
+        const response = await fetch(usersFile);
+        const data = await response.json();
+        const user = data.users.find(user => user.chatId === chatId);
+        if (user) {
+          return user.balance;
+        } else {
+          return 0;
+        }
+      } catch (error) {
+        console.error(error);
+      }
     }
-  } catch (error) {
-    console.error(error);
-  }
-}
 
-async function getUpdates() {
-  const url = `https://api.telegram.org/bot${telegramToken}/getUpdates`;
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      const updates = data.result;
-      updates.forEach(async update => {
-        const message = update.message;
-        const userName = message.from.first_name + ' ' + message.from.last_name;
-        const chatId = message.chat.id;
-        console.log(`Nom d'utilisateur : ${userName}`);
-        console.log(`ID de chat : ${chatId}`);
-        document.getElementById('user-name').innerHTML = `${userName}`;
-        const balance = await getBalance(chatId);
-        document.getElementById('user-balance').innerHTML = `Solde: ${balance}`;
-      });
-    })
-    .catch(error => console.error(error));
+    async function getUpdates() {
+      const url = `https://api.telegram.org/bot${telegramToken}/getUpdates`;
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          const updates = data.result;
+          updates.forEach(async update => {
+            const message = update.message;
+            const userName = message.from.first_name + ' ' + message.from.last_name;
+            const chatId = message.chat.id;
+            console.log(`Nom d'utilisateur : ${userName}`);
+            console.log(`ID de chat : ${chatId}`);
+            document.getElementById('user-name').innerHTML = `${userName}`;
+            const balance = await getBalance(chatId);
+            document.getElementById('user-balance').innerHTML = `Solde: ${balance}`;
+          });
+        })
+        .catch(error => console.error(error));
     }
-// Appeler la fonction getUpdates toutes les 5 secondes
-setInterval(getUpdates, 5000);
 
-// Appeler la fonction getUpdates une fois au démarrage
-getUpdates();
+    async function updateBalance(chatId, newBalance) {
+      try {
+        const response = await fetch(usersFile);
+        const data = await response.json();
+        const user = data.users.find(user => user.chatId === chatId);
+        if (user) {
+          user.balance = newBalance;
+          const updatedData = { users: data.users };
+          const options = {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(updatedData),
+          };
+          fetch(usersFile, options);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    function showAlertInsufficientBalance() {
+      const alertBox = document.getElementById('alert-box');
+      alertBox.innerHTML = '<p><h2>Erreur!</h2> </br>Le solde est insuffisant pour effectuer cette transaction.</p>';
+      alertBox.style.display = 'flex';
+    }
+
+    // Appeler la fonction getUpdates toutes les 5 secondes
+    setInterval(getUpdates, 5000);
+
+    // Appeler la fonction getUpdates une fois au démarrage
+    getUpdates();
   </script>
 </body>
 </html>
