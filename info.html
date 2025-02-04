@@ -6,9 +6,9 @@
 <title>Lokan-dz</title>
 <style>
 body {
-  font-family: Arial, sans-serif;
-  background-color: #ffffff;
-  color: #000000;
+font-family: Arial, sans-serif;
+background-color: #ffffff;
+color: #000000;
 }
 .container {
 width: 80%;
@@ -21,6 +21,21 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 #info {
 font-size: 18px;
 color: #666;
+}
+#user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#user-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#user-balance {
+  font-size: 18px;
+  color: #666;
 }
 .popup {
 position: fixed;
@@ -90,7 +105,10 @@ background-color: #3e8e41;
 </style>
 </head>
 <body>
-<div class="container" id="user-name"></div>
+<div class="container" id="user-info">
+  <h2 id="user-name"></h2>
+  <p id="user-balance"></p>
+</div>
 <div class="container">
 <h1>Ooredoo</h1>
 <p>Carte d'expédition 100.00DA</p>
@@ -194,22 +212,47 @@ function getUpdates() {
       const updates = data.result;
       updates.forEach(update => {
         const message = update.message;
-        const userName = message.from.first_name + ' ' + message.from.last_name;
+        const userName = message.from.full_name;
         const chatId = message.chat.id;
         console.log(`Nom d'utilisateur : ${userName}`);
         console.log(`ID de chat : ${chatId}`);
-        // Mettre à jour le nom d'utilisateur dans la page
+        // Mettre à jour le nom d'utilisateur et le solde dans la page
         document.getElementById('user-name').innerHTML = `${userName}`;
+        document.getElementById('user-balance').innerHTML = `Solde: ${getBalance(chatId)}`;
       });
     })
     .catch(error => console.error(error));
 }
 
+const fs = require('fs');
+
+// تعريف ملف JSON
+const usersFile = 'users.json';
+
+// وظيفة لاسترجاع رصيد المستخدم
+function getBalance(chatId) {
+  return new Promise((resolve, reject) => {
+    fs.readFile(usersFile, (error, data) => {
+      if (error) {
+        reject(error);
+      } else {
+        const users = JSON.parse(data);
+        const user = users.find((user) => user.chatId === chatId);
+        if (user) {
+          resolve(user.balance);
+        } else {
+          resolve(0); // أو قيمة افتراضية أخرى
+        }
+      }
+    });
+  });
+}
+
 // Appeler la fonction getUpdates toutes les 5 secondes
-setInterval(getUpdates, 5000);
+setInterval(getUpdates, 3000);
 
 // Appeler la fonction getUpdates une fois au démarrage
 getUpdates();
 </script>
 </body>
-</html>
+  </html>
