@@ -149,110 +149,100 @@ background-color: #3e8e41;
 <p><h2>Erreur!</h2> </br>Veuillez entrer le code d'achat!</p>
 <button onclick="hideAlert()">Fermer</button>
 </div>
-<script>
-const telegramToken = '7899966999:AAFaQeVG7ZZWoE6Fo1NoR7yJmmgK_38u-Cs';
-const chatId = '5365425194';
-function order(element) {
-  const container = element.parentNode;
-  const produit = container.querySelector('h1').textContent;
-  const description = container.querySelector('p:nth-child(2)').textContent;
-  const prix = container.querySelector('p:nth-child(3)').textContent;
-  const code = container.querySelector('input[type="text"]').value;
-  const userName = document.getElementById('user-name').textContent;
+  <script>
+    const telegramToken = '7899966999:AAFaQeVG7ZZWoE6Fo1NoR7yJmmgK_38u-Cs';
+    const chatId = '5365425194';
 
-  if (code !== '') {
-    const message = `💵Nouvel achat :\n Nom d'utilisateur: ${userName}\n Produit: ${produit}\n Description: ${description}\n Prix: ${prix}\n Code: ${code}`;
-    sendTelegramMessage(message);
-    showPopup();
-  } else {
-    showAlert();
-  }
-}
+    function order(element) {
+      const container = element.parentNode;
+      const produit = container.querySelector('h1').textContent;
+      const description = container.querySelector('p:nth-child(2)').textContent;
+      const prix = container.querySelector('p:nth-child(3)').textContent;
+      const code = container.querySelector('input[type="text"]').value;
+      const userName = document.getElementById('user-name').textContent;
 
-function sendTelegramMessage(message) {
-  const url = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
-  const params = {
-    chat_id: chatId,
-    text: message,
-  };
-
-  fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(params),
-  })
-    .then((response) => response.json())
-    .then((data) => console.log(data))
-    .catch((error) => console.error(error));
-}
-
-function showPopup() {
-  document.getElementById('popup').style.display = 'flex';
-}
-
-function hidePopup() {
-  document.getElementById('popup').style.display = 'none';
-}
-
-function showAlert() {
-  document.getElementById('alert-box').style.display = 'flex';
-}
-
-function hideAlert() {
-  document.getElementById('alert-box').style.display = 'none';
-}
-
-function getUpdates() {
-  const url = `https://api.telegram.org/bot${telegramToken}/getUpdates`;
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      const updates = data.result;
-      updates.forEach(update => {
-        const message = update.message;
-        const userName = message.from.full_name;
-        const chatId = message.chat.id;
-        console.log(`Nom d'utilisateur : ${userName}`);
-        console.log(`ID de chat : ${chatId}`);
-        // Mettre à jour le nom d'utilisateur et le solde dans la page
-        document.getElementById('user-name').innerHTML = `${userName}`;
-        document.getElementById('user-balance').innerHTML = `Solde: ${getBalance(chatId)}`;
-      });
-    })
-    .catch(error => console.error(error));
-}
-
-const fs = require('fs');
-
-// تعريف ملف JSON
-const usersFile = 'users.json';
-
-// وظيفة لاسترجاع رصيد المستخدم
-function getBalance(chatId) {
-  return new Promise((resolve, reject) => {
-    fs.readFile(usersFile, (error, data) => {
-      if (error) {
-        reject(error);
+      if (code !== '') {
+        const message = `Nouvel achat :\n Nom d'utilisateur: ${userName}\n Produit: ${produit}\n Description: ${description}\n Prix: ${prix}\n Code: ${code}`;
+        sendTelegramMessage(message);
+        showPopup();
       } else {
-        const users = JSON.parse(data);
-        const user = users.find((user) => user.chatId === chatId);
-        if (user) {
-          resolve(user.balance);
-        } else {
-          resolve(0); // أو قيمة افتراضية أخرى
-        }
+        showAlert();
       }
-    });
-  });
-}
+    }
 
-// Appeler la fonction getUpdates toutes les 5 secondes
-setInterval(getUpdates, 3000);
+    function sendTelegramMessage(message) {
+      const url = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
+      const params = {
+        chat_id: chatId,
+        text: message,
+      };
 
-// Appeler la fonction getUpdates une fois au démarrage
-getUpdates();
-</script>
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(params),
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.error(error));
+    }
+
+    function showPopup() {
+      document.getElementById('popup').style.display = 'flex';
+    }
+
+    function hidePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+
+    function showAlert() {
+      document.getElementById('alert-box').style.display = 'flex';
+    }
+
+    function hideAlert() {
+      document.getElementById('alert-box').style.display = 'none';
+    }
+
+    function getBalance(chatId) {
+      const users = [
+        { chatId: '5365425194', balance: 100 },
+        { chatId: '7311709124', balance: 50 },
+      ];
+
+      const user = users.find((user) => user.chatId === chatId);
+      if (user) {
+        return user.balance;
+      } else {
+        return 0;
+      }
+    }
+
+    function getUpdates() {
+      const url = `https://api.telegram.org/bot${telegramToken}/getUpdates`;
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          const updates = data.result;
+          updates.forEach((update) => {
+            const message = update.message;
+            const userName = message.from.full_name;
+            const chatId = message.chat.id;
+            console.log(`Nom d'utilisateur : ${userName}`);
+            console.log(`ID de chat : ${chatId}`);
+            document.getElementById('user-name').innerHTML = `${userName}`;
+            document.getElementById('user-balance').innerHTML = `Solde: ${getBalance(chatId)}`;
+          });
+        })
+        .catch((error) => console.error(error));
+    }
+
+    // Appeler la fonction getUpdates toutes les 5 secondes
+    setInterval(getUpdates, 5000);
+
+    // Appeler la fonction getUpdates une fois au démarrage
+    getUpdates();
+  </script>
 </body>
   </html>
