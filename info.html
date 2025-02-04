@@ -6,7 +6,9 @@
 <title>Lokan-dz</title>
 <style>
 body {
-font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #000000;
 }
 .container {
 width: 80%;
@@ -192,7 +194,7 @@ function getUpdates() {
       const updates = data.result;
       updates.forEach(update => {
         const message = update.message;
-        const userName = message.from.username;
+        const userName = message.from.full_name;
         const chatId = message.chat.id;
         console.log(`Nom d'utilisateur : ${userName}`);
         console.log(`ID de chat : ${chatId}`);
