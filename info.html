@@ -164,7 +164,7 @@ background-color: #3e8e41;
   if (code !== '') {
     getBalance(chatId).then(balance => {
       console.log(`Résidu : ${balance}`);
-      const prixInt = parseInt(prix.split(' ')[0]);
+      const prixInt = parseInt(prix.replace(/[^0-9]/g, '')); // استخراج المبلغ من النص
       console.log(`Prix : ${prixInt}`);
       if (balance >= prixInt) {
         const message = `Nouvel achat :\n Nom d'utilisateur: ${userName}\n Produit: ${produit}\n Description: ${description}\n Prix: ${prix}\n Code: ${code}`;
