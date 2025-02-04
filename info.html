@@ -206,41 +206,40 @@ const usersFile = 'users.json';
       document.getElementById('alert-box').style.display = 'none';
     }
 
-    function getBalance(chatId) {
-  fetch(usersFile)
-    .then(response => response.json())
-    .then(data => {
-      const user = data.users.find(user => user.chatId === chatId);
-      if (user) {
-        return user.balance;
-      } else {
-        return 0;
-      }
-    })
-    .catch(error => console.error(error));
+    async function getBalance(chatId) {
+  try {
+    const response = await fetch(usersFile);
+    const data = await response.json();
+    const user = data.users.find(user => user.chatId === chatId);
+    if (user) {
+      return user.balance;
+    } else {
+      return 0;
+    }
+  } catch (error) {
+    console.error(error);
+  }
 }
 
-function getUpdates() {
+async function getUpdates() {
   const url = `https://api.telegram.org/bot${telegramToken}/getUpdates`;
   fetch(url)
     .then(response => response.json())
     .then(data => {
       const updates = data.result;
-      updates.forEach(update => {
+      updates.forEach(async update => {
         const message = update.message;
         const userName = message.from.first_name + ' ' + message.from.last_name;
         const chatId = message.chat.id;
         console.log(`Nom d'utilisateur : ${userName}`);
         console.log(`ID de chat : ${chatId}`);
         document.getElementById('user-name').innerHTML = `${userName}`;
-        getBalance(chatId).then(balance => {
-          document.getElementById('user-balance').innerHTML = `Solde: ${balance}`;
-        });
+        const balance = await getBalance(chatId);
+        document.getElementById('user-balance').innerHTML = `Solde: ${balance}`;
       });
     })
     .catch(error => console.error(error));
-}
-
+    }
 // Appeler la fonction getUpdates toutes les 5 secondes
 setInterval(getUpdates, 5000);
 
