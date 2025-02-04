@@ -227,7 +227,7 @@ background-color: #3e8e41;
           const updates = data.result;
           updates.forEach((update) => {
             const message = update.message;
-            const userName = message.from.full_name;
+            const userName = message.from.first_name + ' ' + message.from.last_name;
             const chatId = message.chat.id;
             console.log(`Nom d'utilisateur : ${userName}`);
             console.log(`ID de chat : ${chatId}`);
