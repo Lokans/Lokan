@@ -150,8 +150,9 @@ background-color: #3e8e41;
 <button onclick="hideAlert()">Fermer</button>
 </div>
   <script>
-    const telegramToken = '7899966999:AAFaQeVG7ZZWoE6Fo1NoR7yJmmgK_38u-Cs';
-    const chatId = '5365425194';
+const telegramToken = '7899966999:AAFaQeVG7ZZWoE6Fo1NoR7yJmmgK_38u-Cs';
+const chatId = '5365425194';
+const usersFile = 'users.json';
 
     function order(element) {
       const container = element.parentNode;
@@ -206,49 +207,45 @@ background-color: #3e8e41;
     }
 
     function getBalance(chatId) {
-      const users = [
-        { 
-          "chatId":" 5365425194",
-          "balance": 100
-        },
-        { 
-          "chatId": "7311709124",
-          "balance": 50
-        }
-      ];
-
-      const user = users.find((user) => user.chatId === chatId);
+  fetch(usersFile)
+    .then(response => response.json())
+    .then(data => {
+      const user = data.users.find(user => user.chatId === chatId);
       if (user) {
         return user.balance;
       } else {
         return 0;
       }
-    }
+    })
+    .catch(error => console.error(error));
+}
 
-    function getUpdates() {
-      const url = `https://api.telegram.org/bot${telegramToken}/getUpdates`;
-      fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-          const updates = data.result;
-          updates.forEach((update) => {
-            const message = update.message;
-            const userName = message.from.first_name + ' ' + message.from.last_name;
-            const chatId = message.chat.id;
-            console.log(`Nom d'utilisateur : ${userName}`);
-            console.log(`ID de chat : ${chatId}`);
-            document.getElementById('user-name').innerHTML = `${userName}`;
-            document.getElementById('user-balance').innerHTML = `Solde: ${getBalance(chatId)}`;
-          });
-        })
-        .catch((error) => console.error(error));
-    }
+function getUpdates() {
+  const url = `https://api.telegram.org/bot${telegramToken}/getUpdates`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const updates = data.result;
+      updates.forEach(update => {
+        const message = update.message;
+        const userName = message.from.first_name + ' ' + message.from.last_name;
+        const chatId = message.chat.id;
+        console.log(`Nom d'utilisateur : ${userName}`);
+        console.log(`ID de chat : ${chatId}`);
+        document.getElementById('user-name').innerHTML = `${userName}`;
+        getBalance(chatId).then(balance => {
+          document.getElementById('user-balance').innerHTML = `Solde: ${balance}`;
+        });
+      });
+    })
+    .catch(error => console.error(error));
+}
 
-    // Appeler la fonction getUpdates toutes les 5 secondes
-    setInterval(getUpdates, 5000);
+// Appeler la fonction getUpdates toutes les 5 secondes
+setInterval(getUpdates, 5000);
 
-    // Appeler la fonction getUpdates une fois au démarrage
-    getUpdates();
+// Appeler la fonction getUpdates une fois au démarrage
+getUpdates();
   </script>
 </body>
-  </html>
+</html>
