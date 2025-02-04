@@ -155,27 +155,28 @@ background-color: #3e8e41;
     const usersFile = 'users.json';
 
     function order(element) {
-      const container = element.parentNode;
-      const produit = container.querySelector('h1').textContent;
-      const description = container.querySelector('p:nth-child(2)').textContent;
-      const prix = container.querySelector('p:nth-child(3)').textContent;
-      const code = container.querySelector('input[type="text"]').value;
-      const userName = document.getElementById('user-name').textContent;
-      if (code !== '') {
-        getBalance(chatId).then(balance => {
-          if (balance >= parseInt(prix)) {
-            const message = `Nouvel achat :\n Nom d'utilisateur: ${userName}\n Produit: ${produit}\n Description: ${description}\n Prix: ${prix}\n Code: ${code}`;
-            sendTelegramMessage(message);
-            showPopup();
-            updateBalance(chatId, balance - parseInt(prix));
-          } else {
-            showAlertInsufficientBalance();
-          }
-        });
+  const container = element.parentNode;
+  const produit = container.querySelector('h1').textContent;
+  const description = container.querySelector('p:nth-child(2)').textContent;
+  const prix = container.querySelector('p:nth-child(3)').textContent;
+  const code = container.querySelector('input[type="text"]').value;
+  const userName = document.getElementById('user-name').textContent;
+  if (code !== '') {
+    getBalance(chatId).then(balance => {
+      const prixInt = parseInt(prix.split(' ')[0]); // استخراج المبلغ من النص
+      if (balance >= prixInt) {
+        const message = `Nouvel achat :\n Nom d'utilisateur: ${userName}\n Produit: ${produit}\n Description: ${description}\n Prix: ${prix}\n Code: ${code}`;
+        sendTelegramMessage(message);
+        showPopup();
+        updateBalance(chatId, balance - prixInt);
       } else {
-        showAlert();
+        showAlertInsufficientBalance();
       }
-    }
+    });
+  } else {
+    showAlert();
+  }
+}
 
     function sendTelegramMessage(message) {
       const url = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
