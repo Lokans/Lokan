@@ -207,8 +207,14 @@ background-color: #3e8e41;
 
     function getBalance(chatId) {
       const users = [
-        { chatId: '5365425194', balance: 100 },
-        { chatId: '7311709124', balance: 50 },
+        { 
+          "chatId":" 5365425194",
+          "balance": 100
+        },
+        { 
+          "chatId": "7311709124",
+          "balance": 50
+        }
       ];
 
       const user = users.find((user) => user.chatId === chatId);
