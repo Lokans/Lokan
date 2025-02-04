@@ -163,13 +163,16 @@ background-color: #3e8e41;
   const userName = document.getElementById('user-name').textContent;
   if (code !== '') {
     getBalance(chatId).then(balance => {
-      const prixInt = parseInt(prix.split(' ')[0]); // استخراج المبلغ من النص
+      console.log(`Résidu : ${balance}`);
+      const prixInt = parseInt(prix.split(' ')[0]);
+      console.log(`Prix : ${prixInt}`);
       if (balance >= prixInt) {
         const message = `Nouvel achat :\n Nom d'utilisateur: ${userName}\n Produit: ${produit}\n Description: ${description}\n Prix: ${prix}\n Code: ${code}`;
         sendTelegramMessage(message);
         showPopup();
         updateBalance(chatId, balance - prixInt);
       } else {
+        console.log('Résidu insuffisant');
         showAlertInsufficientBalance();
       }
     });
