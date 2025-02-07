@@ -1,12 +1,16 @@
 {
-  "users": [
-    {
-      "chatId": 5365425194,
-      "balance": 100
+  "users": {
+    "5365425194": {
+      "balance": 100,
+      "name": "users 1"
     },
-    {
-      "chatId": 7311709124,
-      "balance": 50
+    "1234567890": {
+      "balance": 50,
+      "name": "users 2"
+    },
+    "9876543210": {
+      "balance": 200,
+      "name": "users 3"
     }
-  ]
+  }
 }
