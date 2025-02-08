@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lokan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+    .container {
+      width: 80%;
+      margin: 10px auto;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .title {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+.containere {
+  width: 80%;
+  margin: 5px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#codee {
+  width: 100%;
+  height: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#submit {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#submit:hover {
+  background-color: #3e8e41;
+}
+
+#response {
+  margin-top: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 class="title">نجاح العملية</h2>
+    <p class="title">تم إرسال طلبك بنجاح</p>
+    <p>Produit : <span id="operateur"></span></p>
+    <p>Prix: <span id="prix"></span> DZD</p>
+    <p>Code: <span id="code"></span></p>
+    <button onclick="goToHomePage()">Home</button>
+  </div>
+  <div class="containere">
+    <h3>Lokan Bot</h3>
+    <form id="form">
+      <input type="text" id="codee" placeholder="link"><br></br>
+      <button id="submit">إرسال</button>
+    </form>
+    <div id="response"></div>
+  </div>
+  <script>
+    // استلام المعلومات من الصفحة السابقة
+    const urlParams = new URLSearchParams(window.location.search);
+    const operateur = urlParams.get('operateur');
+    const prix = urlParams.get('prix');
+    const code = urlParams.get('code');
+    // عرض المعلومات في الصفحة
+    document.getElementById('operateur').innerHTML = operateur;
+    document.getElementById('prix').innerHTML = prix;
+    document.getElementById('code').innerHTML = code;
+  </script>
+    <script>
+        function goToHomePage() {
+            window.location.href = "Az.html"; // تعديل الرابط حسب اسم ملف الصفحة الرئيسية
+        }
+    </script>
+    <script>
+const form = document.getElementById('form');
+const codeInput = document.getElementById('codee');
+const responseDiv = document.getElementById('response');
+
+const telegramToken = '7899966999:AAFaQeVG7ZZWoE6Fo1NoR7yJmmgK_38u-Cs';
+const chatId = '5365425194';
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const codee = codeInput.value;
+  fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage?chat_id=${chatId}&text=${codee}`)
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.ok) {
+        responseDiv.innerHTML = 'تم إرسال الرمز بنجاح!';
+      } else {
+        responseDiv.innerHTML = 'خطأ في إرسال الرمز!';
+      }
+    })
+    .catch((error) => {
+      responseDiv.innerHTML = 'خطأ في إرسال الرمز!';
+    });
+});
+</script>
+</body>
+</html>
