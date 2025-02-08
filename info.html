@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lokan-dz</title>
-<style>
-body {
-font-family: Arial, sans-serif;
-background-color: #ffffff;
-color: #000000;
-}
-.container {
-width: 80%;
-margin: 10px auto;
-padding: 20px;
-border: 1px solid #ccc;
-border-radius: 10px;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lokan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      width: 80%;
+      margin: 10px auto;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 #info {
 font-size: 18px;
 color: #666;
@@ -29,7 +35,7 @@ color: #666;
 }
 
 #user-name {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
 }
 
@@ -38,43 +44,64 @@ color: #666;
   color: #666;
 }
 .popup {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background-color: rgba(0, 0, 0, 0.5);
-display: none;
-justify-content: center;
-align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 500px;
+  display: none;
+  z-index: 1000;
 }
+
 .popup-content {
-background-color: #fff;
-padding: 10px;
-border-radius: 10px;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-width: 80%;
-max-width: 500px;
+  text-align: center;
 }
-input[type="text"],
-input[type="email"] {
-width: 95%;
-height: 20px;
+
+body.overflow-hidden {
+  overflow: hidden;
+}
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-group select{
+      width: 100%;
+      height: 40px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .form-group input[type="text"] {
+      width: 95%;
+      height: 20px;
 margin-bottom: 10px;
 padding: 5px;
-border: 1px solid #ccc;
-}
-.order-button {
-background-color: #4CAF50;
-color: #fff;
-padding: 10px 20px;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-}
-.order-button:hover {
-background-color: #3e8e41;
-}
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .order-button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .order-button:hover {
+      background-color: #3e8e41;
+    }
 .alert-box {
 position: fixed;
 top: 50%;
@@ -102,80 +129,95 @@ cursor: pointer;
 .alert-box button:hover {
 background-color: #3e8e41;
 }
-</style>
+  </style>
 </head>
 <body>
-<div class="container" id="user-info">
-  <h2 id="user-name"></h2>
-  <p id="user-balance"></p>
-</div>
-<div class="container">
-<h1>Ooredoo</h1>
-<p>Carte d'expédition 100 Da</p>
-<p>10</p>
-<input type="text" id="code" name="code" placeholder="Entrer le code d'achat">
-</br>
-</br>
-<button class="order-button" onclick="order(this)">Order</button>
-</div>
-<div class="container">
-<h1>Djezzy</h1>
-<p>Carte d'expédition 100.00 DA</p>
-<p>Prix: 10</p>
-<label for="code">Entrer le code d'achat:</label>
-<input type="text" id="code" name="code">
-</br>
-</br>
-<button class="order-button" onclick="order(this)">Order</button>
-</div>
-<div class="container">
-<h1>Mobilis</h1>
-<p>Carte d'expédition 200.00 DA</p>
-<p>Prix 50</p>
-<label for="code">Entrer le code d'achat:</label>
-<input type="text" id="code" name="code">
-</br>
-</br>
-<button class="order-button" onclick="order(this)">Order</button>
-</div>
-<div class="popup" id="popup">
-<div class="popup-content">
-<h2>Opération réussie!</h2>
-<p>Votre commande a été envoyée avec succès.</p>
-<button onclick="hidePopup()">Fermer</button>
-</div>
-</div>
+      <div class="container" id="user-info">
+      <h2 id="user-name"></h2>
+      <h4 id="user-namee"></h4>
+      </div>
+  <div class="container">
+    <form>
+      <div class="form-group">
+        <select id="operateur">
+          <option value="">--Category--</option>
+          <option value="ooredoo">Ooredoo</option>
+          <option value="djezzy">Djezzy</option>
+          <option value="mobilis">Mobilis</option>
+          <option value="binance">Binance</option>
+          <option value="wise">Wise</option>
+          <option value="redotpay">RedotPay</option>
+          <option value="tiktok">TikTok</option>
+          <option value="imo">imo</option>
+          <option value="bybit">ByBit</option>
+        </select>
+   </div>
+      <div class="form-group">
+        <label for="prix">Service:</label>
+        <select id="prix" disabled>
+          <option value="">--Service--</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="code">ادخل رمز الشراء:</label>
+        <input type="text" id="code" name="code">
+      </div>
+      <button class="order-button" onclick="order(this)">New Order</button>
+    </form>
+  </div>
+
 <div class="alert-box" id="alert-box">
 <p><h2>Erreur!</h2> </br>Veuillez entrer le code d'achat!</p>
 <button onclick="hideAlert()">Fermer</button>
 </div>
-    <script>
-    const telegramToken = '7899966999:AAFaQeVG7ZZWoE6Fo1NoR7yJmmgK_38u-Cs';
-    const chatId = '5365425194';
-    const usersFile = 'users.json';
-
-    function order(element) {
-  const container = element.parentNode;
-  const produit = container.querySelector('h1').textContent;
-  const description = container.querySelector('p:nth-child(2)').textContent;
-  const prix = container.querySelector('p:nth-child(3)').textContent;
-  const code = container.querySelector('input[type="text"]').value;
-  const userName = document.getElementById('user-name').textContent;
-  if (code !== '') {
-    getBalance(chatId).then(balance => {
-      console.log(`Résidu : ${balance}`);
-      const prixInt = parseInt(prix.replace(/[^0-9]/g, '')); // استخراج المبلغ من النص
-      console.log(`Prix : ${prixInt}`);
-      if (balance >= prixInt) {
-        const message = `Nouvel achat :\n Nom d'utilisateur: ${userName}\n Produit: ${produit}\n Description: ${description}\n Prix: ${prix}\n Code: ${code}`;
-        sendTelegramMessage(message);
-        showPopup();
-        updateBalance(chatId, balance - prixInt);
-      } else {
-        console.log('Résidu insuffisant');
-        showAlertInsufficientBalance();
+  <script>
+    document.getElementById('operateur').addEventListener('change', function() {
+      const operateur = this.value;
+      const prixSelect = document.getElementById('prix');
+      prixSelect.disabled = false;
+      prixSelect.innerHTML = '';
+      switch (operateur) {
+        case 'ooredoo':
+          prixSelect.innerHTML += '<option value="100">100 DA</option>';
+          prixSelect.innerHTML += '<option value="200">200 DA</option>';
+          prixSelect.innerHTML += '<option value="500">500 DA</option>';
+          break;
+        case 'djezzy':
+          prixSelect.innerHTML += '<option value="100">100 DA</option>';
+          prixSelect.innerHTML += '<option value="200">200 DA</option>';
+          prixSelect.innerHTML += '<option value="500">500 DA</option>';
+          break;
+        case 'mobilis':
+          prixSelect.innerHTML += '<option value="200">200 DA</option>';
+          prixSelect.innerHTML += '<option value="500">500 DA</option>';
+          prixSelect.innerHTML += '<option value="1000">1000 DA</option>';
+          break;
+        case 'wise':
+          prixSelect.innerHTML += '<option value="USD">USD</option>';
+          prixSelect.innerHTML += '<option value="EUR">EUR</option>';
+          break;
+        default:
+          prixSelect.disabled = true;
       }
     });
+
+    const telegramToken = '7899966999:AAFaQeVG7ZZWoE6Fo1NoR7yJmmgK_38u-Cs';
+    const chatId = '5365425194';
+
+  function order(element) {
+  event.preventDefault();
+  const container = element.parentNode;
+  const operateur = document.getElementById('operateur').value;
+  const prix = document.getElementById('prix').value;
+  const code = document.getElementById('code').value;
+  
+  if (operateur !== '' && prix !== '' && code !== '') {
+    const message = `💵Nouvel achat :\n Produit: ${operateur}\n Service: ${prix}\n Code: ${code}`;
+    sendTelegramMessage(message);
+    // تحويل المستخدم إلى الصفحة الجديدة
+    const url = `success.html?operateur=${operateur}&prix=${prix}&code=${code}`;
+    window.location.href = url;
+    return false;
   } else {
     showAlert();
   }
@@ -183,95 +225,49 @@ background-color: #3e8e41;
 
     function sendTelegramMessage(message) {
       const url = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
-      const params = { chat_id: chatId, text: message, };
-      fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json', }, body: JSON.stringify(params), })
-        .then((response) => response.json())
-        .then((data) => console.log(data))
-        .catch((error) => console.error(error));
+      const params = {
+        chat_id: chatId,
+        text: message,
+      };
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(params),
+      })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
     }
+  
+  function getUpdates() {
+  const url = `https://api.telegram.org/bot${telegramToken}/getUpdates`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const updates = data.result;
+      updates.forEach(update => {
+        const message = update.message;
+        const userName = message.from.first_name + ' ' + message.from.last_name;
+        const chatId = message.chat.id;
+        console.log(`Nom d'utilisateur : ${userName}`);
+        console.log(`ID de chat : ${chatId}`);
+        // Mettre à jour le nom d'utilisateur dans la page
+        document.getElementById('user-name').innerHTML = `${userName}`;
+        document.getElementById('user-namee').innerHTML = `${chatId}`;
+        // Ajouter le code pour mettre à jour les autres informations ici
+      });
+    })
+    .catch(error => console.error(error));
+}
 
-    function showPopup() {
-      document.getElementById('popup').style.display = 'flex';
-    }
+// Appeler la fonction getUpdates toutes les 5 secondes
 
-    function hidePopup() {
-      document.getElementById('popup').style.display = 'none';
-    }
-
-    function showAlert() {
-      document.getElementById('alert-box').style.display = 'flex';
-    }
-
-    function hideAlert() {
-      document.getElementById('alert-box').style.display = 'none';
-    }
-
-    async function getBalance(chatId) {
-      try {
-        const response = await fetch(usersFile);
-        const data = await response.json();
-        const user = data.users.find(user => user.chatId === chatId);
-        if (user) {
-          return user.balance;
-        } else {
-          return 0;
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-    async function getUpdates() {
-      const url = `https://api.telegram.org/bot${telegramToken}/getUpdates`;
-      fetch(url)
-        .then(response => response.json())
-        .then(data => {
-          const updates = data.result;
-          updates.forEach(async update => {
-            const message = update.message;
-            const userName = message.from.first_name + ' ' + message.from.last_name;
-            const chatId = message.chat.id;
-            console.log(`Nom d'utilisateur : ${userName}`);
-            console.log(`ID de chat : ${chatId}`);
-            document.getElementById('user-name').innerHTML = `${userName}`;
-            const balance = await getBalance(chatId);
-            document.getElementById('user-balance').innerHTML = `Solde: ${balance}`;
-          });
-        })
-        .catch(error => console.error(error));
-    }
-
-    async function updateBalance(chatId, newBalance) {
-      try {
-        const response = await fetch(usersFile);
-        const data = await response.json();
-        const user = data.users.find(user => user.chatId === chatId);
-        if (user) {
-          user.balance = newBalance;
-          const updatedData = { users: data.users };
-          const options = {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(updatedData),
-          };
-          fetch(usersFile, options);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-    function showAlertInsufficientBalance() {
-      const alertBox = document.getElementById('alert-box');
-      alertBox.innerHTML = '<p><h2>Erreur!</h2> </br>Le solde est insuffisant pour effectuer cette transaction.</p>';
-      alertBox.style.display = 'flex';
-    }
-
-    // Appeler la fonction getUpdates toutes les 5 secondes
-    setInterval(getUpdates, 5000);
-
-    // Appeler la fonction getUpdates une fois au démarrage
-    getUpdates();
+setInterval(getUpdates, 5000);
+// Appeler la fonction getUpdates une fois au démarrage
+getUpdates();
+  
   </script>
 </body>
 </html>
