@@ -1,39 +1,500 @@
-<!DOCTYPE html>
-<html lang="en">
+<<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="styles.css">
-      <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-      <!-- SweetAlert2 CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-
-<!-- SweetAlert2 JS -->
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>منصة تداول العملات الرقمية المتقدمة</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .price-card { transition: all 0.3s; border-radius: 15px; }
+        .price-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .buy-signal { background-color: #d4edda !important; }
+        .sell-signal { background-color: #f8d7da !important; }
+        .indicator-panel { background: #f8f9fa; border-radius: 10px; padding: 15px; margin-top: 10px; }
+        .strategy-table td { padding: 8px; border-bottom: 1px solid #ddd; }
+    </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Login</h1>
-        <input type="email" id="email" placeholder="Email">
-        <input type="password" id="password" placeholder="Password">
-        <button onclick="login()">Login</button>
-        <h1></h1>
-<l-infinity
-  size="55"
-  stroke="4"
-  stroke-length="0.15"
-  bg-opacity="0.1"
-  speed="1.3"
-  color="black" 
-></l-infinity>
-             <h5>Lokan</h5>
-             <script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/infinity.js"></script>
+<body class="bg-light">
+    <div class="container py-5">
+        <h1 class="text-center mb-4">منصة تحليل العملات الرقمية المتقدمة</h1>
+        
+        <!-- عناصر التحكم -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <select class="form-select" id="currency-pair">
+                    <option value="BTCUSDT">BTC/USDT</option>
+                    <option value="ETHUSDT">ETH/USDT</option>
+                    <option value="BNBUSDT">BNB/USDT</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select class="form-select" id="time-frame">
+                    <option value="1h">1 ساعة</option>
+                    <option value="4h">4 ساعات</option>
+                    <option value="1d">يومي</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select class="form-select" id="leverage">
+                    <option value="10">10x</option>
+                    <option value="20">20x</option>
+                    <option value="50">50x</option>
+                </select>
+            </div>
+        </div>
 
+        <!-- عرض الأسعار اللحظي -->
+        <div class="row mb-4" id="live-prices">
+            <div class="col-md-12">
+                <div class="card price-card">
+                    <div class="card-body">
+                        <h5 id="current-price" class="card-title text-center">جاري التحميل...</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- الرسم البياني -->
+        <div class="card mt-4">
+            <div class="card-body">
+                <canvas id="price-chart"></canvas>
+            </div>
+        </div>
+
+        <!-- المؤشرات الفنية -->
+        <div class="row mt-4">
+            <div class="col-md-3">
+                <div class="indicator-panel">
+                    <h5>RSI (14)</h5>
+                    <span id="rsi-value">--</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="indicator-panel">
+                    <h5>MACD (12,26,9)</h5>
+                    <span id="macd-value">--</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="indicator-panel">
+                    <h5>بولينجر باند (20,2)</h5>
+                    <span id="bollinger-value">--</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="indicator-panel">
+                    <h5>الحجم (24h)</h5>
+                    <span id="volume-value">--</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- إستراتيجية التداول -->
+        <div class="card mt-4">
+            <div class="card-header">إستراتيجية التداول المتقدمة</div>
+            <div class="card-body">
+                <table class="strategy-table w-100">
+                    <tr><td>سعر الدخول:</td><td id="entry-price">--</td></tr>
+                    <tr><td>TP1:</td><td id="tp1">--</td></tr>
+                    <tr><td>TP2:</td><td id="tp2">--</td></tr>
+                    <tr><td>TP3:</td><td id="tp3">--</td></tr>
+                    <tr><td>Stop Loss:</td><td id="stop-loss">--</td></tr>
+                    <tr><td>الرافعة:</td><td id="leverage-value">--</td></tr>
+                </table>
+            </div>
+        </div>
     </div>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="main.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        let chart;
+        let historicalData = [];
+        let currentPrice = 0;
+        let ws = null;
+        let currentCurrency = 'BTCUSDT';
+        let currentTimeFrame = '1h';
+        let leverage = 10;
+
+        // الدوال المحسنة لحساب المؤشرات
+        function calculateRSI(prices, period = 14) {
+            let deltas = [];
+            for (let i = 1; i < prices.length; i++) {
+                deltas.push(prices[i] - prices[i-1]);
+            }
+            
+            let gains = [];
+            let losses = [];
+            for (let delta of deltas) {
+                gains.push(delta > 0 ? delta : 0);
+                losses.push(delta < 0 ? Math.abs(delta) : 0);
+            }
+
+            let avgGain = gains.slice(0, period).reduce((a,b) => a + b, 0) / period;
+            let avgLoss = losses.slice(0, period).reduce((a,b) => a + b, 0) / period;
+
+            for (let i = period; i < gains.length; i++) {
+                avgGain = ((avgGain * (period - 1)) + gains[i]) / period;
+                avgLoss = ((avgLoss * (period - 1)) + losses[i]) / period;
+            }
+
+            const rs = avgLoss === 0 ? Infinity : avgGain / avgLoss;
+            return 100 - (100 / (1 + rs));
+        }
+
+        function calculateBollingerBands(prices, period = 20, stdDev = 2) {
+            const sma = prices.slice(-period).reduce((a,b) => a + b, 0) / period;
+            const variance = prices.slice(-period)
+                .reduce((a,b) => a + Math.pow(b - sma, 2), 0) / period;
+            const std = Math.sqrt(variance);
+            return {
+                upper: sma + (std * stdDev),
+                lower: sma - (std * stdDev),
+                middle: sma
+            };
+        }
+
+        // استراتيجية التداول المحسنة مع إدارة المخاطر
+        function calculateStrategy() {
+            if (!historicalData.length) return;
+
+            const prices = historicalData.map(d => d.price);
+            const lastPrice = currentPrice;
+            const rsi = calculateRSI(prices);
+            const bb = calculateBollingerBands(prices);
+            
+            // نقاط الدخول
+            let entryPrice = null;
+            let stopLoss = null;
+            let tp1, tp2, tp3;
+
+            if (lastPrice < bb.lower && rsi < 30) {
+                entryPrice = lastPrice;
+                stopLoss = entryPrice * 0.98; // 2% stop loss
+                tp1 = entryPrice * 1.015; // 1.5%
+                tp2 = entryPrice * 1.03;  // 3%
+                tp3 = entryPrice * 1.05;  // 5%
+            }
+            else if (lastPrice > bb.upper && rsi > 70) {
+                entryPrice = lastPrice;
+                stopLoss = entryPrice * 1.02; // 2% stop loss
+                tp1 = entryPrice * 0.985; // 1.5%
+                tp2 = entryPrice * 0.97;  // 3%
+                tp3 = entryPrice * 0.95;  // 5%
+            }
+
+            return {
+                entryPrice,
+                stopLoss,
+                tp1,
+                tp2,
+                tp3,
+                leverage
+            };
+        }
+
+        // تحديث واجهة الإستراتيجية
+        function updateStrategyDisplay() {
+            const strategy = calculateStrategy();
+            document.getElementById('entry-price').textContent = strategy.entryPrice?.toFixed(2) || '--';
+            document.getElementById('tp1').textContent = strategy.tp1?.toFixed(2) || '--';
+            document.getElementById('tp2').textContent = strategy.tp2?.toFixed(2) || '--';
+            document.getElementById('tp3').textContent = strategy.tp3?.toFixed(2) || '--';
+            document.getElementById('stop-loss').textContent = strategy.stopLoss?.toFixed(2) || '--';
+            document.getElementById('leverage-value').textContent = `${leverage}x`;
+        }
+
+        // اتصال ويب سوكيت للأسعار اللحظية
+        function connectWebSocket() {
+            if (ws) ws.close();
+            
+            ws = new WebSocket(`wss://stream.binance.com:9443/ws/${currentCurrency.toLowerCase()}@kline_${currentTimeFrame}`);
+            
+            ws.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+                currentPrice = parseFloat(data.k.c);
+                document.getElementById('current-price').textContent = `${currentPrice.toFixed(2)} USDT`;
+                
+                // تحديث البيانات التاريخية كل شمعة جديدة
+                if (data.k.x) {
+                    fetchHistoricalData();
+                }
+            };
+        }
+
+        // جلب البيانات التاريخية من بينانس
+        async function fetchHistoricalData() {
+            try {
+                const response = await axios.get(`https://api.binance.com/api/v3/klines`, {
+                    params: {
+                        symbol: currentCurrency.toUpperCase(),
+                        interval: currentTimeFrame,
+                        limit: 100
+                    }
+                });
+                
+                historicalData = response.data.map(d => ({
+                    time: d[0],
+                    price: parseFloat(d[4]),
+                    volume: parseFloat(d[5])
+                }));
+                
+                updateChart();
+                updateStrategyDisplay();
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        // تهيئة الرسم البياني
+        // ... (ابقى نفس كود التهيئة السابق)
+
+        // مستمعات الأحداث
+        document.getElementById('currency-pair').addEventListener('change', (e) => {
+            currentCurrency = e.target.value;
+            connectWebSocket();
+            fetchHistoricalData();
+        });
+
+        document.getElementById('time-frame').addEventListener('change', (e) => {
+            currentTimeFrame = e.target.value;
+            connectWebSocket();
+            fetchHistoricalData();
+        });
+
+        document.getElementById('leverage').addEventListener('change', (e) => {
+            leverage = parseInt(e.target.value);
+            updateStrategyDisplay();
+        });
+
+        // التهيئة الأولية
+        connectWebSocket();
+        fetchHistoricalData();
+        initChart();
+    </script>
 </body>
-</html>
+    </html><!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة تداول العملات الرقمية المتقدمة</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .price-card { transition: all 0.3s; border-radius: 15px; }
+        .price-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .buy-signal { background-color: #d4edda !important; }
+        .sell-signal { background-color: #f8d7da !important; }
+        .indicator-panel { background: #f8f9fa; border-radius: 10px; padding: 15px; margin-top: 10px; }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <h1 class="text-center mb-4">منصة تحليل العملات الرقمية المتقدمة</h1>
+        
+        <!-- عناصر التحكم -->
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <select class="form-select" id="currency-pair">
+                    <option value="BTCUSDT">BTC/USDT</option>
+                    <option value="ETHUSDT">ETH/USDT</option>
+                    <option value="LTCUSDT">LTC/USDT</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <select class="form-select" id="time-frame">
+                    <option value="1h">1 ساعة</option>
+                    <option value="4h">4 ساعات</option>
+                    <option value="1d">يومي</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- عرض الأسعار -->
+        <div class="row" id="prices-container"></div>
+
+        <!-- الرسم البياني -->
+        <div class="card mt-4">
+            <div class="card-body">
+                <canvas id="price-chart"></canvas>
+            </div>
+        </div>
+
+        <!-- المؤشرات الفنية -->
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="indicator-panel">
+                    <h5>RSI (14)</h5>
+                    <span id="rsi-value">--</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="indicator-panel">
+                    <h5>MACD</h5>
+                    <span id="macd-value">--</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="indicator-panel">
+                    <h5>الحجم</h5>
+                    <span id="volume-value">--</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- إشارات التداول -->
+        <div class="card mt-4">
+            <div class="card-header">إستراتيجية التداول المتقدمة</div>
+            <div class="card-body" id="signals"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        let chart;
+        let historicalData = [];
+        let currentCurrency = 'ETHUSDT';
+        let currentTimeFrame = '1h';
+
+        // دوال حساب المؤشرات
+        function calculateEMA(data, period) {
+            const k = 2 / (period + 1);
+            let ema = [data[0]];
+            for (let i = 1; i < data.length; i++) {
+                ema.push(data[i] * k + ema[i-1] * (1 - k));
+            }
+            return ema;
+        }
+
+        function calculateRSI(data, period = 14) {
+            let gains = [];
+            let losses = [];
+            for (let i = 1; i < data.length; i++) {
+                const diff = data[i] - data[i-1];
+                gains.push(diff > 0 ? diff : 0);
+                losses.push(diff < 0 ? Math.abs(diff) : 0);
+            }
+            const avgGain = gains.slice(0, period).reduce((a,b) => a + b, 0) / period;
+            const avgLoss = losses.slice(0, period).reduce((a,b) => a + b, 0) / period;
+            let rs = avgGain / avgLoss;
+            return 100 - (100 / (1 + rs));
+        }
+
+        function calculateMACD(data) {
+            const ema12 = calculateEMA(data, 12);
+            const ema26 = calculateEMA(data, 26);
+            const macdLine = ema12.map((val, idx) => val - ema26[idx]);
+            const signalLine = calculateEMA(macdLine, 9);
+            return { macdLine, signalLine };
+        }
+
+        // تحديث الواجهة بالمؤشرات
+        function updateIndicators() {
+            const prices = historicalData.map(d => d.price);
+            const volumes = historicalData.map(d => d.volume);
+            
+            // حساب RSI
+            const rsi = calculateRSI(prices);
+            document.getElementById('rsi-value').textContent = rsi.toFixed(2);
+            
+            // حساب MACD
+            const macdData = calculateMACD(prices);
+            const lastMACD = macdData.macdLine.slice(-1)[0];
+            const lastSignal = macdData.signalLine.slice(-1)[0];
+            document.getElementById('macd-value').textContent = 
+                `${lastMACD.toFixed(2)} / ${lastSignal.toFixed(2)}`;
+            
+            // عرض الحجم
+            const lastVolume = volumes.slice(-1)[0];
+            document.getElementById('volume-value').textContent = lastVolume.toFixed(2);
+        }
+
+        // استراتيجية التداول المحسنة
+        function advancedTradingStrategy() {
+            const prices = historicalData.map(d => d.price);
+            const rsi = calculateRSI(prices);
+            const macdData = calculateMACD(prices);
+            
+            const lastMACD = macdData.macdLine.slice(-1)[0];
+            const lastSignal = macdData.signalLine.slice(-1)[0];
+            
+            let signals = [];
+            if (lastMACD > lastSignal && rsi < 70) signals.push('شراء (تقاطع MACD)');
+            if (lastMACD < lastSignal && rsi > 30) signals.push('بيع (تقاطع MACD)');
+            if (rsi < 30) signals.push('تشبع بيع (RSI)');
+            if (rsi > 70) signals.push('تشبع شراء (RSI)');
+            
+            return signals.length > 0 ? signals.join(' - ') : 'لا توجد إشارات حالية';
+        }
+
+        // تحديث الرسم البياني
+        function updateChart() {
+            if (!chart) return;
+
+            chart.data.labels = historicalData.map((_, i) => i + 1);
+            chart.data.datasets[0].data = historicalData.map(d => d.price);
+            chart.update();
+            
+            updateIndicators();
+            updateSignals();
+        }
+
+        // تحديث الإشارات
+        function updateSignals() {
+            const signalsDiv = document.getElementById('signals');
+            const signalText = advancedTradingStrategy();
+            signalsDiv.innerHTML = `<div class="alert alert-info">${signalText}</div>`;
+        }
+
+        // جلب البيانات التاريخية (محاكاة)
+        async function fetchHistoricalData() {
+            const response = await axios.get(`https://api.binance.com/api/v3/klines?symbol=${currentCurrency}&interval=${currentTimeFrame}&limit=100`);
+            historicalData = response.data.map(d => ({
+                time: d[0],
+                price: parseFloat(d[4]),
+                volume: parseFloat(d[5])
+            }));
+            updateChart();
+        }
+
+        // تهيئة الرسم البياني
+        function initChart() {
+            const ctx = document.getElementById('price-chart').getContext('2d');
+            chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'السعر',
+                        data: [],
+                        borderColor: '#007bff',
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: { beginAtZero: false }
+                    }
+                }
+            });
+        }
+
+        // مستمعات الأحداث
+        document.getElementById('currency-pair').addEventListener('change', (e) => {
+            currentCurrency = e.target.value;
+            fetchHistoricalData();
+        });
+
+        document.getElementById('time-frame').addEventListener('change', (e) => {
+            currentTimeFrame = e.target.value;
+            fetchHistoricalData();
+        });
+
+        // التهيئة الأولية
+        initChart();
+        fetchHistoricalData();
+    </script>
+</body>
+    </html>
