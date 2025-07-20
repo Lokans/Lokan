@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل الطلب</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">تفاصيل الطلب</h1>
+        <div id="orderDetails" class="space-y-4 text-gray-700">
+            <!-- سيتم ملء تفاصيل الطلب هنا -->
+        </div>
+        <a href="RSI.html" class="mt-6 w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 text-center block">
+            العودة إلى الصفحة الرئيسية
+        </a>
+    </div>
+
+    <script>
+        // استرجاع بيانات الطلب من localStorage
+        const orderDetails = JSON.parse(localStorage.getItem('orderDetails'));
+
+        if (orderDetails) {
+            const orderDetailsDiv = document.getElementById('orderDetails');
+            orderDetailsDiv.innerHTML = `
+                <p><strong>الاسم:</strong> ${orderDetails.name}</p>
+                <p><strong>رقم الواتساب:</strong> ${orderDetails.phone}</p>
+                <p><strong>الخدمة:</strong> ${orderDetails.service}</p>
+                <p><strong>العملة:</strong> ${orderDetails.currency}</p>
+                <p><strong>المبلغ:</strong> ${orderDetails.amount}</p>
+                <p><strong>المبلغ د.ج:</strong> ${orderDetails.converted}</p>
+                <p><strong>طريقة الدفع:</strong> ${orderDetails.method}</p>
+            `;
+        } else {
+            document.getElementById('orderDetails').innerHTML = '<p class="text-red-600">لا توجد بيانات طلب متاحة.</p>';
+        }
+    </script>
+</body>
+</html>
