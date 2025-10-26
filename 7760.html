@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Channel Player - M3U & Xtream (LokanStore)</title>
+  
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujlZH/x48a2uS+6a2Jm+G2C5JqI9f5e1h/F0+r0pA8D6y5Z/1D+S0kF/2R3b3p+q0p8v+D6Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <style>
+    /* ---------------------------------- */
+    /* General & Base Styles */
+    /* ---------------------------------- */
+    body {
+      background-color: #0e0e0e;
+      color: #fff;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      /* Background similar to the app (deep purple/magenta) */
+      background-color: #1a0033; 
+    }
+    
+    .content-wrapper {
+        padding: 0; 
+        max-width: 960px; 
+        margin: 0 auto;
+    }
+    
+    /* ---------------------------------- */
+    /* Main Header Style - Adapted for Level 1 */
+    /* ---------------------------------- */
+    .main-header {
+      /* Matching the app's magenta/purple top bar */
+      background-color: #3b005c; 
+      color: white;
+      padding: 12px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    .lokanstore-logo {
+        flex-grow: 1;
+        text-align: center;
+        font-size: 1.2rem; 
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #ffffff; 
+        text-shadow: none;
+        transition: none;
+    }
+    
+    .back-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease;
+      box-shadow: none;
+      outline: none;
+    }
+
+    /* ---------------------------------- */
+    /* NEW: Input Section Styling (Sky Blue Theme) */
+    /* ---------------------------------- */
+    .upload-section {
+      display: block;
+      background: transparent; 
+      padding: 0;
+      border-radius: 0;
+      margin-bottom: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    
+    /* Sky Blue Accent Color */
+    :root {
+        --sky-blue: #3498db; /* Primary Sky Blue */
+        --sky-blue-hover: #4fb0ff; /* Lighter for hover */
+        --dark-bg: #2a0040; /* Darker input/bar background */
+        --tab-bg: #3b005c; /* Tab background (Keeping dark for contrast) */
+    }
+    
+    /* Tabs for M3U / Xtream Codes */
+    .input-tabs {
+        display: flex;
+        justify-content: flex-start;
+        background-color: var(--tab-bg); 
+        margin-bottom: 20px;
+        padding-top: 5px;
+        padding-left: 20px;
+    }
+    
+    .tab-button {
+        background: transparent;
+        color: #ccc;
+        border: none;
+        padding: 10px 15px 8px 15px;
+        margin-right: 15px;
+        cursor: pointer;
+        font-size: 0.95rem;
+        font-weight: 500;
+        border-bottom: 3px solid transparent;
+        transition: color 0.2s, border-bottom 0.2s;
+    }
+    
+    .tab-button.active {
+        color: var(--sky-blue); /* Sky Blue for active tab */
+        border-bottom: 3px solid var(--sky-blue);
+        font-weight: 700;
+    }
+    
+    /* Mac Address & Info Bar */
+    .info-bar {
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: var(--dark-bg); /* Darker bar for info */
+        margin-bottom: 25px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        color: #ccc;
+        font-size: 0.95rem;
+    }
+    .info-bar i {
+        font-size: 1.2rem;
+        margin-right: 10px;
+        color: var(--sky-blue); /* Sky Blue icon */
+    }
+    .mac-address {
+        margin-left: auto;
+        color: #fff;
+        font-weight: 700;
+    }
+    
+    /* Input Fields Styling */
+    .input-fields-container {
+        padding: 0 20px;
+    }
+
+    .input-group {
+        margin-bottom: 20px;
+    }
+
+    .input-group label {
+        display: block;
+        color: #ccc;
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+        font-weight: 500;
+        text-align: left;
+        padding-left: 5px;
+    }
+    
+    .input-fields-container input, .input-fields-container textarea {
+      background: var(--dark-bg); /* Darker input background */
+      color: #fff;
+      width: 100%; 
+      padding: 15px;
+      border: 1px solid var(--sky-blue); /* Sky Blue subtle border */
+      border-radius: 8px;
+      font-size: 1rem;
+      box-sizing: border-box; 
+      margin: 0;
+    }
+
+    .input-fields-container input::placeholder, .input-fields-container textarea::placeholder {
+        color: #999;
+    }
+    
+    /* Password toggle button color */
+    .toggle-password {
+        color: #999;
+    }
+    
+    /* Submit Button (Sky Blue Button) */
+    .main-btn {
+      background: var(--sky-blue); /* Sky Blue button */
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+      width: calc(100% - 40px); 
+      padding: 15px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 10px;
+      margin: 20px 20px 40px 20px; 
+      box-shadow: 0 4px 15px rgba(52, 152, 219, 0.5); /* Sky Blue shadow */
+      border: none;
+    }
+    .main-btn:hover {
+      background: var(--sky-blue-hover);
+    }
+    
+    /* Hide the original file and paste fields from old design */
+    #fileInput, #m3uContent {
+        display: none !important;
+    }
+
+    /* Password field container for the eye icon */
+    .password-container {
+        position: relative;
+    }
+
+    .toggle-password {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: #999;
+        cursor: pointer;
+        padding: 5px;
+        z-index: 5;
+    }
+    
+    /* --- Styles for Level Two/Three --- */
+    .category-tabs-header, .list-container, #contentSelection, #seriesEpisodesSelection {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    /* Category Tabs for L2 and L3 (Seasons) */
+    #contentSelection, #seriesEpisodesSelection { 
+        display: none; 
+        flex-direction: column;
+        margin-top: 10px;
+        padding: 0 10px;
+    }
+    
+    .category-tabs-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+    }
+
+    #reloadListBtn {
+        background: none; 
+        color: #fff;
+        font-size: 1.6rem;
+        font-weight: 900;
+        letter-spacing: 2px;
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px; 
+        margin-top: 5px;
+        border: none;
+        cursor: default; 
+        box-shadow: none;
+        text-shadow: 
+            0 0 5px rgba(52, 152, 219, 0.8), 
+            0 0 10px rgba(46, 204, 113, 0.6), 
+            0 0 15px rgba(241, 196, 15, 0.4);
+        transition: none; 
+        opacity: 0.9;
+        text-align: center; 
+    }
+
+    .category-tabs {
+        display: flex;
+        justify-content: flex-start; 
+        flex-wrap: nowrap; 
+        overflow-x: auto; 
+        -webkit-overflow-scrolling: touch; 
+        background: #1b1b1b; 
+        padding: 5px 0;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        width: 100%; 
+    }
+    
+    .category-tabs::-webkit-scrollbar {
+        display: none; 
+    }
+    
+    .category-tab-btn {
+        flex-shrink: 0; 
+        background: transparent;
+        color: #ccc;
+        border: none;
+        padding: 10px 15px;
+        padding-bottom: 25px; 
+        margin: 0 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 500;
+        white-space: nowrap; 
+        transition: background 0.2s ease, color 0.2s ease;
+        position: relative; 
+        min-width: 100px; 
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .category-tab-btn:hover {
+        background: #2a2a2a;
+        color: #fff;
+    }
+    
+    .category-tab-btn.active {
+        background: var(--sky-blue); 
+        color: white;
+        font-weight: 700;
+        box-shadow: 0 2px 10px rgba(52, 152, 219, 0.5);
+    }
+    
+    .category-tab-count {
+        position: absolute;
+        bottom: 5px; 
+        left: 50%; 
+        transform: translateX(-50%); 
+        background-color: var(--sky-blue); 
+        color: white;
+        padding: 2px 6px;
+        border-radius: 3px; 
+        font-size: 0.75rem;
+        font-weight: 700; 
+        line-height: 1;
+        min-width: 20px;
+        text-align: center;
+    }
+    
+    /* ---------------------------------- */
+    /* Channel Grid List (Live TV Style) */
+    /* ---------------------------------- */
+    .list-container {
+        display: none; 
+        background: #1b1b1b;
+        border-radius: 10px;
+        padding: 10px;
+        margin-top: 10px; 
+    }
+
+    #searchBar {
+      width: calc(100% - 20px);
+      margin: 5px 0 15px 0;
+      background: #2a2a2a;
+      color: #fff;
+      padding: 12px;
+      border-radius: 8px;
+      box-sizing: border-box; 
+    }
+    
+    #channelList, #episodesList {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 15px; 
+      max-height: 70vh;
+      overflow-y: auto;
+      padding: 10px;
+    }
+
+    .channel {
+      display: flex;
+      flex-direction: column; 
+      align-items: center;
+      justify-content: center;
+      background: #2a2a2a; 
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.1s;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+      height: 120px; 
+      text-align: center;
+    }
+    .channel:hover {
+      background: #3c3c3c;
+      transform: scale(1.03);
+    }
+    .channel img {
+      width: 70px; 
+      height: 70px;
+      border-radius: 50%; 
+      object-fit: contain; 
+      margin-bottom: 5px;
+      border: 2px solid #555; 
+    }
+    .channel span {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #ccc;
+      white-space: nowrap; 
+      overflow: hidden;
+      text-overflow: ellipsis; 
+      width: 100%;
+      padding: 0 5px;
+    }
+    
+    /* ---------------------------------- */
+    /* NEW: Movie/Series Poster Styles (L2 & L3) */
+    /* ---------------------------------- */
+
+    .poster-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)) !important;
+        gap: 10px !important;
+    }
+    
+    #episodesList {
+        /* Episodes list should be slightly different (e.g., column view or wider grid for better title reading) */
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important; 
+    }
+    
+
+    .poster-channel {
+        background: #1b1b1b; 
+        border-radius: 6px; 
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        height: auto; 
+        overflow: hidden;
+        text-align: left; 
+    }
+
+    .poster-channel:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(52, 152, 219, 0.5); /* Sky Blue shadow on hover */
+    }
+
+    .poster-channel img {
+        width: 100%;
+        aspect-ratio: 2 / 3; 
+        object-fit: cover; 
+        border-radius: 6px 6px 0 0; 
+        margin-bottom: 0;
+        border: none; 
+    }
+
+    .poster-channel span {
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #fff;
+        padding: 5px 8px;
+        white-space: normal; 
+        overflow: hidden;
+        text-overflow: ellipsis; 
+        max-height: 2.5em; 
+        line-height: 1.25em;
+        width: auto;
+    }
+    
+    #seriesTitleHeader {
+        color: #fff; 
+        font-size: 1.5rem; 
+        margin-bottom: 15px;
+        font-weight: 700;
+    }
+
+    /* NEW: Plyr Popup Player Styles (Unchanged) */
+    .player-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.95);
+      backdrop-filter: blur(5px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .player-popup {
+      position: relative;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      width: 90%;
+      max-width: 1200px;
+      box-shadow: 0 5px 50px rgba(0,0,0,0.9);
+      aspect-ratio: 16 / 9;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .player-popup video {
+        width: 100%;
+        height: 100%;
+        display: block; 
+    }
+
+    .player-header-info {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 10;
+        padding: 10px 20px;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        pointer-events: none; 
+    }
+    .player-header-info > * {
+        pointer-events: auto; 
+    }
+    
+    .channel-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: white;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        margin-right: auto;
+    }
+    .close-btn-plyr {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        opacity: 0.8;
+        transition: opacity 0.3s;
+        margin-left: 10px;
+    }
+    .close-btn-plyr:hover {
+        opacity: 1;
+    }
+    
+    @media (max-width: 600px) {
+        .category-tab-btn {
+            min-width: 80px;
+            padding: 8px 10px;
+            padding-bottom: 20px; 
+            font-size: 0.9rem;
+        }
+    }
+
+  </style>
+</head>
+<body>
+  
+  <div class="main-header" id="mainHeader">
+      <button class="back-btn" id="backButton"><i class="fas fa-chevron-left"></i></button> 
+      <div class="lokanstore-logo" id="headerTitle">Add Playlist</div> 
+      <div class="placeholder-div" style="width: 40px; height: 40px;"></div>
+  </div>
+
+  <div class="content-wrapper">
+    
+    <div class="upload-section" id="uploadSection" style="display: none;"> 
+      
+      <div class="input-tabs">
+        <button class="tab-button active" id="m3uTabBtn" onclick="showM3UInput()">Add M3U Link</button>
+        <button class="tab-button" id="xtreamTabBtn" onclick="showXtreamInput()">Xtream Codes API</button>
+      </div>
+
+      <div class="info-bar">
+        <i class="fas fa-desktop"></i>
+        <span>Mac Address</span>
+        <span class="mac-address">DC:C0:67:17:CF:BA</span> 
+      </div>
+      
+      <div class="input-fields-container">
+        <div class="input-group">
+            <label for="listNameInput">Playlist Name</label>
+            <input type="text" id="listNameInput" placeholder="name" value="Lokan IPTV">
+        </div>
+        
+        <div id="m3uForm" style="display: block;">
+            <div class="input-group">
+                <label for="urlInput">Enter M3U/M3U8 URL</label>
+                <input type="url" id="urlInput" placeholder="M3U url">
+            </div>
+            <input type="file" id="fileInput" accept=".m3u,.m3u8">
+            <textarea id="m3uContent" rows="4" placeholder="Or paste M3U content here"></textarea><br>
+        </div>
+        
+        <div id="xtreamForm" style="display: none;">
+            <div class="input-group">
+                <label for="xtreamUrlInput">URL + Port</label>
+                <input type="url" id="xtreamUrlInput" placeholder="http://serverdomain:8000/">
+            </div>
+            <div class="input-group">
+                <label for="usernameInput">Username</label>
+                <input type="text" id="usernameInput" placeholder="username">
+            </div>
+            <div class="input-group">
+                <label for="passwordInput">Password</label>
+                <div class="password-container">
+                    <input type="password" id="passwordInput" placeholder="password">
+                    <button type="button" class="toggle-password" onclick="togglePasswordVisibility()"><i class="fas fa-eye-slash"></i></button>
+                </div>
+            </div>
+        </div>
+        
+      </div> 
+      
+      <button onclick="loadChannels()" class="main-btn">Add Playlist</button>
+      <button onclick="clearSavedPlaylist(); showLevelOne();" class="main-btn" style="background: #e74c3c; margin-top: 5px;">Clear Saved Playlist</button>
+
+    </div>
+
+    <div id="contentSelection" style="display: none;">
+        
+      <button id="reloadListBtn" onclick="showLevelOne()">LokanStore</button> 
+      
+      <div class="category-tabs" id="categoryTabs">
+      </div>
+
+      <div class="list-container" id="listContainer">
+        <input type="text" id="searchBar" placeholder="🔍 Search for content..." onkeyup="filterChannels()">
+        <div id="channelList"></div>
+      </div>
+    </div>
+    
+    <div id="seriesEpisodesSelection" style="display: none; padding: 0 10px;">
+        
+        <div class="category-tabs-header" style="max-width: 600px; margin: 0 auto;">
+            
+            <h2 id="seriesTitleHeader" style="color: white; margin-bottom: 10px; font-size: 1.5rem; text-align: center;"></h2>
+            
+            <div class="category-tabs" id="seasonTabs" style="margin-bottom: 15px;">
+                </div>
+        </div>
+        
+        <div class="list-container" id="episodesListContainer" style="display: block; max-width: 600px; margin: 0 auto;">
+            <div id="episodesList" style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+                gap: 10px;
+                max-height: 70vh;
+                overflow-y: auto;
+                padding: 10px;
+            ">
+                </div>
+        </div>
+    </div>
+    
+    <div id="player-container"></div>
+
+  </div> 
+
+  <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+  
+  <script>
+    let ALL_CHANNELS_BY_CATEGORY = { 'Live TV': [], 'Movies': [], 'Series': [] };
+    let ALL_CHANNELS = []; 
+    let currentContentType = null; 
+    let globalPlayer = null; 
+    let currentInputMode = 'M3U'; 
+    
+    let CONTENT_COUNTS = { 'Live TV': 0, 'Movies': 0, 'Series': 0 };
+
+    let currentLevel = 1; 
+    
+    // XTREAM CONFIGURATION
+    let xtreamConfig = {};
+    let defaultLogo = 'https://cdn-icons-png.flaticon.com/512/833/833314.png';
+    
+    let currentSeriesData = null; 
+
+    // -------------------------------------
+    // NEW: Local Storage Functions
+    // -------------------------------------
+
+    function savePlaylistInfo(mode, listName) {
+        let playlistData = { mode, listName };
+        if (mode === 'M3U') {
+            playlistData.url = document.getElementById('urlInput').value.trim();
+        } else if (mode === 'XTREAM') {
+            playlistData.xtreamUrl = xtreamConfig.baseUrl;
+            playlistData.username = xtreamConfig.username;
+            // لا يجب حفظ كلمة المرور في التخزين المحلي إلا إذا كانت مشفرة، 
+            // لكن في سياق هذا التمرين سنحفظها لغرض إعادة التحميل السريع
+            playlistData.password = xtreamConfig.password; 
+        }
+        localStorage.setItem('savedPlaylistInfo', JSON.stringify(playlistData));
+    }
+    
+    function clearSavedPlaylist() {
+        localStorage.removeItem('savedPlaylistInfo');
+        alert('Saved Playlist Cleared!');
+    }
+
+    async function loadSavedPlaylist() {
+        const savedInfo = localStorage.getItem('savedPlaylistInfo');
+        if (!savedInfo) {
+            showLevelOne();
+            return;
+        }
+
+        try {
+            const data = JSON.parse(savedInfo);
+            document.getElementById('listNameInput').value = data.listName || 'Lokan IPTV';
+            
+            if (data.mode === 'M3U' && data.url) {
+                showM3UInput();
+                document.getElementById('urlInput').value = data.url;
+                await loadChannels(); // إعادة تحميل القائمة تلقائياً
+            } else if (data.mode === 'XTREAM' && data.xtreamUrl && data.username && data.password) {
+                showXtreamInput();
+                document.getElementById('xtreamUrlInput').value = data.xtreamUrl;
+                document.getElementById('usernameInput').value = data.username;
+                document.getElementById('passwordInput').value = data.password;
+                
+                // إعادة تعيين xtreamConfig قبل التحميل
+                xtreamConfig = { baseUrl: data.xtreamUrl, username: data.username, password: data.password };
+
+                await loadChannels(); // إعادة تحميل القائمة تلقائياً
+            } else {
+                // إذا كانت البيانات غير كاملة، نعود للمستوى الأول
+                clearSavedPlaylist();
+                showLevelOne();
+            }
+        } catch (e) {
+            console.error("Error loading saved playlist:", e);
+            clearSavedPlaylist();
+            showLevelOne();
+        }
+    }
+
+
+    // -------------------------------------
+    // Input Mode Toggling
+    // -------------------------------------
+
+    function showM3UInput() {
+        currentInputMode = 'M3U';
+        document.getElementById('m3uForm').style.display = 'block';
+        document.getElementById('xtreamForm').style.display = 'none';
+        
+        document.getElementById('m3uTabBtn').classList.add('active');
+        document.getElementById('xtreamTabBtn').classList.remove('active');
+    }
+
+    function showXtreamInput() {
+        currentInputMode = 'XTREAM';
+        document.getElementById('m3uForm').style.display = 'none';
+        document.getElementById('xtreamForm').style.display = 'block';
+        
+        document.getElementById('m3uTabBtn').classList.remove('active');
+        document.getElementById('xtreamTabBtn').classList.add('active');
+    }
+    
+    function togglePasswordVisibility() {
+        const passwordInput = document.getElementById('passwordInput');
+        const toggleBtn = document.querySelector('.toggle-password i');
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            toggleBtn.classList.remove('fa-eye-slash');
+            toggleBtn.classList.add('fa-eye');
+        } else {
+            passwordInput.type = 'password';
+            toggleBtn.classList.remove('fa-eye');
+            toggleBtn.classList.add('fa-eye-slash');
+        }
+    }
+
+
+    // -------------------------------------
+    // Back Handling Function 
+    // -------------------------------------
+    function handleBack() {
+        if (currentLevel === 3) { 
+            showLevelTwo();
+        } else if (currentLevel === 2) { 
+            showLevelOne();
+        } 
+    }
+    
+    // -------------------------------------
+    // Header Update Function 
+    // -------------------------------------
+    function updateHeader(level, title = 'Add Playlist') { 
+        const backBtn = document.getElementById('backButton');
+        const headerTitle = document.getElementById('headerTitle'); 
+        
+        currentLevel = level;
+        headerTitle.textContent = title;
+        
+        backBtn.onclick = handleBack; 
+        
+        if (level === 1) {
+            headerTitle.textContent = 'Add Playlist'; 
+            backBtn.style.visibility = 'hidden';
+        } else {
+            headerTitle.textContent = title; 
+            backBtn.style.visibility = 'visible';
+        }
+    }
+
+    // -------------------------------------
+    // Source Type Detection Function 
+    // -------------------------------------
+    function getSourceType(url) {
+        url = url.toLowerCase();
+        if (url.includes('.m3u8') || url.includes('hls')) {
+            return 'application/x-mpegurl'; 
+        } else if (url.includes('.mp4') || url.includes('.m4v')) {
+            return 'video/mp4';
+        } else if (url.includes('.webm')) {
+            return 'video/webm';
+        } else if (url.includes('.ogv')) {
+            return 'video/ogg';
+        } else {
+            return 'application/x-mpegurl'; 
+        }
+    }
+
+
+    // -------------------------------------
+    // Interface Management (Levels) 
+    // -------------------------------------
+
+    function showLevelOne() {
+        document.getElementById('uploadSection').style.display = 'block';
+        document.getElementById('contentSelection').style.display = 'none';
+        document.getElementById('seriesEpisodesSelection').style.display = 'none'; 
+        
+        ALL_CHANNELS_BY_CATEGORY = { 'Live TV': [], 'Movies': [], 'Series': [] };
+        ALL_CHANNELS = [];
+        CONTENT_COUNTS = { 'Live TV': 0, 'Movies': 0, 'Series': 0 };
+        currentSeriesData = null; 
+        
+        // Clear inputs only if not loading from saved data
+        if (!localStorage.getItem('savedPlaylistInfo')) {
+            document.getElementById('urlInput').value = '';
+            document.getElementById('xtreamUrlInput').value = '';
+            document.getElementById('usernameInput').value = '';
+            document.getElementById('passwordInput').value = '';
+            document.getElementById('listNameInput').value = 'Lokan IPTV';
+        }
+        
+        updateContentCounts(); 
+        if (globalPlayer) {
+            globalPlayer.destroy(); 
+            globalPlayer = null;
+        }
+        updateHeader(1); 
+        showM3UInput(); 
+    }
+
+    function showLevelTwo() {
+        document.getElementById('uploadSection').style.display = 'none';
+        document.getElementById('contentSelection').style.display = 'flex'; 
+        document.getElementById('seriesEpisodesSelection').style.display = 'none'; 
+        document.getElementById('listContainer').style.display = 'block'; 
+        
+        const listName = document.getElementById('listNameInput').value.trim() || 'Content Viewer';
+        document.getElementById('reloadListBtn').textContent = listName;
+        
+        createCategoryTabs(); 
+        
+        const targetCategory = ALL_CHANNELS_BY_CATEGORY[currentContentType] && ALL_CHANNELS_BY_CATEGORY[currentContentType].length > 0 ? currentContentType : (Object.keys(ALL_CHANNELS_BY_CATEGORY).find(key => ALL_CHANNELS_BY_CATEGORY[key].length > 0) || 'Live TV');
+        showCategory(targetCategory);
+    }
+    
+    function showLevelThree() { 
+        document.getElementById('uploadSection').style.display = 'none';
+        document.getElementById('contentSelection').style.display = 'none';
+        document.getElementById('seriesEpisodesSelection').style.display = 'block'; 
+    }
+    
+    function showCategory(type) {
+        currentContentType = type; 
+        
+        const channelsToDisplay = ALL_CHANNELS_BY_CATEGORY[type] || [];
+        
+        displayChannels(channelsToDisplay);
+        
+        document.querySelectorAll('.category-tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.querySelector(`.category-tab-btn[data-category="${type}"]`)?.classList.add('active');
+        
+        document.getElementById('searchBar').value = ''; 
+        document.getElementById('searchBar').placeholder = `🔍 Search in ${type}...`;
+        
+        updateHeader(2, type); 
+    }
+
+    // -------------------------------------
+    // LOADING CHANNELS (MODIFIED TO SAVE INFO)
+    // -------------------------------------
+
+    async function fetchXtreamAPI(action) {
+        const { baseUrl, username, password } = xtreamConfig;
+        
+        const url = `${baseUrl}/player_api.php?username=${username}&password=${password}&action=${action}`;
+        
+        try {
+            const res = await fetch(url);
+            if (!res.ok) throw new Error(`Failed to fetch ${action} (Status: ${res.status})`);
+            
+            const data = await res.json();
+            
+            if (action === 'get_user_info' && data.auth === 0) {
+                 throw new Error('Authentication failed. Check your username/password.');
+            }
+            
+            return data;
+
+        } catch (error) {
+            console.error('API Fetch Error:', error);
+            throw new Error(`API request failed for action: ${action}`);
+        }
+    }
+    
+    function buildStreamURL(streamId, streamType) {
+        const { baseUrl, username, password } = xtreamConfig;
+        const streamExtension = 'ts'; 
+        
+        if (streamType === 'live') {
+            return `${baseUrl}/live/${username}/${password}/${streamId}.${streamExtension}`;
+        } else if (streamType === 'vod') {
+            return `${baseUrl}/movie/${username}/${password}/${streamId}.${streamExtension}`;
+        } else if (streamType === 'series') {
+            return `${baseUrl}/series/${username}/${password}/${streamId}.${streamExtension}`; 
+        }
+
+        return null;
+    }
+
+    function mapXtreamStreamToChannel(stream, type, categoryName) {
+        const streamId = stream.stream_id || stream.vod_id || stream.series_id;
+        const streamType = type === 'Live' ? 'live' : (type === 'Movie' ? 'vod' : 'series');
+        
+        return {
+            name: stream.name || 'Unnamed Content', 
+            logo: stream.stream_icon || stream.series_icon || defaultLogo,
+            group: categoryName,
+            url: buildStreamURL(streamId, streamType),
+            xtream_data: stream 
+        };
+    }
+
+    async function loadContentByType(contentType, categoryAction, streamsAction) {
+        const defaultCategory = contentType === 'Movie' ? 'Movies' : contentType === 'Series' ? 'Series' : 'Live TV';
+        
+        try {
+            const categories = await fetchXtreamAPI(categoryAction);
+            const allStreams = await fetchXtreamAPI(streamsAction);
+            
+            const categoryMap = {};
+            if (Array.isArray(categories)) {
+                categories.forEach(cat => {
+                    categoryMap[cat.category_id] = cat.category_name;
+                    if (!ALL_CHANNELS_BY_CATEGORY[cat.category_name]) {
+                        ALL_CHANNELS_BY_CATEGORY[cat.category_name] = []; 
+                    }
+                });
+            } 
+            
+            if (Array.isArray(allStreams)) {
+                allStreams.forEach(stream => {
+                    const categoryName = categoryMap[stream.category_id] || defaultCategory; 
+                    
+                    const channel = mapXtreamStreamToChannel(stream, contentType, categoryName);
+                    
+                    if (!ALL_CHANNELS_BY_CATEGORY[categoryName]) {
+                         ALL_CHANNELS_BY_CATEGORY[categoryName] = [];
+                    }
+                    
+                    ALL_CHANNELS_BY_CATEGORY[categoryName].push(channel);
+                    ALL_CHANNELS.push(channel);
+                });
+            } 
+
+        } catch (e) {
+            console.error(`Error loading ${contentType} content:`, e);
+        }
+    }
+
+
+    async function loadChannels() {
+        const listName = document.getElementById('listNameInput').value.trim();
+
+        document.getElementById('searchBar').value = '';
+        
+        if (currentInputMode === 'M3U') {
+             const url = document.getElementById('urlInput').value.trim();
+            if (!url) return alert('Please enter a valid M3U URL.');
+            
+            try {
+                let content = await fetchM3U(url);
+                parseM3U(content);
+                savePlaylistInfo('M3U', listName); // حفظ المعلومات بعد النجاح
+                showLevelTwo();
+            } catch (e) {
+                alert('Failed to load M3U: ' + e.message);
+            }
+        
+        } else if (currentInputMode === 'XTREAM') {
+            const baseUrl = document.getElementById('xtreamUrlInput').value.trim().replace(/\/$/, ""); 
+            const username = document.getElementById('usernameInput').value.trim();
+            const password = document.getElementById('passwordInput').value.trim();
+            
+            if (!baseUrl || !username || !password) {
+                return alert('Please fill in all Xtream Codes API fields.');
+            }
+            
+            xtreamConfig = { baseUrl, username, password };
+            
+            try {
+                await fetchXtreamAPI('get_user_info'); 
+
+                ALL_CHANNELS_BY_CATEGORY = {}; 
+                ALL_CHANNELS = [];
+
+                await loadContentByType('Live', 'get_live_categories', 'get_live_streams');
+                await loadContentByType('Movie', 'get_vod_categories', 'get_vod_streams');
+                await loadContentByType('Series', 'get_series_categories', 'get_series');
+                
+                updateContentCounts();
+                savePlaylistInfo('XTREAM', listName); // حفظ المعلومات بعد النجاح
+                showLevelTwo(); 
+                
+            } catch (e) {
+                alert('Failed to load Xtream API list: ' + e.message);
+            }
+        }
+    }
+
+    // -------------------------------------
+    // M3U Loading/Parsing 
+    // -------------------------------------
+    
+    async function fetchM3U(url) {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('Failed to fetch M3U file (Status: ' + res.status + ')');
+      return await res.text();
+    }
+
+    function parseM3U(content) {
+      const lines = content.split('\n');
+      ALL_CHANNELS = [];
+      ALL_CHANNELS_BY_CATEGORY = {}; 
+      let currentInfo = null;
+
+      for (let line of lines) {
+        line = line.trim();
+        if (line.startsWith('#EXTINF')) {
+          const nameMatch = line.match(/,(.*)$/);
+          const logoMatch = line.match(/tvg-logo="(.*?)"/);
+          const groupMatch = line.match(/group-title="(.*?)"/);
+          
+          let groupTitle = groupMatch ? groupMatch[1].trim() : 'Uncategorized'; 
+          
+          const lowerGroup = groupTitle.toLowerCase();
+          if (lowerGroup.includes('movie') || lowerGroup.includes('أفلام') || lowerGroup.includes('vod')) {
+              groupTitle = 'Movies';
+          } else if (lowerGroup.includes('series') || lowerGroup.includes('مسلسلات') || lowerGroup.includes('tv shows')) {
+              groupTitle = 'Series';
+          } else { 
+              groupTitle = 'Live TV'; 
+          }
+
+          currentInfo = {
+            name: nameMatch ? nameMatch[1].trim() : 'Unnamed Channel',
+            logo: logoMatch ? logoMatch[1] : null,
+            group: groupTitle 
+          };
+        } else if (line && !line.startsWith('#')) {
+          if (currentInfo) {
+            currentInfo.url = line.trim();
+            
+            if (!ALL_CHANNELS_BY_CATEGORY[currentInfo.group]) {
+                ALL_CHANNELS_BY_CATEGORY[currentInfo.group] = [];
+            }
+            ALL_CHANNELS_BY_CATEGORY[currentInfo.group].push(currentInfo);
+            ALL_CHANNELS.push(currentInfo); 
+            
+            currentInfo = null;
+          }
+        }
+      }
+    }
+
+
+    function createCategoryTabs() { 
+        const tabsContainer = document.getElementById('categoryTabs');
+        tabsContainer.innerHTML = '';
+        
+        const categories = Object.keys(ALL_CHANNELS_BY_CATEGORY).filter(cat => ALL_CHANNELS_BY_CATEGORY[cat].length > 0);
+        
+        categories.forEach(category => {
+            const count = ALL_CHANNELS_BY_CATEGORY[category].length;
+            
+            const btn = document.createElement('button');
+            btn.className = 'category-tab-btn';
+            btn.setAttribute('data-category', category);
+            
+            const nameSpan = document.createElement('span');
+            nameSpan.textContent = category;
+            btn.appendChild(nameSpan);
+
+            const countSpan = document.createElement('span');
+            countSpan.className = 'category-tab-count';
+            countSpan.textContent = count;
+            const safeId = category.replace(/[^a-zA-Z0-9]/g, ''); 
+            countSpan.id = `${safeId}CountTab`; 
+            
+            btn.appendChild(countSpan);
+            btn.onclick = () => showCategory(category);
+            
+            tabsContainer.appendChild(btn);
+        });
+    }
+
+    function updateContentCounts() { 
+        Object.keys(ALL_CHANNELS_BY_CATEGORY).forEach(category => {
+            const count = ALL_CHANNELS_BY_CATEGORY[category].length;
+            const safeId = category.replace(/[^a-zA-Z0-9]/g, ''); 
+            const countElement = document.getElementById(`${safeId}CountTab`);
+            if (countElement) {
+                countElement.textContent = count;
+            }
+        });
+    }
+
+    function displayChannels(channels) { 
+      const list = document.getElementById('channelList');
+      list.innerHTML = '';
+      
+      const isPosterView = !currentContentType || !currentContentType.includes('Live'); 
+
+      if (isPosterView) {
+          list.classList.add('poster-grid');
+      } else {
+          list.classList.remove('poster-grid');
+      }
+
+      if (channels.length === 0) {
+        list.innerHTML = '<div style="grid-column: 1 / -1; color: #ccc; padding: 20px;">No content found in this category.</div>';
+        return;
+      }
+      
+      channels.forEach(ch => {
+        const div = document.createElement('div');
+        
+        div.className = isPosterView ? 'poster-channel' : 'channel';
+        
+        const imageUrl = ch.logo || defaultLogo;
+        
+        div.innerHTML = `
+          <img src="${imageUrl}" alt="${ch.name} image" loading="lazy" onerror="this.onerror=null;this.src='${defaultLogo}';">
+          <span>${ch.name}</span>
+        `;
+        
+        div.onclick = () => {
+            if (currentContentType === 'Series' && ch.xtream_data && ch.xtream_data.series_id) {
+                const seriesId = ch.xtream_data.series_id;
+                openSeriesSeasons(seriesId, ch.name);
+            } else if (!ch.url) {
+                return alert('Stream URL not found for this content.');
+            } else {
+                openPlayer(ch.url, ch.name);
+            }
+        };
+        
+        list.appendChild(div);
+      });
+    }
+
+
+    function filterChannels() { 
+        const searchTerm = document.getElementById('searchBar').value.toLowerCase().trim();
+        const currentList = ALL_CHANNELS_BY_CATEGORY[currentContentType] || [];
+        
+        if (!searchTerm) {
+            displayChannels(currentList);
+            return;
+        }
+
+        const filtered = currentList.filter(channel => 
+            channel.name.toLowerCase().includes(searchTerm)
+        );
+        displayChannels(filtered);
+    }
+    
+    // -------------------------------------
+    // NEW: Series Episodes Logic (Level 3)
+    // -------------------------------------
+
+    async function openSeriesSeasons(seriesId, seriesName) {
+        showLevelThree();
+        document.getElementById('seriesTitleHeader').textContent = `Loading ${seriesName}...`;
+        document.getElementById('seasonTabs').innerHTML = '';
+        document.getElementById('episodesList').innerHTML = '<div style="color: #ccc; padding: 20px;">Loading episodes...</div>';
+        
+        try {
+            const data = await fetchXtreamAPI(`series_info&series_id=${seriesId}`);
+            currentSeriesData = data;
+            
+            document.getElementById('seriesTitleHeader').textContent = seriesName;
+            updateHeader(3, seriesName);
+            
+            const seasons = data.seasons || {};
+            const seasonTabsContainer = document.getElementById('seasonTabs');
+            seasonTabsContainer.innerHTML = '';
+            
+            let firstSeasonId = null;
+            let seasonKeys = Object.keys(seasons).sort((a, b) => seasons[a].season_num - seasons[b].season_num);
+
+            seasonKeys.forEach((key, index) => {
+                const season = seasons[key];
+                const seasonId = season.season_num;
+                const seasonName = seasonId === 0 ? 'Specials' : `Season ${seasonId}`;
+                
+                if (index === 0) {
+                    firstSeasonId = seasonId;
+                }
+                
+                const btn = document.createElement('button');
+                btn.className = 'category-tab-btn';
+                btn.setAttribute('data-season-id', seasonId);
+                
+                const nameSpan = document.createElement('span');
+                nameSpan.textContent = seasonName;
+                btn.appendChild(nameSpan);
+                
+                btn.onclick = () => selectSeason(seasonId);
+                
+                seasonTabsContainer.appendChild(btn);
+            });
+            
+            if (firstSeasonId !== null) {
+                selectSeason(firstSeasonId);
+            } else {
+                 document.getElementById('episodesList').innerHTML = '<div style="grid-column: 1 / -1; color: #ccc; padding: 20px;">No seasons found for this series.</div>';
+            }
+
+        } catch (e) {
+            console.error('Error loading series info:', e);
+            document.getElementById('episodesList').innerHTML = '<div style="grid-column: 1 / -1; color: red; padding: 20px;">Failed to load series details.</div>';
+        }
+    }
+
+    function selectSeason(seasonId) {
+        if (!currentSeriesData || !currentSeriesData.episodes) return;
+        
+        const episodesList = document.getElementById('episodesList');
+        episodesList.innerHTML = '';
+        
+        document.querySelectorAll('#seasonTabs .category-tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.querySelector(`#seasonTabs .category-tab-btn[data-season-id="${seasonId}"]`)?.classList.add('active');
+
+        const episodes = currentSeriesData.episodes.filter(ep => 
+            ep.season === seasonId
+        ).sort((a, b) => a.episode_num - b.episode_num); 
+        
+        if (episodes.length === 0) {
+            episodesList.innerHTML = '<div style="grid-column: 1 / -1; color: #ccc; padding: 20px;">No episodes found for this season.</div>';
+            return;
+        }
+        
+        episodes.forEach(ep => {
+            const div = document.createElement('div');
+            div.className = 'poster-channel'; 
+            
+            const streamUrl = buildStreamURL(ep.id, 'series'); 
+
+            const imageUrl = ep.info.movie_image || currentSeriesData.info.cover || defaultLogo;
+            
+            div.innerHTML = `
+              <img src="${imageUrl}" alt="${ep.title} image" loading="lazy" onerror="this.onerror=null;this.src='${defaultLogo}';">
+              <span>E${ep.episode_num}: ${ep.title}</span>
+            `;
+            
+            div.onclick = () => {
+                if (!streamUrl) {
+                    return alert('Stream URL not found for this episode.');
+                }
+                const episodeTitle = `${currentSeriesData.info.name} - S${ep.season}E${ep.episode_num}`;
+                openPlayer(streamUrl, episodeTitle);
+            };
+            
+            episodesList.appendChild(div);
+        });
+        
+        episodesList.parentElement.scrollTop = 0; 
+    }
+
+
+    function openPlayer(url, title) { 
+        const container = document.getElementById('player-container');
+        if (globalPlayer) {
+            globalPlayer.destroy();
+            globalPlayer = null;
+        }
+        document.querySelector('.player-overlay')?.remove();
+
+        const overlay = document.createElement('div');
+        overlay.className = 'player-overlay';
+
+        const popup = document.createElement('div');
+        popup.className = 'player-popup';
+
+        const videoElement = document.createElement('video');
+        videoElement.id = 'plyr-video-element';
+        videoElement.setAttribute('playsinline', 'playsinline'); 
+        videoElement.setAttribute('controls', 'true');
+        videoElement.setAttribute('autoplay', 'true'); 
+        videoElement.setAttribute('crossorigin', 'anonymous');
+        
+        popup.appendChild(videoElement);
+        
+        const headerInfo = document.createElement('div');
+        headerInfo.className = 'player-header-info';
+
+        const channelTitle = document.createElement('span');
+        channelTitle.className = 'channel-title';
+        channelTitle.textContent = title;
+
+        const closeBtn = document.createElement('button');
+        closeBtn.className = 'close-btn-plyr';
+        closeBtn.textContent = '✕';
+        closeBtn.onclick = () => {
+            if (globalPlayer) {
+                globalPlayer.destroy();
+                globalPlayer = null;
+            }
+            overlay.remove();
+        };
+
+        headerInfo.appendChild(channelTitle);
+        headerInfo.appendChild(closeBtn);
+        popup.appendChild(headerInfo);
+
+
+        overlay.appendChild(popup);
+        container.appendChild(overlay);
+
+        const sourceType = getSourceType(url);
+        
+        if (Hls.isSupported() && sourceType === 'application/x-mpegurl') {
+            const hls = new Hls();
+            hls.loadSource(url);
+            hls.attachMedia(videoElement);
+            hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                globalPlayer = new Plyr(videoElement, {
+                    autoplay: true,
+                    disableContextMenu: false,
+                    speed: { selected: 1, options: [0.5, 1, 1.5, 2] },
+                    seekTime: 10,
+                });
+                globalPlayer.play();
+            });
+            hls.on(Hls.Events.ERROR, (event, data) => {
+                console.error('HLS Error:', data);
+                if (data.fatal) {
+                    videoElement.src = url;
+                    globalPlayer = new Plyr(videoElement);
+                    globalPlayer.play().catch(e => console.warn('Native Autoplay failed:', e));
+                }
+            });
+            videoElement.addEventListener('destroy', () => hls.destroy());
+        } else {
+            videoElement.src = url;
+            globalPlayer = new Plyr(videoElement, {
+                autoplay: true,
+                disableContextMenu: false,
+                speed: { selected: 1, options: [0.5, 1, 1.5, 2] },
+                seekTime: 10,
+            });
+            globalPlayer.play().catch(e => console.warn('Autoplay failed:', e));
+        }
+
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                closeBtn.click();
+            }
+        });
+    }
+
+
+    // استدعاء دالة التحميل التلقائي بدلاً من showLevelOne مباشرة
+    document.addEventListener('DOMContentLoaded', loadSavedPlaylist);
+  </script>
+
+</body>
+</html>
