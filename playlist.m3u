@@ -1,15 +1,15 @@
 #EXTM3U
 #EXTINF:-1 tvg-id="LokanStore0" tvg-name="AL24" tvg-logo="https://i.imgur.com/vyVEXYL.png" group-title="Live TV",AL24 1
-https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/playlist.m3u8
+https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/plaezylist.m3u8
 
 #EXTINF:-1 tvg-id="LokanStore1" tvg-name="AL2.4" tvg-logo="https://i.imgur.com/vyVEXYL.png" group-title="Live TV",AL240
-https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/playlist.m3u8
+https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/playthlist.m3u8
 
 #EXTINF:-1 tvg-id="LokanStore2" tvg-name="AL2.. 4" tvg-logo="https://i.imgur.com/vyVEXYL.png" group-title="Live TV",AL2400
-https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/playlist.m3u8
+https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/plahkylist.m3u8
 
 #EXTINF:-1 tvg-id="LokanStore3" tvg-name="A. L24" tvg-logo="https://i.imgur.com/vyVEXYL.png" group-title="Live TV",AL24000
-https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/playlist.m3u8
+https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/pljyaylist.m3u8
 
 #EXTINF:-1 tvg-lokan="Ramo 01" tvg-name="S01E01" tvg-id="LokanStore" tvg-logo="https://i.imgur.com/PJYTfHi.png" group-title="Series",Ramo S01E01
 https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/playlist.m3u8
