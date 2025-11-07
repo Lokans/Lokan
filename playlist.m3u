@@ -14,34 +14,28 @@ https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/playlist.m3u8
 #EXTINF:-1 tvg-lokan="Ramo 01" tvg-name="S01E01" tvg-id="LokanStore" tvg-logo="https://i.imgur.com/PJYTfHi.png" group-title="Series",Ramo S01E01
 https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/playlist.m3u8
 
-#EXTINF:-1 tvg-id="LokanStore" tvg-logo="https://img.downet.net/uploads/E3q4Q.webp" group-title="Movies",Red Sonja
-https://youtu.be/9CjX6SQCQd8?si=NT7Kx4e2Zp7ARU07
-
-#EXTINF:-1 tvg-id="LokanStore" tvg-logo="https://img.downet.net/uploads/E3q4Q.webp" group-title="Movies",Red Sonja
-https://youtu.be/9CjX6SQCQd8?si=NT7Kx4e2Zp7ARU07
-
 #EXTINF:-1 tvg-lokan="Ramo 01" tvg-name="S01E02" tvg-id="LokanStore" tvg-logo="https://i.imgur.com/PJYTfHi.png" group-title="Series",Ramo S01E02
-https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/playlist.m3u8
-
-#EXTINF:-1 tvg-lokan="Ramo 02" tvg-name="S02E02" tvg-id="LokanStore" tvg-logo="https://i.imgur.com/PJYTfHi.png" group-title="Series",Ramo S02E02
 https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/playlist.m3u8
 
 #EXTINF:-1 tvg-lokan="Ramo 01" tvg-name="S01E03" tvg-id="LokanStore" tvg-logo="https://i.imgur.com/PJYTfHi.png" group-title="Series",Ramo S01E03
 https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/playlist.m3u8
 
-#EXTINF:-1 tvg-lokan="Ramo 02" tvg-name="S02E03" tvg-id="LokanStore" tvg-logo="https://i.imgur.com/PJYTfHi.png" group-title="Series",Ramo S02E03
+#EXTINF:-1 tvg-lokan="Ramo 01" tvg-name="S01E04" tvg-id="LokanStore" tvg-logo="https://i.imgur.com/PJYTfHi.png" group-title="Series",Ramo S01E04
 https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/playlist.m3u8
 
-#EXTINF:-1 tvg-lokan="Ramo 01" tvg-name="S01E05" tvg-id="LokanStore" tvg-logo="https://i.imgur.com/PJYTfHi.png" group-title="Series",S01E05
+#EXTINF:-1 tvg-lokan="Ramo 01" tvg-name="S01E05" tvg-id="LokanStore" tvg-logo="https://i.imgur.com/PJYTfHi.png" group-title="Series",Ramo S01E05
 https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/playlist.m3u8
 
-#EXTINF:-1 tvg-lokan="Ramo 01" tvg-name="S01E06" tvg-id="LokanStore" tvg-logo="https://i.imgur.com/PJYTfHi.png" group-title="Series",S01E06
+#EXTINF:-1 tvg-lokan="Ramo 02" tvg-name="S02E01" tvg-id="LokanStore" tvg-logo="https://i.imgur.com/PJYTfHi.png" group-title="Series",Ramo S02E01
+https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/playlist.m3u8
+
+#EXTINF:-1 tvg-lokan="Ramo 02" tvg-name="S02E02" tvg-id="LokanStore" tvg-logo="https://i.imgur.com/PJYTfHi.png" group-title="Series",Ramo S02E02
+https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/playlist.m3u8
+
+#EXTINF:-1 tvg-lokan="Ramo 03" tvg-name="S03E01" tvg-id="LokanStore" tvg-logo="https://i.imgur.com/PJYTfHi.png" group-title="Series",Ramo S03E01
 https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/playlist.m3u8
 
 #EXTINF:-1 tvg-lokan="Ramo 03" tvg-name="S03E02" tvg-id="LokanStore" tvg-logo="https://i.imgur.com/PJYTfHi.png" group-title="Series",Ramo S03E02
-https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/playlist.m3u8
-
-#EXTINF:-1 tvg-lokan="Ramo 03" tvg-name="S03E05" tvg-id="LokanStore" tvg-logo="https://i.imgur.com/PJYTfHi.png" group-title="Series",Ramo S03E05
 https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/playlist.m3u8
 
 #EXTINF:-1 tvg-lokan="Lokandz 01" tvg-name="S01E01" tvg-id="LokanStore" tvg-logo="https://i.imgur.com/PJYTfHi.png" group-title="Series",Lokandz S01E01
@@ -49,3 +43,9 @@ https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/playlist.m3u8
 
 #EXTINF:-1 tvg-lokan="Lokandz 02" tvg-name="S02E01" tvg-id="LokanStore" tvg-logo="https://i.imgur.com/PJYTfHi.png" group-title="Series",Lokandz S02E01
 https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/playlist.m3u8
+
+#EXTINF:-1 tvg-id="LokanStore" tvg-logo="https://img.downet.net/uploads/E3q4Q.webp" group-title="Movies",Red Sonja
+https://youtu.be/9CjX6SQCQd8?si=NT7Kx4e2Zp7ARU07
+
+#EXTINF:-1 tvg-id="LokanStore" tvg-logo="https://img.downet.net/uploads/E3q4Q.webp" group-title="Movies",hhhhh
+https://youtu.be/9CjX6SQCQd8?si=NT7Kx4e2Zp7ARU07
