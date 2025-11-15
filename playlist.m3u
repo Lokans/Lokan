@@ -22,7 +22,7 @@ https://vo-live-media.cdb.cdn.orange.com/Content/Channel/EmiratesChannel/HLS/ind
 #EXTINF:-1 tvg-id="AbuDhabiSports1.ae@SD" tvg-logo="https://i.imgur.com/6BVWk8z.png" group-title="Sports",Abu Dhabi Sports 1 (1080p) [Geo-blocked]
 https://vo-live-media.cdb.cdn.orange.com/Content/Channel/AbuDhabiSportsChannel1/HLS/index.m3u8
 #EXTINF:-1 tvg-id="LokanStore0" tvg-name="AL24" tvg-logo="https://i.imgur.com/vyVEXYL.png" group-title="Live TV",AL24 1
-https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/plaezylist.m3u8
+http://tayaar.xyz/live/464748339/637473833/214582.m3u8
 
 #EXTINF:-1 tvg-id="LokanStore1" tvg-name="AL2.4" tvg-logo="https://i.imgur.com/vyVEXYL.png" group-title="News",AL240
 https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/playthlist.m3u8
@@ -34,7 +34,7 @@ https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/plahkylist.m3u8
 https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/pljyaylist.m3u8
 
 #EXTINF:-1 tvg-id="LokanStore0" tvg-logo="https://img.downet.net/uploads/E3q4Q.webp" group-title="Movies",Red Sonja
-https://youtu.be/9CjX6SQCQd8?si=NT7Kx4e2Zp7ARU07
+http://tayaar.xyz/movie/464748339/637473833/486595.mkv
 
 #EXTINF:-1 tvg-id="LokanStore1" tvg-logo="https://img.downet.net/uploads/E3q4Q.webp" group-title="Movies",hhhhh
 https://youtu.be/9CjX6SQCQd8?si=NT7Kx4e2Zp7ARU0
