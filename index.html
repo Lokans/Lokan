@@ -132,7 +132,7 @@
       text-align:left;
       flex-direction:row;
     }
-    .category-icon { font-size:1rem; margin-left:6px; margin-right:4; }
+    .category-icon { font-size:1rem; margin-left:6px; margin-right:6; }
     .category-item:hover { background-color:#383838; }
     .category-item.active { background-color:#1a1a1a; color:var(--text-color); border-left:8px solid var(--accent-color); }
     .category-item.active:hover { background-color:#1a1a1a; }
@@ -156,12 +156,40 @@
       text-align:left;
       transition: background-color 0.2s;
     }
-    .channel:hover { background:#3c3c3c; }
-    .channel.active-ch { background-color: #3c3c3c; color: yellow; }
-    .channel img { width:35px; height:35px; object-fit:contain; margin-left:12px; margin-right:12px; flex-shrink:0; border-radius:0; }
-    .channel span { font-size:1rem; font-weight:400; color:#fff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; flex-grow:1; text-align:left; line-height:1.2; }
+    .channel:hover { 
+      background:#3c3c3c;
+    }
+    .channel.active-ch { 
+      background-color: #3c3c3c;
+      color: yellow; 
+    }
 
-    .upload-section {
+    .channel.active-ch span {
+      color: yellow !important;
+    }
+    .channel img { 
+      width:35px; 
+      height:35px;
+      object-fit:contain; 
+      margin-left:2px; 
+      margin-right:12px; 
+      flex-shrink:0; 
+      border-radius:0; 
+    }
+    .channel span { 
+      font-size:1rem; 
+      font-weight:400; 
+      color:#fff; 
+      white-space:nowrap; 
+      overflow:hidden; 
+      text-overflow:ellipsis; 
+      flex-grow:1; 
+      text-align:left; 
+      line-height:1.2;
+    }
+
+    /* Style for the new Login Section */
+    .login-section {
       position: fixed;
       top:50%;
       left:50%;
@@ -170,12 +198,40 @@
       background: #1b1b1b;
       padding:30px;
       border-radius:10px;
-      max-width:500px;
+      max-width:350px;
+      min-width:300px;
       z-index:1001;
       box-shadow:0 10px 25px rgba(0,0,0,0.7);
       text-align:center;
     }
-    .upload-section input, .upload-section textarea, .upload-section button { margin:10px auto; display:block; width:calc(100% - 20px); }
+    .login-section input[type="text"], .login-section input[type="url"], .login-section button { 
+        margin:10px auto; 
+        display:block; 
+        width:calc(100% - 20px); 
+        padding: 12px;
+        border: 1px solid #333;
+        border-radius: 5px;
+        background: #252525;
+        color: #fff;
+        font-size: 1.1rem;
+        text-align: center;
+    }
+    .login-section input[type="text"] {
+        letter-spacing: 5px; /* Spacing for code input */
+    }
+    .login-section button {
+        background: var(--accent-color);
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.3s ease;
+        letter-spacing: normal;
+    }
+    .login-section button:hover { background: #e02425; }
+    .error-message { color: #ff5555; margin-top: 15px; font-size: 0.9rem; }
+    
+    /* Hide the old upload section */
+    .upload-section { display: none !important; }
 
     #player-container .video-js { width:100%; height:100%; }
   </style>
@@ -204,7 +260,15 @@
       </div>
   </div>
 
-  <div class="upload-section" id="uploadSection">
+  <div class="login-section" id="loginSection" style="display:none;">
+      <h2>🔒LokanStore - LSTV</h2>
+      <p style="color:#aaa; font-size:0.9rem;">أدخل رمز التحقق</p>
+      <input type="text" id="codeInput" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;" maxlength="8" pattern="[0-9]*" inputmode="numeric">
+      <button onclick="checkCode()" class="main-btn">Load & View Content</button>
+      <div id="errorMessage" class="error-message"></div>
+  </div>
+  
+  <div class="upload-section" id="uploadSection" style="display:none;">
       <h2>Load Channel List (M3U)</h2>
       <input type="url" id="urlInput" placeholder="🔗 Enter M3U or M3U8 file URL">
       <input type="file" id="fileInput" accept=".m3u,.m3u8">
@@ -249,13 +313,15 @@
     }
 
     function showLevelOne() {
-        document.getElementById('uploadSection').style.display='block';
+        document.getElementById('loginSection').style.display='block';
         document.getElementById('mainLayout').style.display='none';
         document.getElementById('playerArea').style.display='none';
+        document.getElementById('errorMessage').textContent = ''; 
         updateHeader(1);
     }
+
     function showLevelTwoAndThree() {
-        document.getElementById('uploadSection').style.display='none';
+        document.getElementById('loginSection').style.display='none';
         document.getElementById('mainLayout').style.display='flex';
         document.getElementById('playerArea').style.display='block';
         updateCategoriesBar();
@@ -288,39 +354,70 @@
             div.className='category-item';
             div.setAttribute('data-category',category);
             div.onclick = ()=>showCategory(category);
-            div.innerHTML=`<span class="category-icon"><i class="${iconClass}"></i></span><span style="flex-grow:1;text-align:left;">${category}</span>`;
+            div.innerHTML=`<span class="category-icon"><i class="${iconClass}"></i></span><span style="flex-grow:1;text-align:left;margin-left:5px;">${category}</span>`;
             bar.appendChild(div);
         });
     }
 
-    async function loadChannels() {
-      const url=document.getElementById('urlInput').value.trim();
-      const fileInput=document.getElementById('fileInput');
-      const textContent=document.getElementById('m3uContent').value.trim();
-      if(url||fileInput.files.length>0||textContent){
-        try{
-          let content='';
-          if(url){ content=await fetchM3U(url); }
-          else if(fileInput.files.length>0){
-            content=await new Promise((resolve,reject)=>{
-              const reader=new FileReader();
-              reader.onload=e=>resolve(e.target.result);
-              reader.onerror=reject;
-              reader.readAsText(fileInput.files[0]);
-            });
-          } else if(textContent){ content=textContent; }
+    // دالة جديدة لتحميل القنوات من الرابط الثابت بعد التحقق
+    async function loadChannelsFromInput(url) {
+      if (!url) {
+          document.getElementById('errorMessage').textContent = '🚫 خطأ: لم يتم تحديد رابط M3U.';
+          return;
+      }
+      try {
+          const content = await fetchM3U(url);
           parseM3U(content);
           showLevelTwoAndThree();
-        } catch(e){ alert('Failed to load list: '+e.message); }
-      } else{ alert('Please enter a URL, upload a file, or paste content.'); }
+      } catch (e) {
+          document.getElementById('errorMessage').textContent = '❌ فشل تحميل القائمة: تأكد من الرابط أو مشكلة في الخادم.';
+          console.error('Manual load failed:', e);
+      }
     }
 
+    // دالة التحقق من رمز الدخول (تم تعديلها لاستخدام رابط ثابت)
+    function checkCode() {
+        // **الرابط الثابت المطلوب للتحميل**
+        const CHANNEL_URL = 'https://lokans.github.io/Lokan/playlist.m3u'; 
+        
+        const codeInput = document.getElementById('codeInput');
+        const code = codeInput.value.trim();
+        const errorMsg = document.getElementById('errorMessage');
+        errorMsg.textContent = '';
+
+        if (code.length !== 8 || !/^\d+$/.test(code)) {
+            errorMsg.textContent = 'Code Error .';
+            return;
+        }
+
+        let sum = 0;
+        for (let i = 0; i < code.length; i++) {
+            sum += parseInt(code[i], 10);
+        }
+
+        if (sum === 20) {
+            errorMsg.textContent = '✅ رمز صحيح! يتم تحميل القنوات...';
+            // إذا كان الرمز صحيحاً، قم بتحميل القنوات من الرابط الثابت
+            loadChannelsFromInput(CHANNEL_URL); 
+        } else {
+            errorMsg.textContent = `الرمز غير صحيح`;
+        }
+    }
+
+    // دالة جلب M3U المعدلة لتجاوز مشكلة CORS
     async function fetchM3U(url){
+      // استخدام خدمة بروكسي لتجاوز قيود CORS (corsproxy.io)
+      const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(url);
+
       try{
-        const res=await fetch(url,{ headers:{'Cache-Control':'no-cache'}, mode:'cors' });
-        if(!res.ok) throw new Error(`Failed to fetch M3U list. Status: ${res.status}`);
+        const res=await fetch(proxyUrl,{ headers:{'Cache-Control':'no-cache'}, mode:'cors' });
+        
+        if(!res.ok) throw new Error(`Failed to fetch M3U list via proxy. Status: ${res.status}`);
         return await res.text();
-      } catch(error){ console.error('Fetch M3U Error:', error); throw new Error(`Network Error: ${error.message}`); }
+      } catch(error){ 
+          console.error('Fetch M3U Error:', error); 
+          throw new Error(`Network Error or CORS issue: ${error.message}`); 
+      }
     }
 
     function parseM3U(content){
@@ -373,8 +470,13 @@
       });
     }
 
+    function loadChannels() {
+        // هذه الدالة كانت تستخدم لتحميل القائمة اليدوي، تم إيقافها الآن
+        // والاعتماد على loadChannelsFromInput بعد التحقق
+    }
+
     document.addEventListener('DOMContentLoaded', showLevelOne);
   </script>
 
 </body>
-  </html>
+</html>
