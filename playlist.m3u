@@ -56,44 +56,28 @@ http://tayaar.xyz/live/464748339/637473833/101099.m3u8
 http://tayaar.xyz/live/464748339/637473833/101100.m3u8
 #EXTINF:-1 tvg-id="LokanStore@9j" tvg-name="MBC 4" group-title="bein",beIN News
 http://tayaar.xyz/live/464748339/637473833/101100.m3u8
-#EXTINF:-1 tvg-id="LokanStore91" tvg-name="ENTV" tvg-logo="https://upload.wikimedia.org/wikipedia/fr/thumb/7/72/Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg/866px-Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg.png" group-title="dz", ENTV
+
+#EXTINF:-1 tvg-id="LokanStore91" tvg-name="ENTV" tvg-logo="https://upload.wikimedia.org/wikipedia/fr/thumb/7/72/Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg/866px-Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg.png" group-title="dz",ENTV
 http://tayaar.xyz/live/464748339/637473833/379472.m3u8
 
-#EXTINF:-1 tvg-id="LokanStore92" tvg-name="canalalger" tvg-logo="https://upload.wikimedia.org/wikipedia/fr/thumb/7/72/Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg/866px-Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg.png" group-title="dz",Canal Algeria
+#EXTINF:-1 tvg-id="LokanStore92" tvg-name="canalalger" tvg-logo="https://upload.wikimedia.org/wikipedia/fr/f/fc/Logo_de_Canal_Alg%C3%A9rie_%282020%29.svg.png" group-title="dz",Canal Algerie
+http://tayaar.xyz/live/464748339/637473833/379471.m3u8
+
+#EXTINF:-1 tvg-id="LokanStore93" tvg-name="ENTV" tvg-logo="https://upload.wikimedia.org/wikipedia/fr/4/4b/Logo_de_TV4_Alg%C3%A9rie_version_arabe_%282020%29.svg.png" group-title="dz",TV4
 http://tayaar.xyz/live/464748339/637473833/379467.m3u8
 
-#EXTINF:-1 tvg-id="LokanStore93" tvg-name="TV3" tvg-logo="https://upload.wikimedia.org/wikipedia/fr/thumb/7/72/Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg/866px-Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg.png" group-title="dz",TV3
-http://tayaar.xyz/live/464748339/637473833/379468.m3u8
-
-#EXTINF:-1 tvg-id="LokanStore91" tvg-name="ENTV" tvg-logo="https://upload.wikimedia.org/wikipedia/fr/thumb/7/72/Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg/866px-Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg.png" group-title="dz",Tv3
-http://tayaar.xyz/live/464748339/637473833/379469.m3u8
-
-#EXTINF:-1 tvg-id="LokanStore91" tvg-name="ENTV" tvg-logo="https://upload.wikimedia.org/wikipedia/fr/thumb/7/72/Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg/866px-Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg.png" group-title="dz",TV4
-http://tayaar.xyz/live/464748339/637473833/379471.m3u8
-
-#EXTINF:-1 tvg-id="LokanStore91" tvg-name="ENTV" tvg-logo="https://upload.wikimedia.org/wikipedia/fr/thumb/7/72/Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg/866px-Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg.png" group-title="dz",TV5
+#EXTINF:-1 tvg-id="LokanStore91" tvg-name="ENTV" tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/a/a5/TV5_Algeria_logo_%282020%29.svg/1015px-TV5_Algeria_logo_%282020%29.svg.png" group-title="dz",TV5
 http://tayaar.xyz/live/464748339/637473833/379466.m3u8
 
-#EXTINF:-1 tvg-id="LokanStore91" tvg-name="ENTV" tvg-logo="https://upload.wikimedia.org/wikipedia/fr/thumb/7/72/Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg/866px-Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg.png" group-title="dz",Ennahar Tv
+#EXTINF:-1 tvg-id="LokanStore91" tvg-name="ENTV" tvg-logo="https://upload.wikimedia.org/wikipedia/fr/thumb/0/0f/Ennahar_TV_%28logo_actuel%29.svg/1200px-Ennahar_TV_%28logo_actuel%29.svg.png" group-title="dz",Ennahar_TV
 http://tayaar.xyz/live/464748339/637473833/379462.m3u8
 
-#EXTINF:-1 tvg-id="LokanStore91" tvg-name="ENTV" tvg-logo="https://upload.wikimedia.org/wikipedia/fr/thumb/7/72/Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg/866px-Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg.png" group-title="dz",Echorouk TV
-http://tayaar.xyz/live/464748339/637473833/379457.m3u8
-
-#EXTINF:-1 tvg-id="LokanStore91" tvg-name="ENTV" tvg-logo="https://upload.wikimedia.org/wikipedia/fr/thumb/7/72/Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg/866px-Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg.png" group-title="dz",Echorouk News
-http://tayaar.xyz/live/464748339/637473833/379458.m3u8
-
-#EXTINF:-1 tvg-id="LokanStore91" tvg-name="ENTV" tvg-logo="https://upload.wikimedia.org/wikipedia/fr/thumb/7/72/Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg/866px-Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg.png" group-title="dz",Elbilad
-http://tayaar.xyz/live/464748339/637473833/379459.m3u8
-
-#EXTINF:-1 tvg-id="LokanStore91" tvg-name="ENTV" tvg-logo="https://upload.wikimedia.org/wikipedia/fr/thumb/7/72/Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg/866px-Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg.png" group-title="dz",Elhadaf
-http://tayaar.xyz/live/464748339/637473833/379460.m3u8
-
-#EXTINF:-1 tvg-id="LokanStore91" tvg-name="ENTV" tvg-logo="https://upload.wikimedia.org/wikipedia/fr/thumb/7/72/Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg/866px-Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg.png" group-title="dz",Elhayat
+#EXTINF:-1 tvg-id="LokanStore91" tvg-name="ENTV" tvg-logo="https://upload.wikimedia.org/wikipedia/fr/e/e1/Echorouk_News.png" group-title="dz",Echourouk News
 http://tayaar.xyz/live/464748339/637473833/379461.m3u8
 
-#EXTINF:-1 tvg-id="LokanStore91" tvg-name="ENTV" tvg-logo="https://upload.wikimedia.org/wikipedia/fr/thumb/7/72/Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg/866px-Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg.png" group-title="dz",ENTV1
-http://tayaar.xyz/live/464748339/637473833/379471.m3u8
+#EXTINF:-1 tvg-id="LokanStore91" tvg-name="ENTV" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/e/ed/El_Fadjer_TV.png" group-title="dz",El_Fadjer TV
+http://tayaar.xyz/live/464748339/637473833/379459.m3u8
+
 #EXTINF:-1 tvg-id="LokanStore@9k" tvg-name="AL24" tvg-logo="https://i.imgur.com/vyVEXYL.png" group-title="algeria",AL24
 https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/playlist.m3u8
 
