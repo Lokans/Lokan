@@ -1,5 +1,4 @@
 #EXTM3U
-#EXTM3U
 #EXTINF:-1 tvg-id="LokanStore@1" tvg-name="beIN Sports SD 1" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="beIN Sports SD",beIN Sport SD 1
 http://tayaar.xyz/live/464748339/637473833/214574.m3u8
 #EXTINF:-1 tvg-id="LokanStore@2" tvg-name="beIN Sports SD 2" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="beIN Sports SD",beIN Sport SD 2
@@ -54,8 +53,25 @@ http://tayaar.xyz/live/464748339/637473833/101098.m3u8
 http://tayaar.xyz/live/464748339/637473833/101099.m3u8
 #EXTINF:-1 tvg-id="LokanStore@9i" tvg-name="beIN Sports FHD 9" group-title="beIN Sports FHD",beIN Sport FHD 9
 http://tayaar.xyz/live/464748339/637473833/101100.m3u8
-#EXTINF:-1 tvg-id="LokanStore@9j" tvg-name="MBC 4" group-title="bein",beIN News
-http://tayaar.xyz/live/464748339/637473833/101100.m3u8
+#EXTINF:-1 tvg-id="LokanStore910" tvg-name="xtra1" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="bein sports",beIN XTRA 1 SD
+http://tayaar.xyz/live/464748339/637473833/158324.m3u8
+#EXTINF:-1 tvg-id="LokanStore920" tvg-name="xtra2" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="bein sports",beIN XTRA 2 SD
+http://tayaar.xyz/live/464748339/637473833/158323.m3u8
+#EXTINF:-1 tvg-id="LokanStore91" tvg-name="Xtra4" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="bein sports",beIN XTRA 4 SD
+http://tayaar.xyz/live/464748339/637473833/158321.m3u8
+#EXTINF:-1 tvg-id="LokanStore91" tvg-name="Xtra5" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="bein sports",beIN XTRA 5 SD
+http://tayaar.xyz/live/464748339/637473833/158320.m3u8
+#EXTINF:-1 tvg-id="LokanStore91" tvg-name="Xtra6" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="bein sports",beIN XTRA 6 SD
+http://tayaar.xyz/live/464748339/637473833/158319.m3u8
+#EXTINF:-1 tvg-id="LokanStore91" tvg-name="Xtra7" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="bein sports",beIN XTRA 7 SD
+http://tayaar.xyz/live/464748339/637473833/158318.m3u8
+#EXTINF:-1 tvg-id="LokanStore@ds1" tvg-name="beIN XTRA 8 SD" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="bein sports",beIN XTRA 8 SD
+http://tayaar.xyz/live/464748339/637473833/158317.m3u8
+#EXTINF:-1 tvg-id="LokanStore @ds2" tvg-name="beIN XTRA 9 SD" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="bein sports",beIN XTRA 9 SD
+http://tayaar.xyz/live/464748339/637473833/158316.m3u8
+#EXTINF:-1 tvg-id="LokanStore930" tvg-name="xtra3" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="dz",beIN XTRA 3 SD
+http://tayaar.xyz/live/464748339/637473833/158322.m3u8
+
 
 #EXTINF:-1 tvg-id="LokanStore91" tvg-name="ENTV" tvg-logo="https://upload.wikimedia.org/wikipedia/fr/thumb/7/72/Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg/866px-Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg.png" group-title="dz",ENTV
 http://tayaar.xyz/live/464748339/637473833/379472.m3u8
