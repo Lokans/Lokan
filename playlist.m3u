@@ -56,6 +56,32 @@ http://tayaar.xyz/live/464748339/637473833/101098.m3u8
 http://tayaar.xyz/live/464748339/637473833/101099.m3u8
 #EXTINF:-1 tvg-id="LokanStore@9i" tvg-name="beIN Sports FHD 9" group-title="beIN Sports FHD",beIN Sport FHD 9
 http://tayaar.xyz/live/464748339/637473833/101100.m3u8
+
+#EXTINF:-1 tvg-id="LokanStore@y1" tvg-name="beIN AFCON SD 1" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="beIN Sports SD",beIN AFCON 1 SD
+http://tayaar.xyz/live/464748339/637473833/501492.m3u8
+#EXTINF:-1 tvg-id="LokanStore@h2" tvg-name="beIN AFCON 2 SD" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="beIN Sports SD",beIN AFCON 2 SD
+http://tayaar.xyz/live/464748339/637473833/501491.m3u8
+#EXTINF:-1 tvg-id="LokanStore@f3" tvg-name="beIN AFCON SD 3" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="beIN Sports SD",beIN AFCON 3 SD
+http://tayaar.xyz/live/464748339/637473833/501598.m3u8
+#EXTINF:-1 tvg-id="LokanStore@u4" tvg-name="beIN Sports SD 4" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="beIN Sports SD",beIN AFCON 1 HD
+http://tayaar.xyz/live/464748339/637473833/501490.m3u8
+#EXTINF:-1 tvg-id="LokanStore@l5" tvg-name="beIN AFCON 2hd" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="beIN Sports SD",beIN AFCON 2 HD
+http://tayaar.xyz/live/464748339/637473833/501489.m3u8
+#EXTINF:-1 tvg-id="LokanStore@e6" tvg-name="beIN Sports SD 6" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="beIN Sports SD",beIN AFCON 3 HD
+http://tayaar.xyz/live/464748339/637473833/501597.m3u8
+#EXTINF:-1 tvg-id="LokanStore@g7" tvg-name="beIN Sports SD 7" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="beIN Sports SD",beIN AFCON 1 FHD
+http://tayaar.xyz/live/464748339/637473833/501600.m3u8
+#EXTINF:-1 tvg-id="LokanStore@t8" tvg-name="beIN Sports SD 8" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="beIN Sports SD",beIN AFCON 2 FHD
+http://tayaar.xyz/live/464748339/637473833/501599.m3u8
+#EXTINF:-1 tvg-id="LokanStore@b9" tvg-name="beIN Sports SD 9" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="beIN Sports SD",beIN AFCON 3 FHD
+http://tayaar.xyz/live/464748339/637473833/501596.m3u8
+#EXTINF:-1 tvg-id="LokanStore@s11" tvg-name="beIN Sports HD 1" group-title="beIN Sports HD",beIN AFCON 4K 1
+http://tayaar.xyz/live/464748339/637473833/501488.m3u8
+#EXTINF:-1 tvg-id="LokanStore@gg22" tvg-name="beIN Sports HD 2" group-title="beIN Sports HD",beIN AFCON 4K 2
+http://tayaar.xyz/live/464748339/637473833/501487.m3u8
+#EXTINF:-1 tvg-id="LokanStore@x33" tvg-name="beIN Sports HD 3" group-title="beIN Sports HD",beIN AFCON 4K 3
+http://tayaar.xyz/live/464748339/637473833/501595.m3u8
+
 #EXTINF:-1 tvg-id="LokanStore9x" tvg-name="xtra1" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="bein sports",beIN XTRA 1 SD
 http://tayaar.xyz/live/464748339/637473833/158324.m3u8
 #EXTINF:-1 tvg-id="LokanStore91" tvg-name="Xtra1" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="bein sports",beIN XTRA 1 HD
