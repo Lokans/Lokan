@@ -60,71 +60,593 @@ http://tayaar.xyz/live/464748339/637473833/101100.m3u8
 #EXTINF:-1 tvg-id="LokanStore@y1" tvg-name="beIN AFCON SD 1" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="beIN Sports SD",beIN AFCON 1 SD
 http://tayaar.xyz/live/464748339/637473833/501492.m3u8
 #EXTINF:-1 tvg-id="LokanStore@h2" tvg-name="beIN AFCON 2 SD" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="beIN Sports SD",beIN AFCON 2 SD
-http://tayaar.xyz/live/464748339/637473833/501491.m3u8
-#EXTINF:-1 tvg-id="LokanStore@f3" tvg-name="beIN AFCON SD 3" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="beIN Sports SD",beIN AFCON 3 SD
-http://tayaar.xyz/live/464748339/637473833/501598.m3u8
-#EXTINF:-1 tvg-id="LokanStore@u4" tvg-name="beIN Sports SD 4" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="beIN Sports SD",beIN AFCON 1 HD
-http://tayaar.xyz/live/464748339/637473833/501490.m3u8
-#EXTINF:-1 tvg-id="LokanStore@l5" tvg-name="beIN AFCON 2hd" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="beIN Sports SD",beIN AFCON 2 HD
-http://tayaar.xyz/live/464748339/637473833/501489.m3u8
-#EXTINF:-1 tvg-id="LokanStore@e6" tvg-name="beIN Sports SD 6" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="beIN Sports SD",beIN AFCON 3 HD
-http://tayaar.xyz/live/464748339/637473833/501597.m3u8
-#EXTINF:-1 tvg-id="LokanStore@g7" tvg-name="beIN Sports SD 7" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="beIN Sports SD",beIN AFCON 1 FHD
-http://tayaar.xyz/live/464748339/637473833/501600.m3u8
-#EXTINF:-1 tvg-id="LokanStore@t8" tvg-name="beIN Sports SD 8" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="beIN Sports SD",beIN AFCON 2 FHD
-http://tayaar.xyz/live/464748339/637473833/501599.m3u8
-#EXTINF:-1 tvg-id="LokanStore@b9" tvg-name="beIN Sports SD 9" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="beIN Sports SD",beIN AFCON 3 FHD
-http://tayaar.xyz/live/464748339/637473833/501596.m3u8
-#EXTINF:-1 tvg-id="LokanStore@s11" tvg-name="beIN Sports HD 1" group-title="beIN Sports HD",beIN AFCON 4K 1
-http://tayaar.xyz/live/464748339/637473833/501488.m3u8
-#EXTINF:-1 tvg-id="LokanStore@gg22" tvg-name="beIN Sports HD 2" group-title="beIN Sports HD",beIN AFCON 4K 2
-http://tayaar.xyz/live/464748339/637473833/501487.m3u8
-#EXTINF:-1 tvg-id="LokanStore@x33" tvg-name="beIN Sports HD 3" group-title="beIN Sports HD",beIN AFCON 4K 3
-http://tayaar.xyz/live/464748339/637473833/501595.m3u8
-
-#EXTINF:-1 tvg-id="LokanStore9x" tvg-name="xtra1" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="bein sports",beIN XTRA 1 SD
-http://tayaar.xyz/live/464748339/637473833/158324.m3u8
-#EXTINF:-1 tvg-id="LokanStore91" tvg-name="Xtra1" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="bein sports",beIN XTRA 1 HD
-http://tayaar.xyz/live/464748339/637473833/158322.m3u8
-#EXTINF:-1 tvg-id="LokanStore91" tvg-name="Xtra1" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="bein sports",beIN XTRA 1 4K
-http://tayaar.xyz/live/464748339/637473833/158318.m3u8
-
-#EXTINF:-1 tvg-id="LokanStore920" tvg-name="xtra2" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="bein sports",beIN XTRA 2 SD
-http://tayaar.xyz/live/464748339/637473833/158323.m3u8
-#EXTINF:-1 tvg-id="LokanStore91a" tvg-name="Xtra2" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="bein sports",beIN XTRA 2 HD
-http://tayaar.xyz/live/464748339/637473833/158321.m3u8
-#EXTINF:-1 tvg-id="LokanStore91b" tvg-name="Xtra2" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="bein sports",beIN XTRA 2 4K
-http://tayaar.xyz/live/464748339/637473833/158317.m3u8
-
-#EXTINF:-1 tvg-id="LokanStore91" tvg-name="Xtra3" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="bein sports",beIN XTRA 3 SD
-http://tayaar.xyz/live/464748339/637473833/214565.m3u8
-#EXTINF:-1 tvg-id="LokanStore91" tvg-name="Xtra3" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="bein sports",beIN XTRA 3 HD
-http://tayaar.xyz/live/464748339/637473833/214575.m3u8
-#EXTINF:-1 tvg-id="LokanStore91" tvg-name="Xtra3" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="bein sports",beIN XTRA 3 4K
-http://tayaar.xyz/live/464748339/637473833/214585.m3u8
-
-
-#EXTINF:-1 tvg-id="LokanStore91" tvg-name="ENTV" tvg-logo="https://upload.wikimedia.org/wikipedia/fr/thumb/7/72/Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg/866px-Logo_de_TV1_Alg%C3%A9rie_%282020%29.svg.png" group-title="dz",ENTV
-http://tayaar.xyz/live/464748339/637473833/379472.m3u8
-
-#EXTINF:-1 tvg-id="LokanStore92" tvg-name="canalalger" tvg-logo="https://upload.wikimedia.org/wikipedia/fr/f/fc/Logo_de_Canal_Alg%C3%A9rie_%282020%29.svg" group-title="dz",Canal Algerie
-http://tayaar.xyz/live/464748339/637473833/379471.m3u8
-
-#EXTINF:-1 tvg-id="LokanStore93" tvg-name="ENTV" tvg-logo="https://upload.wikimedia.org/wikipedia/fr/4/4b/Logo_de_TV4_Alg%C3%A9rie_version_arabe_%282020%29.svg" group-title="dz",TV4
-http://tayaar.xyz/live/464748339/637473833/379467.m3u8
-
-#EXTINF:-1 tvg-id="LokanStore91" tvg-name="ENTV" tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/a/a5/TV5_Algeria_logo_%282020%29.svg/1015px-TV5_Algeria_logo_%282020%29.svg.png" group-title="dz",TV5
-http://tayaar.xyz/live/464748339/637473833/379466.m3u8
-
-#EXTINF:-1 tvg-id="LokanStore91" tvg-name="ENTV" tvg-logo="https://upload.wikimedia.org/wikipedia/fr/thumb/0/0f/Ennahar_TV_%28logo_actuel%29.svg/1200px-Ennahar_TV_%28logo_actuel%29.svg.png" group-title="dz",Ennahar_TV
-http://tayaar.xyz/live/464748339/637473833/379462.m3u8
-
-#EXTINF:-1 tvg-id="LokanStore91" tvg-name="ENTV" tvg-logo="https://upload.wikimedia.org/wikipedia/fr/e/e1/Echorouk_News.png" group-title="dz",Echourouk News
-http://tayaar.xyz/live/464748339/637473833/379461.m3u8
-
-#EXTINF:-1 tvg-id="LokanStore91" tvg-name="ENTV" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/e/ed/El_Fadjer_TV.png" group-title="dz",El_Fadjer TV
-http://tayaar.xyz/live/464748339/637473833/379459.m3u8
-
+#EXTM3U
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| Pitchoun Kids Music HD" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/TV_Pitchoun_Pari.png" group-title="|FR| ✪ ENFANT",|FR| Pitchoun Kids Music HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1816133
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| INFORMATIONS SUR LE SERVICE" tvg-logo="https://www.herault-tribune.com/wp-content/uploads/2021/03/2020-06-13_083257_new_Info1-500x318-1.jpg" group-title="|FR| ✪ TNT HD",|FR| INFORMATIONS SUR LE SERVICE
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1515460
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| STAR ACADEMY" tvg-logo="https://lo1.in/fr/STARAC.png" group-title="|FR| ✪ TNT HD",|FR| STAR ACADEMY
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1765852
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| STAR ACADEMY HD" tvg-logo="https://lo1.in/fr/STARAC.png" group-title="|FR| ✪ TNT HD",|FR| STAR ACADEMY HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1749297
+#EXTINF:-1 tvg-ID="tf1.fr" tvg-name="|FR| TF1 ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5037.png" group-title="|FR| ✪ TNT HD",|FR| TF1 ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/148461
+#EXTINF:-1 tvg-ID="tf1.fr" tvg-name="|FR| TF1 HD" tvg-logo="http://138.199.27.237:8080/0tv_logo/5037.png" group-title="|FR| ✪ TNT HD",|FR| TF1 HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/269
+#EXTINF:-1 tvg-ID="tf1.fr" tvg-name="|FR| TF1 HD +4" tvg-logo="http://138.199.27.237:8080/FRANCE/TF1HD+4.png" group-title="|FR| ✪ TNT HD",|FR| TF1 HD +4
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/31505
+#EXTINF:-1 tvg-ID="tf1.fr" tvg-name="|FR| TF1 ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5037.png" group-title="|FR| ✪ TNT HEVC",|FR| TF1 ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32750
+#EXTINF:-1 tvg-ID="tf1.fr" tvg-name="|FR| TF1 ˢᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/TF1HD.png" group-title="|FR| ✪ TNT SD",|FR| TF1 ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12775
+#EXTINF:-1 tvg-ID="tf1.fr" tvg-name="|FR| TF1  1 ˢᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5037.png" group-title="|FR| ✪ TNT SD",|FR| TF1  1 ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12776
+#EXTINF:-1 tvg-ID="france2.fr" tvg-name="|FR| FRANCE 2 ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5052.png" group-title="|FR| ✪ TNT HD",|FR| FRANCE 2 ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/148463
+#EXTINF:-1 tvg-ID="france2.fr" tvg-name="|FR| France 2 HD" tvg-logo="http://138.199.27.237:8080/0tv_logo/5052.png" group-title="|FR| ✪ TNT HD",|FR| France 2 HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/274
+#EXTINF:-1 tvg-ID="france2.fr" tvg-name="|FR| France 2 HD +4" tvg-logo="http://138.199.27.237:8080/0tv_logo/5052.png" group-title="|FR| ✪ TNT HD",|FR| France 2 HD +4
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/31507
+#EXTINF:-1 tvg-ID="france2.fr" tvg-name="|FR| FRANCE 2 ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5052.png" group-title="|FR| ✪ TNT HEVC",|FR| FRANCE 2 ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32752
+#EXTINF:-1 tvg-ID="france2.fr" tvg-name="|FR| FRANCE 2 ˢᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5052.png" group-title="|FR| ✪ TNT SD",|FR| FRANCE 2 ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12852
+#EXTINF:-1 tvg-ID="france2.fr" tvg-name="|FR| FRANCE 2 ˢᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5052.png" group-title="|FR| ✪ TNT SD",|FR| FRANCE 2 ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12851
+#EXTINF:-1 tvg-ID="france3.fr" tvg-name="|FR| FRANCE 3 ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| FRANCE 3 ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/148466
+#EXTINF:-1 tvg-ID="france3.fr" tvg-name="|FR| France 3 HD" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| France 3 HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/275
+#EXTINF:-1 tvg-ID="france3.fr" tvg-name="|FR| FRANCE 3 ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HEVC",|FR| FRANCE 3 ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32753
+#EXTINF:-1 tvg-ID="france3.fr" tvg-name="|FR| FRANCE 3 ˢᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT SD",|FR| FRANCE 3 ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12850
+#EXTINF:-1 tvg-ID="france3.fr" tvg-name="|FR| FRANCE 3 NOA HD" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| FRANCE 3 NOA HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/22059
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| FRANCE 3 GRAND EST HD" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/france/france-3-fr.png" group-title="|FR| ✪ TNT HD",|FR| FRANCE 3 GRAND EST HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1233564
+#EXTINF:-1 tvg-ID="france4.fr" tvg-name="|FR| FRANCE 4 ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5054.png" group-title="|FR| ✪ TNT HD",|FR| FRANCE 4 ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/148467
+#EXTINF:-1 tvg-ID="france4.fr" tvg-name="|FR| France 4 HD" tvg-logo="http://138.199.27.237:8080/0tv_logo/5054.png" group-title="|FR| ✪ TNT HD",|FR| France 4 HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/276
+#EXTINF:-1 tvg-ID="france4.fr" tvg-name="|FR| FRANCE 4 ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5054.png" group-title="|FR| ✪ TNT HEVC",|FR| FRANCE 4 ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32754
+#EXTINF:-1 tvg-ID="france4.fr" tvg-name="|FR| FRANCE 4 ˢᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5054.png" group-title="|FR| ✪ TNT SD",|FR| FRANCE 4 ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12849
+#EXTINF:-1 tvg-ID="france5.fr" tvg-name="|FR| FRANCE 5 ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5096.png" group-title="|FR| ✪ TNT HD",|FR| FRANCE 5 ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/148468
+#EXTINF:-1 tvg-ID="france5.fr" tvg-name="|FR| France 5 HD" tvg-logo="http://138.199.27.237:8080/0tv_logo/5096.png" group-title="|FR| ✪ TNT HD",|FR| France 5 HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/277
+#EXTINF:-1 tvg-ID="france5.fr" tvg-name="|FR| FRANCE 5 ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5096.png" group-title="|FR| ✪ TNT HEVC",|FR| FRANCE 5 ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32755
+#EXTINF:-1 tvg-ID="france5.fr" tvg-name="|FR| FRANCE 5 ˢᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5096.png" group-title="|FR| ✪ TNT SD",|FR| FRANCE 5 ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12848
+#EXTINF:-1 tvg-ID="arte.fr" tvg-name="|FR| ARTE HD" tvg-logo="http://138.199.27.237:8080/NEDERLAND/ARTE.png" group-title="|FR| ✪ TNT HD",|FR| ARTE HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/7411
+#EXTINF:-1 tvg-ID="arte.fr" tvg-name="|FR| ARTE ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/NEDERLAND/ARTE.png" group-title="|FR| ✪ TNT HEVC",|FR| ARTE ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32757
+#EXTINF:-1 tvg-ID="arte.fr" tvg-name="|FR| ARTE ˢᴰ" tvg-logo="http://138.199.27.237:8080/NEDERLAND/ARTE.png" group-title="|FR| ✪ TNT SD",|FR| ARTE ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12907
+#EXTINF:-1 tvg-ID="m6.fr" tvg-name="|FR| M6 ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5038.png" group-title="|FR| ✪ TNT HD",|FR| M6 ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/148462
+#EXTINF:-1 tvg-ID="m6.fr" tvg-name="|FR| M6 HD" tvg-logo="http://138.199.27.237:8080/0tv_logo/5038.png" group-title="|FR| ✪ TNT HD",|FR| M6 HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/270
+#EXTINF:-1 tvg-ID="m6.fr" tvg-name="|FR| M6 ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5038.png" group-title="|FR| ✪ TNT HEVC",|FR| M6 ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32756
+#EXTINF:-1 tvg-ID="m6.fr" tvg-name="|FR| M6 ˢᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5038.png" group-title="|FR| ✪ TNT SD",|FR| M6 ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12826
+#EXTINF:-1 tvg-ID="m6.fr" tvg-name="|FR| M6 HD +3" tvg-logo="http://138.199.27.237:8080/FRANCE/M6%2B3.png" group-title="|FR| ✪ TNT HD",|FR| M6 HD +3
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/31506
+#EXTINF:-1 tvg-ID="6ter.fr" tvg-name="|FR| 6TER ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5089.png" group-title="|FR| ✪ TNT HD",|FR| 6TER ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/148473
+#EXTINF:-1 tvg-ID="6ter.fr" tvg-name="|FR| 6TER HD" tvg-logo="http://138.199.27.237:8080/0tv_logo/5089.png" group-title="|FR| ✪ TNT HD",|FR| 6TER HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/11035
+#EXTINF:-1 tvg-ID="6ter.fr" tvg-name="|FR| 6TER ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5089.png" group-title="|FR| ✪ TNT HEVC",|FR| 6TER ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32758
+#EXTINF:-1 tvg-ID="6ter.fr" tvg-name="|FR| 6TER ˢᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5089.png" group-title="|FR| ✪ TNT SD",|FR| 6TER ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12915
+#EXTINF:-1 tvg-ID="w9.fr" tvg-name="|FR| W9 ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5055.png" group-title="|FR| ✪ TNT HD",|FR| W9 ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/148464
+#EXTINF:-1 tvg-ID="w9.fr" tvg-name="|FR| W9 HD" tvg-logo="http://138.199.27.237:8080/0tv_logo/5055.png" group-title="|FR| ✪ TNT HD",|FR| W9 HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/271
+#EXTINF:-1 tvg-ID="w9.fr" tvg-name="|FR| W9 ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5055.png" group-title="|FR| ✪ TNT HEVC",|FR| W9 ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32798
+#EXTINF:-1 tvg-ID="w9.fr" tvg-name="|FR| W9 HD +6" tvg-logo="http://138.199.27.237:8080/FRANCE/W9%2B6.png" group-title="|FR| ✪ TNT HD",|FR| W9 HD +6
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/31508
+#EXTINF:-1 tvg-ID="w9.fr" tvg-name="|FR| W9 ˢᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5055.png" group-title="|FR| ✪ TNT SD",|FR| W9 ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12761
+#EXTINF:-1 tvg-ID="nrj12.fr" tvg-name="|FR| NRJ 12 ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5056.png" group-title="|FR| ✪ TNT HD",|FR| NRJ 12 ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/250654
+#EXTINF:-1 tvg-ID="nrj12.fr" tvg-name="|FR| NRJ 12 HD" tvg-logo="http://138.199.27.237:8080/0tv_logo/5056.png" group-title="|FR| ✪ TNT HD",|FR| NRJ 12 HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/321
+#EXTINF:-1 tvg-ID="nrj12.fr" tvg-name="|FR| NRJ12 ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5056.png" group-title="|FR| ✪ TNT HEVC",|FR| NRJ12 ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32802
+#EXTINF:-1 tvg-ID="nrj12.fr" tvg-name="|FR| NRJ 12 ˢᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5056.png" group-title="|FR| ✪ TNT SD",|FR| NRJ 12 ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12811
+#EXTINF:-1 tvg-ID="olympia.fr" tvg-name="|FR| OLYMPIA TV ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/OLYMPIATV.png" group-title="|FR| ✪ TNT HD",|FR| OLYMPIA TV ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/250659
+#EXTINF:-1 tvg-ID="olympia.fr" tvg-name="|FR| Olympia TV" tvg-logo="http://138.199.27.237:8080/FRANCE/OLYMPIATV.png" group-title="|FR| ✪ TNT HD",|FR| Olympia TV
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/272471
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| OLYMPIA TV ᵁᴴᴰ" tvg-logo="http://dmtn.tv:8080/images/PNloraZl_34fTzt064WXypFtLyxjv8qHAKMdBw09SvpP0h3UTk6T3Vx4A3uuMscT.png" group-title="|FR| ✪ TNT HEVC",|FR| OLYMPIA TV ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/274857
+#EXTINF:-1 tvg-ID="tfx.fr" tvg-name="|FR| TFX ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/TFX.png" group-title="|FR| ✪ TNT HD",|FR| TFX ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/250655
+#EXTINF:-1 tvg-ID="tfx.fr" tvg-name="|FR| TFX HD" tvg-logo="http://138.199.27.237:8080/FRANCE/TFX.png" group-title="|FR| ✪ TNT HD",|FR| TFX HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/4546
+#EXTINF:-1 tvg-ID="tfx.fr" tvg-name="|FR| TFX ᵁᴴᴰ" tvg-logo="http://logodmtv.ddns.net/new_logo/PICONS-BOUQUET-FRANCEH265/TFX.png" group-title="|FR| ✪ TNT HEVC",|FR| TFX ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32799
+#EXTINF:-1 tvg-ID="tfx.fr" tvg-name="|FR| TFX ˢᴰ" tvg-logo="http://logodmtv.ddns.net/new_logo/PICONS-BOUQUET-FRANCESD/TFX.png" group-title="|FR| ✪ TNT SD",|FR| TFX ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12773
+#EXTINF:-1 tvg-ID="c8.fr" tvg-name="|FR| C8 ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5093.png" group-title="|FR| ✪ TNT HD",|FR| C8 ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/250656
+#EXTINF:-1 tvg-ID="c8.fr" tvg-name="|FR| C8 HD" tvg-logo="http://138.199.27.237:8080/0tv_logo/5093.png" group-title="|FR| ✪ TNT HD",|FR| C8 HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/272
+#EXTINF:-1 tvg-ID="c8.fr" tvg-name="|FR| C8 ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5093.png" group-title="|FR| ✪ TNT HEVC",|FR| C8 ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32759
+#EXTINF:-1 tvg-ID="c8.fr" tvg-name="|FR| C8 ˢᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5093.png" group-title="|FR| ✪ TNT SD",|FR| C8 ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12891
+#EXTINF:-1 tvg-ID="cstar.fr" tvg-name="|FR| CSTAR ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5094.png" group-title="|FR| ✪ TNT HD",|FR| CSTAR ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/250653
+#EXTINF:-1 tvg-ID="cstar.fr" tvg-name="|FR| CStar HD" tvg-logo="http://138.199.27.237:8080/0tv_logo/5094.png" group-title="|FR| ✪ TNT HD",|FR| CStar HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/316
+#EXTINF:-1 tvg-ID="cstar.fr" tvg-name="|FR| CSTAR ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5094.png" group-title="|FR| ✪ TNT HEVC",|FR| CSTAR ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32797
+#EXTINF:-1 tvg-ID="cstar.fr" tvg-name="|FR| CSTAR ˢᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5094.png" group-title="|FR| ✪ TNT SD",|FR| CSTAR ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12869
+#EXTINF:-1 tvg-ID="t18.fr" tvg-name="|FR| T18  HD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Logo_de_la_cha%C3%AEne_T18.svg/langfr-250px-Logo_de_la_cha%C3%AEne_T18.svg.png" group-title="|FR| ✪ TNT HD",|FR| T18  HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1601735
+#EXTINF:-1 tvg-ID="tmc.fr" tvg-name="|FR| TMC ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5103.png" group-title="|FR| ✪ TNT HD",|FR| TMC ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/148470
+#EXTINF:-1 tvg-ID="tmc.fr" tvg-name="|FR| TMC HD" tvg-logo="http://138.199.27.237:8080/0tv_logo/5103.png" group-title="|FR| ✪ TNT HD",|FR| TMC HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/281
+#EXTINF:-1 tvg-ID="tmc.fr" tvg-name="|FR| TMC ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5103.png" group-title="|FR| ✪ TNT HEVC",|FR| TMC ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32796
+#EXTINF:-1 tvg-ID="tmc.fr" tvg-name="|FR| TMC ˢᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5103.png" group-title="|FR| ✪ TNT SD",|FR| TMC ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12770
+#EXTINF:-1 tvg-ID="tmc.fr" tvg-name="|FR| TMC  1 ˢᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5103.png" group-title="|FR| ✪ TNT SD",|FR| TMC  1 ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12771
+#EXTINF:-1 tvg-ID="tf1seriesfilms.fr" tvg-name="|FR| TF1 SERIES ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/TF1HDFILMSERIES.png" group-title="|FR| ✪ TNT HD",|FR| TF1 SERIES ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/148471
+#EXTINF:-1 tvg-ID="tf1seriesfilms.fr" tvg-name="|FR| TF1 SIERES HD" tvg-logo="http://138.199.27.237:8080/FRANCE/TF1HDFILMSERIES.png" group-title="|FR| ✪ TNT HD",|FR| TF1 SIERES HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/285
+#EXTINF:-1 tvg-ID="tf1seriesfilms.fr" tvg-name="|FR| TF1 SIERES" tvg-logo="http://138.199.27.237:8080/FRANCE/TF1HDFILMSERIES.png" group-title="|FR| ✪ TNT HD",|FR| TF1 SIERES
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1240
+#EXTINF:-1 tvg-ID="tf1seriesfilms.fr" tvg-name="|FR| TF1 SERIES FILMS ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/TF1HDFILMSERIES.png" group-title="|FR| ✪ TNT HEVC",|FR| TF1 SERIES FILMS ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32800
+#EXTINF:-1 tvg-ID="tf1seriesfilms.fr" tvg-name="|FR| TF1 SERIES / FILMS ˢᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/TF1HDFILMSERIES.png" group-title="|FR| ✪ TNT SD",|FR| TF1 SERIES / FILMS ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12774
+#EXTINF:-1 tvg-ID="01tv.fr" tvg-name="|FR|RMC LIFE HD" tvg-logo="https://upload.wikimedia.org/wikipedia/fr/3/36/RMC_Life.png" group-title="|FR| ✪ RMC CHANNEL",|FR|RMC LIFE HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1717075
+#EXTINF:-1 tvg-ID="rmcstory.fr" tvg-name="|FR| RMC Story HD" tvg-logo="http://138.199.27.237:8080/FRANCE/RMCSTORY.png" group-title="|FR| ✪ RMC CHANNEL",|FR| RMC Story HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/10171
+#EXTINF:-1 tvg-ID="rmcstory.fr" tvg-name="|FR| RMC STORY ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/RMCSTORY.png" group-title="|FR| ✪ TNT HEVC",|FR| RMC STORY ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32804
+#EXTINF:-1 tvg-ID="rmcstory.fr" tvg-name="|FR| RMC STORY ˢᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/RMCSTORY.png" group-title="|FR| ✪ TNT SD",|FR| RMC STORY ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12786
+#EXTINF:-1 tvg-ID="trek.fr" tvg-name="TREK" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/TREKFHD.png" group-title="|FR| ✪ DOCUMENTAIRE",TREK
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32824
+#EXTINF:-1 tvg-ID="rmcdecouverte.fr" tvg-name="|FR| RMC DECOUVERTE ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5058.png" group-title="|FR| ✪ DOCUMENTAIRE",|FR| RMC DECOUVERTE ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32818
+#EXTINF:-1 tvg-ID="cherie25.fr" tvg-name="|FR| CHERIE 25 ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5092.png" group-title="|FR| ✪ TNT HD",|FR| CHERIE 25 ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/250652
+#EXTINF:-1 tvg-ID="cherie25.fr" tvg-name="|FR| Cherie 25 HD" tvg-logo="http://138.199.27.237:8080/0tv_logo/5092.png" group-title="|FR| ✪ TNT HD",|FR| Cherie 25 HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/284
+#EXTINF:-1 tvg-ID="cherie25.fr" tvg-name="|FR| CHERIE 25 ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5092.png" group-title="|FR| ✪ TNT HEVC",|FR| CHERIE 25 ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32801
+#EXTINF:-1 tvg-ID="cherie25.fr" tvg-name="|FR| CHERIE 25 ˢᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5092.png" group-title="|FR| ✪ TNT SD",|FR| CHERIE 25 ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12882
+#EXTINF:-1 tvg-ID="" tvg-name="|FR|  SQOOL TV HD" tvg-logo="http://138.199.27.237:8080/FRANCE/SQOOL.png" group-title="|FR| ✪ TNT HD",|FR|  SQOOL TV HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/264410
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| RTS 1 HD" tvg-logo="http://138.199.27.237:8080/FRANCE/RTS1.png" group-title="|FR| ✪ TNT HD",|FR| RTS 1 HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/43951
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| RTS 2 HD" tvg-logo="http://138.199.27.237:8080/FRANCE/RTS2.png" group-title="|FR| ✪ TNT HD",|FR| RTS 2 HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/43952
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| France's Got Talent" tvg-logo="http://138.199.27.237:8080/FRANCE/FGT.png" group-title="|FR| ✪ TNT HD",|FR| France's Got Talent
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/252297
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| Master Chef HD" tvg-logo="http://138.199.27.237:8080/ARABE/MASTERCHEF.png" group-title="|FR| ✪ TNT HD",|FR| Master Chef HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/252281
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| Savoureux.tv" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/Savoureux.jpg" group-title="|FR| ✪ TNT HD",|FR| Savoureux.tv
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/252283
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| Gastronogeek HD" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/1666100336757.jpeg" group-title="|FR| ✪ TNT HD",|FR| Gastronogeek HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/252282
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| Chef Philippe Etchebest" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/philippe-etchebest.jpg" group-title="|FR| ✪ TNT HD",|FR| Chef Philippe Etchebest
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/252284
+#EXTINF:-1 tvg-ID="" tvg-name="| FR | Luxe TV" tvg-logo="http://138.199.27.237:8080/FRANCE/LUXETV.png" group-title="|FR| ✪ TNT HD",| FR | Luxe TV
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/50430
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| 6PLAY FHD" tvg-logo="https://s9.gifyu.com/images/SCXGM.png" group-title="|FR| ✪ TNT HD",|FR| 6PLAY FHD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1080875
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| 6PLAY MAX FHD" tvg-logo="https://s9.gifyu.com/images/SZb0V.webp" group-title="|FR| ✪ TNT HD",|FR| 6PLAY MAX FHD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1081082
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| ES1" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/es12.png" group-title="|FR| ✪ TNT HD",|FR| ES1
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/10908
+#EXTINF:-1 tvg-ID="es1.fr" tvg-name="| FR | ES1" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/es12.png" group-title="|FR| ✪ TNT HD",| FR | ES1
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/27739
+#EXTINF:-1 tvg-ID="syfy.fr" tvg-name="|FR| SyFy HD" tvg-logo="http://138.199.27.237:8080/0tv_logo/5068.png" group-title="|FR| ✪ TNT HD",|FR| SyFy HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/318
+#EXTINF:-1 tvg-ID="syfy.fr" tvg-name="|FR| SYFY ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5068.png" group-title="|FR| ✪ TNT HEVC",|FR| SYFY ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32817
+#EXTINF:-1 tvg-ID="13emerue.fr" tvg-name="|FR| 13eme Rue HD" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/13-EME-RUE.png" group-title="|FR| ✪ TNT HD",|FR| 13eme Rue HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/268
+#EXTINF:-1 tvg-ID="13emerue.fr" tvg-name="|FR| 13EME RUE ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/13-EME-RUE.png" group-title="|FR| ✪ TNT HEVC",|FR| 13EME RUE ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32790
+#EXTINF:-1 tvg-ID="13emerue.fr" tvg-name="|FR| 13EME RUE ˢᴰ" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/13-EME-RUE.png" group-title="|FR| ✪ TNT SD",|FR| 13EME RUE ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12916
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| E HD France" tvg-logo="http://138.199.27.237:8080/FRANCE/E!ENTERTAINMENTHD.png" group-title="|FR| ✪ TNT HD",|FR| E HD France
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/317
+#EXTINF:-1 tvg-ID="eentertainment.fr" tvg-name="|FR| E ENTERTAINMENT ˢᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/E!ENTERTAINMENTHD.png" group-title="|FR| ✪ TNT SD",|FR| E ENTERTAINMENT ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12859
+#EXTINF:-1 tvg-ID="teva.fr" tvg-name="|FR| TEVA ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/TEVAHD.png" group-title="|FR| ✪ TNT HD",|FR| TEVA ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/250657
+#EXTINF:-1 tvg-ID="teva.fr" tvg-name="|FR| Teva HD" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/TEVAHD.png" group-title="|FR| ✪ TNT HD",|FR| Teva HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/283
+#EXTINF:-1 tvg-ID="teva.fr" tvg-name="|FR| TEVA ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/TEVAHD.png" group-title="|FR| ✪ TNT HEVC",|FR| TEVA ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32795
+#EXTINF:-1 tvg-ID="teva.fr" tvg-name="|FR| TEVA ˢᴰ" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/TEVAHD.png" group-title="|FR| ✪ TNT SD",|FR| TEVA ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12777
+#EXTINF:-1 tvg-ID="rtl9.fr" tvg-name="|FR| RTL 9 HD" tvg-logo="http://138.199.27.237:8080/FRANCE/RTL9.png" group-title="|FR| ✪ TNT HD",|FR| RTL 9 HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/273
+#EXTINF:-1 tvg-ID="rtl9.fr" tvg-name="|FR| RTL9 ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/RTL9.png" group-title="|FR| ✪ TNT HEVC",|FR| RTL9 ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32794
+#EXTINF:-1 tvg-ID="rtl9.fr" tvg-name="|FR| RTL9 ˢᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/RTL9.png" group-title="|FR| ✪ TNT SD",|FR| RTL9 ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12785
+#EXTINF:-1 tvg-ID="ab1.fr" tvg-name="|FR| AB1 HD" tvg-logo="http://138.199.27.237:8080/FRANCE/AB1HD.png" group-title="|FR| ✪ TNT HD",|FR| AB1 HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/280
+#EXTINF:-1 tvg-ID="ab1.fr" tvg-name="|FR| AB1 ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/AB1HD.png" group-title="|FR| ✪ TNT HEVC",|FR| AB1 ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/116311
+#EXTINF:-1 tvg-ID="ab1.fr" tvg-name="|FR| AB1 ˢᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/AB1HD.png" group-title="|FR| ✪ TNT SD",|FR| AB1 ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12913
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| AB3 HD" tvg-logo="http://138.199.27.237:8080/FRANCE/AB3.png" group-title="|FR| ✪ TNT HD",|FR| AB3 HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/15011
+#EXTINF:-1 tvg-ID="ab3.fr" tvg-name="|FR| AB3 ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/AB3.png" group-title="|FR| ✪ TNT HEVC",|FR| AB3 ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/116312
+#EXTINF:-1 tvg-ID="serieclub.fr" tvg-name="|FR| SERIE CLUB ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5069.png" group-title="|FR| ✪ TNT HD",|FR| SERIE CLUB ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/250666
+#EXTINF:-1 tvg-ID="serieclub.fr" tvg-name="|FR| Serie Club HD" tvg-logo="http://138.199.27.237:8080/0tv_logo/5069.png" group-title="|FR| ✪ TNT HD",|FR| Serie Club HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/315
+#EXTINF:-1 tvg-ID="serieclub.fr" tvg-name="|FR| SERIE CLUB ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5069.png" group-title="|FR| ✪ TNT HEVC",|FR| SERIE CLUB ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32793
+#EXTINF:-1 tvg-ID="serieclub.fr" tvg-name="|FR| SERIE CLUB ˢᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5069.png" group-title="|FR| ✪ TNT SD",|FR| SERIE CLUB ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12783
+#EXTINF:-1 tvg-ID="parispremiere.fr" tvg-name="|FR| PARIS PREMIERE ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/PARISPREMIERE.png" group-title="|FR| ✪ TNT HD",|FR| PARIS PREMIERE ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/250658
+#EXTINF:-1 tvg-ID="parispremiere.fr" tvg-name="|FR| Paris Premiere HD" tvg-logo="http://138.199.27.237:8080/FRANCE/PARISPREMIERE.png" group-title="|FR| ✪ TNT HD",|FR| Paris Premiere HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/314
+#EXTINF:-1 tvg-ID="parispremiere.fr" tvg-name="|FR| PARIS PREMIERE ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/PARISPREMIERE.png" group-title="|FR| ✪ TNT HEVC",|FR| PARIS PREMIERE ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32791
+#EXTINF:-1 tvg-ID="parispremiere.fr" tvg-name="|FR| PARIS PREMIERE ˢᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/PARISPREMIERE.png" group-title="|FR| ✪ TNT SD",|FR| PARIS PREMIERE ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12799
+#EXTINF:-1 tvg-ID="tvbreizh.fr" tvg-name="|FR| TV BREIZH ᵁᴴᴰ" tvg-logo="http://dmtn.tv:8080/images/PNloraZl_34fTzt064WXynOEfQR7Q-NE1GiKFZkCiCFRYBgEwukGuyCmdGbs13mG.png" group-title="|FR| ✪ TNT HD",|FR| TV BREIZH ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/148472
+#EXTINF:-1 tvg-ID="tvbreizh.fr" tvg-name="|FR| TV BREIZH HD" tvg-logo="http://dmtn.tv:8080/images/PNloraZl_34fTzt064WXynOEfQR7Q-NE1GiKFZkCiCFRYBgEwukGuyCmdGbs13mG.png" group-title="|FR| ✪ TNT HD",|FR| TV BREIZH HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/323
+#EXTINF:-1 tvg-ID="tvbreizh.fr" tvg-name="|FR| TV BREIZH ᵁᴴᴰ" tvg-logo="http://dmtn.tv:8080/images/PNloraZl_34fTzt064WXynOEfQR7Q-NE1GiKFZkCiCFRYBgEwukGuyCmdGbs13mG.png" group-title="|FR| ✪ TNT HEVC",|FR| TV BREIZH ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32803
+#EXTINF:-1 tvg-ID="tvbreizh.fr" tvg-name="|FR| TV BREIZH ˢᴰ" tvg-logo="http://dmtn.tv:8080/images/PNloraZl_34fTzt064WXynOEfQR7Q-NE1GiKFZkCiCFRYBgEwukGuyCmdGbs13mG.png" group-title="|FR| ✪ TNT SD",|FR| TV BREIZH ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12765
+#EXTINF:-1 tvg-ID="bet.fr" tvg-name="|FR| BET HD" tvg-logo="http://138.199.27.237:8080/FRANCE/BETHD.png" group-title="|FR| ✪ TNT HD",|FR| BET HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/2722
+#EXTINF:-1 tvg-ID="bet.fr" tvg-name="|FR| BET ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/BETHD.png" group-title="|FR| ✪ TNT HEVC",|FR| BET ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/116314
+#EXTINF:-1 tvg-ID="bet.fr" tvg-name="|FR| BET ˢᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/BETHD.png" group-title="|FR| ✪ TNT SD",|FR| BET ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12897
+#EXTINF:-1 tvg-ID="gameone.fr" tvg-name="| FR | ONE TV HD" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/One_TV_Logo.png" group-title="|FR| ✪ TNT HD",| FR | ONE TV HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/22845
+#EXTINF:-1 tvg-ID="" tvg-name="|FR|  ONE TV ᵁᴴᴰ" tvg-logo="https://is5-ssl.mzstatic.com/image/thumb/Purple118/v4/57/32/21/57322106-6a5b-9cbf-f8f4-07bd3dde6f5e/source/256x256bb.jpg" group-title="|FR| ✪ TNT HEVC",|FR|  ONE TV ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32846
+#EXTINF:-1 tvg-ID="canal32.fr" tvg-name="|FR| CANAL 31 HD" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/IDF-1.png" group-title="|FR| ✪ TNT HD",|FR| CANAL 31 HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/4203
+#EXTINF:-1 tvg-ID="idf1.fr" tvg-name="|FR| IDF1 HD" tvg-logo="http://138.199.27.237:8080/FRANCE/IDF1.png" group-title="|FR| ✪ TNT HD",|FR| IDF1 HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/4205
+#EXTINF:-1 tvg-ID="telegrenoble.fr" tvg-name="|FR| Télé Grenoble" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/télegrenoble.png" group-title="|FR| ✪ TNT HD",|FR| Télé Grenoble
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/205965
+#EXTINF:-1 tvg-ID="telenantes.fr" tvg-name="|FR| Télé nantes" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/Télénantes_logo-1.png" group-title="|FR| ✪ TNT HD",|FR| Télé nantes
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/205967
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| Télé Paese" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/télepaes.jpg" group-title="|FR| ✪ TNT HD",|FR| Télé Paese
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/205968
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| 7 A LIMOGES" tvg-logo="https://img.logo-cdn.cc/7alimoges.png" group-title="|FR| ✪ TNT HD",|FR| 7 A LIMOGES
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1062130
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| 8 Mont Blanc" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDclexG4Qz0wSd_gA8DGfxIFbOR30V3wssMP9bZ9U8KHazCEmj" group-title="|FR| ✪ TNT HD",|FR| 8 Mont Blanc
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1062123
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| 20 Minutes TV" tvg-logo="https://img.logo-cdn.cc/20minutes.png" group-title="|FR| ✪ TNT HD",|FR| 20 Minutes TV
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1062116
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| ASTV" tvg-logo="" group-title="|FR| ✪ TNT HD",|FR| ASTV
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1062125
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| Canal 21" tvg-logo="" group-title="|FR| ✪ TNT HD",|FR| Canal 21
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1062115
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| Figaro TV IDF" tvg-logo="https://s13.gifyu.com/images/SCGn9.png" group-title="|FR| ✪ TNT HD",|FR| Figaro TV IDF
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1062119
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| IL TV" tvg-logo="" group-title="|FR| ✪ TNT HD",|FR| IL TV
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1062124
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| TL7" tvg-logo="" group-title="|FR| ✪ TNT HD",|FR| TL7
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1062122
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| TV7 Bordeaux" tvg-logo="https://s9.gifyu.com/images/SCX6F.png" group-title="|FR| ✪ TNT HD",|FR| TV7 Bordeaux
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1062131
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| TV78" tvg-logo="" group-title="|FR| ✪ TNT HD",|FR| TV78
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1062120
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| Télé Bocal" tvg-logo="" group-title="|FR| ✪ TNT HD",|FR| Télé Bocal
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1062117
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| Télé Grenoble" tvg-logo="" group-title="|FR| ✪ TNT HD",|FR| Télé Grenoble
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1062121
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| Vià MATÉLÉ" tvg-logo="https://img.logo-cdn.cc/viamatele.png" group-title="|FR| ✪ TNT HD",|FR| Vià MATÉLÉ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1062129
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| Wéo Picardie" tvg-logo="" group-title="|FR| ✪ TNT HD",|FR| Wéo Picardie
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1062127
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| Wéo TV, La voix du nord" tvg-logo="" group-title="|FR| ✪ TNT HD",|FR| Wéo TV, La voix du nord
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1062128
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| BFM Grands Reportages" tvg-logo="" group-title="|FR| ✪ TNT HD",|FR| BFM Grands Reportages
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1063896
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| BFM PARIS ILE-DE-FRANCE" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/france/bfm-paris-fr.png" group-title="|FR| ✪ TNT HD",|FR| BFM PARIS ILE-DE-FRANCE
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1063897
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| MUSEUM TV FAST ᴴᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/MUSEUM.png" group-title="|FR| ✪ DOCUMENTAIRE",|FR| MUSEUM TV FAST ᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/298012
+#EXTINF:-1 tvg-ID="museum.fr" tvg-name="|FR| Museum Channel HD" tvg-logo="http://138.199.27.237:8080/FRANCE/MUSEUM.png" group-title="|FR| ✪ TNT HD",|FR| Museum Channel HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/4525
+#EXTINF:-1 tvg-ID="museum.fr" tvg-name="|FR| Museum" tvg-logo="http://138.199.27.237:8080/FRANCE/MUSEUM.png" group-title="|FR| ✪ DOCUMENTAIRE",|FR| Museum
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/272469
+#EXTINF:-1 tvg-ID="museum.fr" tvg-name="|FR| MUSEUM ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/MUSEUM.png" group-title="|FR| ✪ TNT HEVC",|FR| MUSEUM ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/274854
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| LCP-AN 24" tvg-logo="http://138.199.27.237:8080/FRANCE/LCP.png" group-title="|FR| ✪ TNT HD",|FR| LCP-AN 24
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/286
+#EXTINF:-1 tvg-ID="publicsenat.fr" tvg-name="|FR| PUBLIC SÉNAT ˢᴰ" tvg-logo="http://logodmtv.ddns.net/new_logo/PICONS-BOUQUET-FRANCESD/public-senat.png" group-title="|FR| ✪ TNT SD",|FR| PUBLIC SÉNAT ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/88745
+#EXTINF:-1 tvg-ID="kto.fr" tvg-name="|FR| KTO TV" tvg-logo="http://138.199.27.237:8080/FRANCE/KTOHD.png" group-title="|FR| ✪ TNT HD",|FR| KTO TV
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/49424
+#EXTINF:-1 tvg-ID="kto.fr" tvg-name="|FR| KTO ˢᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/KTOHD.png" group-title="|FR| ✪ TNT SD",|FR| KTO ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/88759
+#EXTINF:-1 tvg-ID="trek.fr" tvg-name="|FR| TREK HD" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/TREKFHD.png" group-title="|FR| ✪ TNT HD",|FR| TREK HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/2578
+#EXTINF:-1 tvg-ID="rmcdecouverte.fr" tvg-name="|FR| RMC DECOUVERTE ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5058.png" group-title="|FR| ✪ RMC CHANNEL",|FR| RMC DECOUVERTE ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/250648
+#EXTINF:-1 tvg-ID="rmcdecouverte.fr" tvg-name="|FR| RMC Decouverte" tvg-logo="http://138.199.27.237:8080/0tv_logo/5058.png" group-title="|FR| ✪ DOCUMENTAIRE",|FR| RMC Decouverte
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/329
+#EXTINF:-1 tvg-ID="rmcdecouverte.fr" tvg-name="|FR| RMC DECOUVERTE ˢᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5058.png" group-title="|FR| ✪ TNT SD",|FR| RMC DECOUVERTE ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12793
+#EXTINF:-1 tvg-ID="lachaineparlementaire.fr" tvg-name="|FR| La Chains Parlementaire HD" tvg-logo="http://138.199.27.237:8080/FRANCE/LCP.png" group-title="|FR| ✪ TNT HD",|FR| La Chains Parlementaire HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/4636
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| LFM TV HD" tvg-logo="http://138.199.27.237:8080/FRANCE/LFMTV.png" group-title="|FR| ✪ TNT HD",|FR| LFM TV HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/2721
+#EXTINF:-1 tvg-ID="" tvg-name="|FR|  LFM TV ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/LFMTV.png" group-title="|FR| ✪ TNT HEVC",|FR|  LFM TV ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/274851
+#EXTINF:-1 tvg-ID="tv5mondemaghreborien.fr" tvg-name="|FR| TV5 Monde maghreb orient HD" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/TV5MONDE.png" group-title="|FR| ✪ TNT HD",|FR| TV5 Monde maghreb orient HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/52135
+#EXTINF:-1 tvg-ID="tv5mondefrancebelgiquesuisse.fr" tvg-name="|FR| TV5 MONDE ˢᴰ" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/TV5MONDE.png" group-title="|FR| ✪ TNT SD",|FR| TV5 MONDE ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/88757
+#EXTINF:-1 tvg-ID="" tvg-name="|FR|TV VENDÉE" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/Logotype_TV_vendée.png" group-title="|FR| ✪ TNT HD",|FR|TV VENDÉE
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/282233
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| MANDARIN TV HD" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/MANDARIN TV.png" group-title="|FR| ✪ TNT HD",|FR| MANDARIN TV HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/282234
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| TVM3 Full HD" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/TVM3.png" group-title="|FR| ✪ TNT HD",|FR| TVM3 Full HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/282235
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| CANAL ALPHA JU HD" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/canal_alpha_ju-2.png" group-title="|FR| ✪ TNT HD",|FR| CANAL ALPHA JU HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/282236
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| ROUGE TV Full HD" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/ROUGETVTV.png" group-title="|FR| ✪ TNT HD",|FR| ROUGE TV Full HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/282237
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| MAISON & TRAVAUX TV HD" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/maison-et-travaux-tv(1).png" group-title="|FR| ✪ TNT HD",|FR| MAISON & TRAVAUX TV HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/282238
+#EXTINF:-1 tvg-ID="01tv.fr" tvg-name="|FR| 01 TV Full HD" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/01tv.png" group-title="|FR| ✪ TNT HD",|FR| 01 TV Full HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/282239
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| LYON CAPITALE TV" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/lyon-capitale-tv-1.png" group-title="|FR| ✪ TNT HD",|FR| LYON CAPITALE TV
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/282240
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| ANGERS TÉLÉ" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/AngersTélé.png" group-title="|FR| ✪ TNT HD",|FR| ANGERS TÉLÉ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/282241
+#EXTINF:-1 tvg-ID="bfmtv.fr" tvg-name="|FR| BFM ALSACE ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5091.png" group-title="|FR| ✪ INFORMATIONS",|FR| BFM ALSACE ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/282242
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| CANAL 21" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/21.png" group-title="|FR| ✪ TNT HD",|FR| CANAL 21
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/282244
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| TV2COM" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/TV2COM.png" group-title="|FR| ✪ TNT HD",|FR| TV2COM
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/282246
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| MEN'S UP" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/MENSUP.png" group-title="|FR| ✪ TNT HD",|FR| MEN'S UP
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/282247
+#EXTINF:-1 tvg-ID="franceinfo.fr" tvg-name="|FR| FRANCE INFO" tvg-logo="http://138.199.27.237:8080/FRANCE/FRANCEINFOHD.png" group-title="|FR| ✪ INFORMATIONS",|FR| FRANCE INFO
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/278
+#EXTINF:-1 tvg-ID="tv8montblanc.fr" tvg-name="|FR| TV8 MONT BLANC ᴴᴰ" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/TV8MONT-BLANC.png" group-title="|FR| ✪ INFORMATIONS",|FR| TV8 MONT BLANC ᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/4638
+#EXTINF:-1 tvg-ID="lachainemeteo.fr" tvg-name="|FR| LA CHAINE METEO" tvg-logo="http://138.199.27.237:8080/FRANCE/LACHAINEMETEO.png" group-title="|FR| ✪ INFORMATIONS",|FR| LA CHAINE METEO
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12208
+#EXTINF:-1 tvg-ID="lachainemeteo.fr" tvg-name="|FR| LA CHAINE METEO ˢᴰ" tvg-logo="http://138.199.27.237:8080/1%20MISSING%20LOGO/FRANCE%20TNT/laChaineMeteo.png" group-title="|FR| ✪ INFORMATIONS",|FR| LA CHAINE METEO ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12831
+#EXTINF:-1 tvg-ID="cnews.fr" tvg-name="|FR| C NEWS ᴴᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/CNEWSHD.png" group-title="|FR| ✪ INFORMATIONS",|FR| C NEWS ᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/10008
+#EXTINF:-1 tvg-ID="cnews.fr" tvg-name="|FR| CNEWS ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/CNEWSHD.png" group-title="|FR| ✪ INFORMATIONS",|FR| CNEWS ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/274711
+#EXTINF:-1 tvg-ID="cnews.fr" tvg-name="|FR| CNEWS ˢᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/CNEWSHD.png" group-title="|FR| ✪ INFORMATIONS",|FR| CNEWS ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12873
+#EXTINF:-1 tvg-ID="franceinfo.fr" tvg-name="|FR| FRANCE INFO ᴴᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/FRANCEINFOHD.png" group-title="|FR| ✪ INFORMATIONS",|FR| FRANCE INFO ᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/10067
+#EXTINF:-1 tvg-ID="franceinfo.fr" tvg-name="|FR| FRANCE INFO ᵁᴴᴰ" tvg-logo="http://logodmtv.ddns.net/new_logo/PICONS-BOUQUET-FRANCEH265/FRANCEINFO.png" group-title="|FR| ✪ INFORMATIONS",|FR| FRANCE INFO ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32764
+#EXTINF:-1 tvg-ID="franceinfo.fr" tvg-name="|FR| FRANCE INFO ˢᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/FRANCEINFOHD.png" group-title="|FR| ✪ INFORMATIONS",|FR| FRANCE INFO ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12847
+#EXTINF:-1 tvg-ID="i24news.fr" tvg-name="|FR| I24 NEWS FRENCH ᴴᴰ" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/24NEWSHD.png" group-title="|FR| ✪ INFORMATIONS",|FR| I24 NEWS FRENCH ᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/7413
+#EXTINF:-1 tvg-ID="i24news.fr" tvg-name="|FR| 24 NEWS ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/24NEWSHD.png" group-title="|FR| ✪ INFORMATIONS",|FR| 24 NEWS ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32767
+#EXTINF:-1 tvg-ID="france24.fr" tvg-name="|FR| FRANCE 24 ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/FRANCE24.png" group-title="|FR| ✪ TNT HD",|FR| FRANCE 24 ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/148469
+#EXTINF:-1 tvg-ID="france24.fr" tvg-name="|FR| FRANCE 24 HD" tvg-logo="http://138.199.27.237:8080/FRANCE/FRANCE24.png" group-title="|FR| ✪ TNT HD",|FR| FRANCE 24 HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/2579
+#EXTINF:-1 tvg-ID="france24.fr" tvg-name="|FR| FRANCE 24 ᵁᴴᴰ" tvg-logo="http://logodmtv.ddns.net/new_logo/PICONS-BOUQUET-FRANCEH265/FRANCE24.png" group-title="|FR| ✪ INFORMATIONS",|FR| FRANCE 24 ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32765
+#EXTINF:-1 tvg-ID="bfmtv.fr" tvg-name="|FR| BFM TV ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5091.png" group-title="|FR| ✪ INFORMATIONS",|FR| BFM TV ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/148465
+#EXTINF:-1 tvg-ID="bfmtv.fr" tvg-name="|FR| BFM TV ᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5091.png" group-title="|FR| ✪ INFORMATIONS",|FR| BFM TV ᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/289
+#EXTINF:-1 tvg-ID="bfmtv.fr" tvg-name="|FR| BFMTV ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5091.png" group-title="|FR| ✪ INFORMATIONS",|FR| BFMTV ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32762
+#EXTINF:-1 tvg-ID="bfmtv.fr" tvg-name="|FR| BFM TV ˢᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5091.png" group-title="|FR| ✪ INFORMATIONS",|FR| BFM TV ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12894
+#EXTINF:-1 tvg-ID="bfmbusiness.fr" tvg-name="|FR| BFM BUSNISS ᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5091.png" group-title="|FR| ✪ INFORMATIONS",|FR| BFM BUSNISS ᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/2621
+#EXTINF:-1 tvg-ID="bfmbusiness.fr" tvg-name="|FR| BFM BUSINESS ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5091.png" group-title="|FR| ✪ INFORMATIONS",|FR| BFM BUSINESS ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32761
+#EXTINF:-1 tvg-ID="bfmbusiness.fr" tvg-name="|FR| BFM BUSINESS ˢᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5091.png" group-title="|FR| ✪ INFORMATIONS",|FR| BFM BUSINESS ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12896
+#EXTINF:-1 tvg-ID="bfmlyon.fr" tvg-name="|FR| BFM LYON ᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5091.png" group-title="|FR| ✪ INFORMATIONS",|FR| BFM LYON ᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/50252
+#EXTINF:-1 tvg-ID="bfmlyon.fr" tvg-name="|FR| BFM LYON MÉTROPOLE ˢᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5091.png" group-title="|FR| ✪ INFORMATIONS",|FR| BFM LYON MÉTROPOLE ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/88742
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| BFM DICI ALPES DU SUD" tvg-logo="http://138.199.27.237:8080/0tv_logo/5091.png" group-title="|FR| ✪ INFORMATIONS",|FR| BFM DICI ALPES DU SUD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/122900
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| BFM DICI HAUTE-PROVENCE" tvg-logo="http://138.199.27.237:8080/0tv_logo/5091.png" group-title="|FR| ✪ INFORMATIONS",|FR| BFM DICI HAUTE-PROVENCE
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/122899
+#EXTINF:-1 tvg-ID="bfmgrandlille.fr" tvg-name="|FR| BFM GRAND LILE" tvg-logo="http://138.199.27.237:8080/0tv_logo/5091.png" group-title="|FR| ✪ INFORMATIONS",|FR| BFM GRAND LILE
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/122902
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| BFM GRAND LITTORAL" tvg-logo="http://138.199.27.237:8080/0tv_logo/5091.png" group-title="|FR| ✪ INFORMATIONS",|FR| BFM GRAND LITTORAL
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/122901
+#EXTINF:-1 tvg-ID="01tv.fr" tvg-name="|FR| Bfm alpes" tvg-logo="https://m.media-amazon.com/images/I/51-U6hhTf1L.png" group-title="|FR| ✪ TNT HD",|FR| Bfm alpes
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1050027
+#EXTINF:-1 tvg-ID="01tv.fr" tvg-name="|FR| Bfm alsace" tvg-logo="https://m.media-amazon.com/images/I/51-U6hhTf1L.png" group-title="|FR| ✪ TNT HD",|FR| Bfm alsace
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1050026
+#EXTINF:-1 tvg-ID="bfmgrandlille.fr" tvg-name="|FR| Bfm grand lille" tvg-logo="https://m.media-amazon.com/images/I/51-U6hhTf1L.png" group-title="|FR| ✪ TNT HD",|FR| Bfm grand lille
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1050029
+#EXTINF:-1 tvg-ID="bfmgrandlille.fr" tvg-name="|FR| Bfm grand littoral" tvg-logo="https://m.media-amazon.com/images/I/51-U6hhTf1L.png" group-title="|FR| ✪ TNT HD",|FR| Bfm grand littoral
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1050030
+#EXTINF:-1 tvg-ID="01tv.fr" tvg-name="|FR| Bfm haute provence" tvg-logo="https://m.media-amazon.com/images/I/51-U6hhTf1L.png" group-title="|FR| ✪ TNT HD",|FR| Bfm haute provence
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1050028
+#EXTINF:-1 tvg-ID="bfmlyon.fr" tvg-name="|FR| Bfm lyon" tvg-logo="https://m.media-amazon.com/images/I/51-U6hhTf1L.png" group-title="|FR| ✪ TNT HD",|FR| Bfm lyon
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1050031
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| Bfm marseille provence" tvg-logo="https://m.media-amazon.com/images/I/51-U6hhTf1L.png" group-title="|FR| ✪ TNT HD",|FR| Bfm marseille provence
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1050032
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| Bfm normandie" tvg-logo="https://m.media-amazon.com/images/I/51-U6hhTf1L.png" group-title="|FR| ✪ TNT HD",|FR| Bfm normandie
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1050034
+#EXTINF:-1 tvg-ID="bfmlyon.fr" tvg-name="|FR| LYON TV" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/lyontv.png" group-title="|FR| ✪ INFORMATIONS",|FR| LYON TV
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/139531
+#EXTINF:-1 tvg-ID="bfmlyon.fr" tvg-name="|FR| LYON ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/lyontv.png" group-title="|FR| ✪ INFORMATIONS",|FR| LYON ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/116315
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| TL7 Saint etienne" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/LOGO_TL7(1).png" group-title="|FR| ✪ TNT HD",|FR| TL7 Saint etienne
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/139533
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| TV8 MOSELLE-EST" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/TV8MOSELLE.png" group-title="|FR| ✪ INFORMATIONS",|FR| TV8 MOSELLE-EST
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/139532
+#EXTINF:-1 tvg-ID="tv7bordeaux.fr" tvg-name="|FR| TV7 Bordeaux" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/TV7_Bordeaux.png" group-title="|FR| ✪ TNT HD",|FR| TV7 Bordeaux
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/122903
+#EXTINF:-1 tvg-ID="france24.fr" tvg-name="|FR| FRANCE 24 ᴴᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/FRANCE24.png" group-title="|FR| ✪ INFORMATIONS",|FR| FRANCE 24 ᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/279
+#EXTINF:-1 tvg-ID="tv5mondemaghreborien.fr" tvg-name="|FR| TV5 Monde Maghreb HD" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/TV5MONDE.png" group-title="|FR| ✪ TNT HD",|FR| TV5 Monde Maghreb HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/2573
+#EXTINF:-1 tvg-ID="euronews.fr" tvg-name="|FR| EURONEWS FR ᴴᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/EURONEWS(FRENCH).png" group-title="|FR| ✪ INFORMATIONS",|FR| EURONEWS FR ᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/2575
+#EXTINF:-1 tvg-ID="euronews.fr" tvg-name="|FR| EuroNews HD" tvg-logo="http://138.199.27.237:8080/FRANCE/EURONEWS(FRENCH).png" group-title="|FR| ✪ TNT HD",|FR| EuroNews HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/293
+#EXTINF:-1 tvg-ID="euronews.fr" tvg-name="|FR| EURONEWS ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/EURONEWS(FRENCH).png" group-title="|FR| ✪ INFORMATIONS",|FR| EURONEWS ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32768
+#EXTINF:-1 tvg-ID="euronews.fr" tvg-name="|FR| EURONEWS ˢᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/EURONEWS(FRENCH).png" group-title="|FR| ✪ INFORMATIONS",|FR| EURONEWS ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12856
+#EXTINF:-1 tvg-ID="cnninternational.za" tvg-name="|FR| CNN  ˢᴰ" tvg-logo="http://logodmtv.ddns.net/LOGO%20DREAMTV%204K/CNN.png" group-title="|FR| ✪ INFORMATIONS",|FR| CNN  ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/88741
+#EXTINF:-1 tvg-ID="fashiontv.fr" tvg-name="|FR| FASHION TV ˢᴰ" tvg-logo="http://logodmtv.ddns.net/LOGO%20DREAMTV%204K/OSNFashionTVHD.png" group-title="|FR| ✪ TNT SD",|FR| FASHION TV ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/88751
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| LUCKY JACK ˢᴰ" tvg-logo="http://103.161.34.238/dreamtv/tv/LUCKY-JACK.jpg" group-title="|FR| ✪ TNT HD",|FR| LUCKY JACK ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/88755
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| TOP SANTÉ TV ˢᴰ" tvg-logo="https://www.skeelbox.com/wp-content/uploads/2014/12/topsante.png" group-title="|FR| ✪ TNT SD",|FR| TOP SANTÉ TV ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/88749
+#EXTINF:-1 tvg-ID="lci.fr" tvg-name="|FR| LCI HD" tvg-logo="http://138.199.27.237:8080/0tv_logo/5100.png" group-title="|FR| ✪ TNT HD",|FR| LCI HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/292
+#EXTINF:-1 tvg-ID="lci.fr" tvg-name="|FR| LCI ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/LCIHD.png" group-title="|FR| ✪ INFORMATIONS",|FR| LCI ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32763
+#EXTINF:-1 tvg-ID="lci.fr" tvg-name="|FR| LCI ˢᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5100.png" group-title="|FR| ✪ INFORMATIONS",|FR| LCI ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12828
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| LCP HD" tvg-logo="http://138.199.27.237:8080/FRANCE/LCP.png" group-title="|FR| ✪ TNT HD",|FR| LCP HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/291
+#EXTINF:-1 tvg-ID="lci.fr" tvg-name="|FR| LCP ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/LCP.png" group-title="|FR| ✪ INFORMATIONS",|FR| LCP ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/32766
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| TV5  Style HD" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/TV5MONDESTYLE.png" group-title="|FR| ✪ TNT HD",|FR| TV5  Style HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/2583
+#EXTINF:-1 tvg-ID="tv5mondefrancebelgiquesuisse.fr" tvg-name="|FR| TV5 MONDE HD" tvg-logo="http://138.199.27.237:8080/FRANCE/TV5MONDE.png" group-title="|FR| ✪ TNT HD",|FR| TV5 MONDE HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/7528
+#EXTINF:-1 tvg-ID="tf1.fr" tvg-name="|FR| TF1 HD" tvg-logo="http://138.199.27.237:8080/0tv_logo/5037.png" group-title="|FR| ✪ TNT HD",|FR| TF1 HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1245
+#EXTINF:-1 tvg-ID="france2.fr" tvg-name="|FR| FRANCE 2" tvg-logo="http://138.199.27.237:8080/0tv_logo/5052.png" group-title="|FR| ✪ TNT HD",|FR| FRANCE 2
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1236
+#EXTINF:-1 tvg-ID="france3.fr" tvg-name="|FR| FRANCE 3" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| FRANCE 3
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1237
+#EXTINF:-1 tvg-ID="france4.fr" tvg-name="|FR| FRANCE 4" tvg-logo="http://138.199.27.237:8080/0tv_logo/5054.png" group-title="|FR| ✪ TNT HD",|FR| FRANCE 4
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1238
+#EXTINF:-1 tvg-ID="france5.fr" tvg-name="|FR| FRANCE 5" tvg-logo="http://138.199.27.237:8080/0tv_logo/5096.png" group-title="|FR| ✪ TNT HD",|FR| FRANCE 5
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1239
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| F3 ALPES" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| F3 ALPES
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/89666
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| F3 ALSACE" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| F3 ALSACE
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/89667
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| F3 AQUITAINE" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| F3 AQUITAINE
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/89668
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| F3 AUVERGNE" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| F3 AUVERGNE
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/89669
+#EXTINF:-1 tvg-ID="france3.fr" tvg-name="|FR| F3 BNORMANDIE" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| F3 BNORMANDIE
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/89670
+#EXTINF:-1 tvg-ID="france3.fr" tvg-name="|FR| F3 BOURGOGNE" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| F3 BOURGOGNE
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/89671
+#EXTINF:-1 tvg-ID="france3.fr" tvg-name="|FR| F3 BRETAGNE" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| F3 BRETAGNE
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/89672
+#EXTINF:-1 tvg-ID="france3.fr" tvg-name="|FR| F3 CENTRE" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| F3 CENTRE
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/89673
+#EXTINF:-1 tvg-ID="france3.fr" tvg-name="|FR| F3 COTE D'AZUR" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| F3 COTE D'AZUR
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/89676
+#EXTINF:-1 tvg-ID="france3.fr" tvg-name="|FR| F3 CHAMP ARDENNE" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| F3 CHAMP ARDENNE
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/89674
+#EXTINF:-1 tvg-ID="france3corseviastella.fr" tvg-name="|FR| F3 CORSEVIASTELLA" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| F3 CORSEVIASTELLA
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/89675
+#EXTINF:-1 tvg-ID="france3.fr" tvg-name="|FR| F3 FRANCHE COMTE" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| F3 FRANCHE COMTE
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/89677
+#EXTINF:-1 tvg-ID="franceo.fr" tvg-name="|FR|  F3 FRANCHE COMTE ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/FRANCE/FRANCE3HD.png" group-title="|FR| ✪ TNT HEVC",|FR|  F3 FRANCHE COMTE ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/35525
+#EXTINF:-1 tvg-ID="france3.fr" tvg-name="|FR| F3 LANGUEDOCROU" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| F3 LANGUEDOCROU
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/89679
+#EXTINF:-1 tvg-ID="france3.fr" tvg-name="|FR| F3 LIMOUSIN" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| F3 LIMOUSIN
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/89680
+#EXTINF:-1 tvg-ID="france3.fr" tvg-name="|FR| F3 LORRAINE" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| F3 LORRAINE
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/89681
+#EXTINF:-1 tvg-ID="france3.fr" tvg-name="|FR| F3 MIDI PYRENEES" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| F3 MIDI PYRENEES
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/89682
+#EXTINF:-1 tvg-ID="france3.fr" tvg-name="|FR| F3 NORD PDC" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| F3 NORD PDC
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/89683
+#EXTINF:-1 tvg-ID="france3.fr" tvg-name="|FR| F3 NORMANDIE" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| F3 NORMANDIE
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/89678
+#EXTINF:-1 tvg-ID="france3.fr" tvg-name="|FR| F3 PARIS IDF" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| F3 PARIS IDF
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/89684
+#EXTINF:-1 tvg-ID="france3.fr" tvg-name="|FR| F3 PAYS DE LA LOIRE" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| F3 PAYS DE LA LOIRE
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/89685
+#EXTINF:-1 tvg-ID="france3.fr" tvg-name="|FR| F3 PICARDIE" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| F3 PICARDIE
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/89686
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| F3 POITOUCHAR" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| F3 POITOUCHAR
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/89687
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| F3 PROV ALPES" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| F3 PROV ALPES
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/89688
+#EXTINF:-1 tvg-ID="france3.fr" tvg-name="|FR| F3 RHONE ALPES" tvg-logo="http://138.199.27.237:8080/0tv_logo/5053.png" group-title="|FR| ✪ TNT HD",|FR| F3 RHONE ALPES
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/89689
+#EXTINF:-1 tvg-ID="tfx.fr" tvg-name="|FR| TFX" tvg-logo="http://138.199.27.237:8080/FRANCE/TFX.png" group-title="|FR| ✪ TNT HD",|FR| TFX
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1244
+#EXTINF:-1 tvg-ID="w9.fr" tvg-name="|FR| W9" tvg-logo="http://138.199.27.237:8080/0tv_logo/5055.png" group-title="|FR| ✪ TNT HD",|FR| W9
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1247
+#EXTINF:-1 tvg-ID="6ter.fr" tvg-name="|FR| 6ter" tvg-logo="http://138.199.27.237:8080/0tv_logo/5089.png" group-title="|FR| ✪ TNT HD",|FR| 6ter
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1234
+#EXTINF:-1 tvg-ID="tmc.fr" tvg-name="|FR| TMC" tvg-logo="http://138.199.27.237:8080/0tv_logo/5103.png" group-title="|FR| ✪ TNT HD",|FR| TMC
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1246
+#EXTINF:-1 tvg-ID="arte.fr" tvg-name="|FR| ARTE" tvg-logo="http://138.199.27.237:8080/NEDERLAND/ARTE.png" group-title="|FR| ✪ TNT HD",|FR| ARTE
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1235
+#EXTINF:-1 tvg-ID="eentertainment.fr" tvg-name="|FR| E ENTERTAINMENT" tvg-logo="http://138.199.27.237:8080/FRANCE/E!ENTERTAINMENTHD.png" group-title="|FR| ✪ TNT HD",|FR| E ENTERTAINMENT
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1224
+#EXTINF:-1 tvg-ID="eentertainment.fr" tvg-name="|FR| E! ENTERTAINMENT ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5067.png" group-title="|FR| ✪ TNT HEVC",|FR| E! ENTERTAINMENT ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/116318
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| BFM DiCi HAUTE PROVENCE ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5091.png" group-title="|FR| ✪ INFORMATIONS",|FR| BFM DiCi HAUTE PROVENCE ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/184824
+#EXTINF:-1 tvg-ID="histoire.fr" tvg-name="|FR| HISTOIRE" tvg-logo="http://138.199.27.237:8080/FRANCE/HISTOIRE.png" group-title="|FR| ✪ TNT HD",|FR| HISTOIRE
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/1226
+#EXTINF:-1 tvg-ID="euronews.fr" tvg-name="|FR| EURONEWS ALL" tvg-logo="http://138.199.27.237:8080/FRANCE/EURONEWS(FRENCH).png" group-title="|FR| ✪ INFORMATIONS",|FR| EURONEWS ALL
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/195424
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| NHK WORLD-JAPAN" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/NHK_World.png" group-title="|FR| ✪ TNT HD",|FR| NHK WORLD-JAPAN
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/195422
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| TV8 MOSELLE" tvg-logo="http://138.199.27.237:8080/EUROPE/FRANCE/TV8MOSELLE.png" group-title="|FR| ✪ INFORMATIONS",|FR| TV8 MOSELLE
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/184805
+#EXTINF:-1 tvg-ID="tracesportstars.fr" tvg-name="| FR | Trace Sport Stars HD" tvg-logo="https://i.imgur.com/XLVAsqz.png" group-title="|FR| ✪ TNT HD",| FR | Trace Sport Stars HD
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/14561
+#EXTINF:-1 tvg-ID="" tvg-name="|FR| BBLACK CARIBBEAN" tvg-logo="http://138.199.27.237:8080/FRANCE/BBLACK.png" group-title="|FR| ✪ TNT HD",|FR| BBLACK CARIBBEAN
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12902
+#EXTINF:-1 tvg-ID="" tvg-name="| FR | GRAND LILLE TV ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/1%20MISSING%20LOGO/FRANCE%20TNT/grandlilletv.png" group-title="|FR| ✪ FRANCE ULTRA ᵁᴴᴰ",| FR | GRAND LILLE TV ᵁᴴᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/14539
+#EXTINF:-1 tvg-ID="bfmgrandlille.fr" tvg-name="|FR| GRAND LILLE TV ˢᴰ" tvg-logo="http://138.199.27.237:8080/1%20MISSING%20LOGO/FRANCE%20TNT/grandlilletv.png" group-title="|FR| ✪ TNT SD",|FR| GRAND LILLE TV ˢᴰ
+http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/12840
+#EXTINF:-1 tvg-ID="nauticalchannel.fr" tvg-name="|FR| NAUTICAL CHANNEL ˢᴰ" tvg-logo="http://138.199.27.237:8080/AMERICA/USA/NAUTICALCHANNEL.png" group-title="|FR| ✪ TNT SD",|FR| NAUTICAL CHANNEL ˢᴰ
+http://4kplus.info:80/30634808816548058196/8g
 #EXTINF:-1 tvg-id="LokanStore@9k" tvg-name="AL24" tvg-logo="https://i.imgur.com/vyVEXYL.png" group-title="algeria",AL24
 https://cdn.live.easybroadcast.io/abr_corp/66_al24_u4yga6h/playlist.m3u8
 
