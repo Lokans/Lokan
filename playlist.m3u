@@ -1,9 +1,9 @@
 #EXTM3U
 #EXTINF:-1 tvg-id="LokanStore9x1" tvg-name="beinNews" tvg-logo="" group-title="bein NEWS",beIN MAX 1 HD
-http://4kgood.org:80/8344281117826792/7mv6wkb8m8gwimx4frkr/146122
+http://4kgood.org:80/8344281117826792/7mv6wkb8m8gwimx4frkr/146122.ts
 
 #EXTINF:-1 tvg-id="LokanStore@1" tvg-name="beIN Sports SD 1" tvg-logo="https://logowik.com/content/uploads/images/167_bein_sports.jpg" group-title="beIN Sports SD",beIN MAX 2 HD
-http://4kgood.org:80/8344281117826792/7mv6wkb8m8gwimx4frkr/146123
+http://4kgood.org:80/8344281117826792/7mv6wkb8m8gwimx4frkr/146123.ts
 
 #EXTINF:-1 tvg-ID="m6.fr" tvg-name="|FR| M6 ᵁᴴᴰ" tvg-logo="http://138.199.27.237:8080/0tv_logo/5038.png" group-title="|FR| ✪ TNT HD",|FR| M6 ᵁᴴᴰ
 http://4kplus.info:80/30634808816548058196/8gnf7ng3hq/148462
