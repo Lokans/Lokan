@@ -1,482 +1,171 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LokanStore-LSTV</title>
-  
-  <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script> 
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LokanStore - حاسبة الطلبات</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+        
+        body { font-family: 'Cairo', sans-serif; margin: 0; padding: 0; background-color: #f4f7f6; color: #333; }
+        header { background-color: #fff; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #005696; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-weight: bold; font-size: 20pt; color: #005696; }
+        
+        .container { max-width: 600px; margin: 20px auto; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
+        
+        .option-group { margin-bottom: 20px; }
+        .option-title { font-weight: bold; display: block; margin-bottom: 10px; color: #005696; border-right: 4px solid #005696; padding-right: 10px; }
+        
+        /* تصميم أزرار المقاسات */
+        .size-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .size-card { border: 2px solid #ddd; padding: 12px; text-align: center; border-radius: 8px; cursor: pointer; transition: 0.3s; font-weight: bold; }
+        .size-card.active { background-color: #005696; color: white; border-color: #005696; }
 
-  <style>
-    :root {
-      --main-bg: #0e0e0e;
-      --secondary-bg: #1a1a1a;
-      --accent-color: #cd1617;
-      --text-color: #fff;
-    }
-    
-    body {
-      background-color: var(--main-bg);
-      color: var(--text-color);
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+        select, input[type="checkbox"] { cursor: pointer; }
+        .custom-select { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 11pt; font-family: 'Cairo'; }
+        
+        .extra-options { background: #f9f9f9; padding: 15px; border-radius: 8px; }
+        .checkbox-item { display: flex; align-items: center; margin-bottom: 10px; font-size: 10.5pt; }
+        .checkbox-item input { margin-left: 10px; transform: scale(1.2); }
 
-    .main-header {
-      position: fixed;
-      height: 25px;
-      background: linear-gradient(to right, #cd1617, #a80f10);
-      color: white;
-      padding: 12px 15px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.5);
-      border-bottom: 2px solid rgba(255,255,255,0.1);
-    }
-    .header-title { flex-grow:1; text-align:center; font-size:1.4rem; font-weight:700; letter-spacing:1px; text-shadow:1px 1px 3px rgba(0,0,0,0.3);}
-    .back-btn {
-      background: rgba(255,255,255,0.15);
-      border: none;
-      color: white;
-      font-size: 1.2rem;
-      cursor: pointer;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      transition: background 0.3s ease, transform 0.2s ease;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-      outline:none;
-    }
-    .back-btn:hover { background: rgba(255,255,255,0.3); transform: scale(1.05); }
-    .back-btn:active { transform: scale(0.95); }
-    .placeholder-div { width:40px; }
-    h1 { display:none; }
+        .total-section { background: #005696; color: white; padding: 20px; border-radius: 12px; text-align: center; margin-top: 20px; }
+        .total-price { font-size: 24pt; font-weight: bold; display: block; }
+        .unit-price-label { font-size: 10pt; opacity: 0.9; }
 
-    /* Player */
-    .player-area {
-      width: 100%;
-      background-color: #000;
-      aspect-ratio:16/9;
-      max-height:400px;
-      position: relative;
-    }
-    .player-header-info {
-      position: absolute;
-      top:0;
-      right:0;
-      left:0;
-      z-index:10;
-      padding:10px 20px;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
-      display:flex;
-      justify-content:flex-start;
-      align-items:center;
-      pointer-events:none;
-      color: var(--text-color);
-      font-weight:700;
-      text-align:right;
-    }
-    .channel-title { font-size:1.2rem; text-shadow:1px 1px 3px rgba(0,0,0,0.5); }
-
-    /* Main layout with 40%-60% split */
-    .main-layout {
-      display: flex;
-      flex: 1;
-      max-width: 100%;
-      margin:0 auto;
-      padding:0;
-      background-color: var(--main-bg);
-      overflow:hidden;
-    }
-    #categories-bar {
-      width: 400px;
-      max-width: 300px;
-      background-color: #282828;
-      border-right: 1px solid #333;
-      overflow-y: auto;
-      height: calc(100vh - 250px);
-      box-sizing: border-box;
-      direction: ltr;
-      text-align: left;
-    }
-    #channels-list-view {
-      width: 600px;
-      background-color: #1a1a1a;
-      padding: 0;
-      overflow-y: auto;
-      height: calc(100vh - 250px);
-      box-sizing: border-box;
-    }
-
-    .category-item {
-      display:flex;
-      align-items:center;
-      padding:8px 12px;
-      cursor:pointer;
-      transition:background-color 0.2s,color 0.2s;
-      font-size:0.85rem;
-      text-align:left;
-      flex-direction:row;
-    }
-    .category-icon { font-size:1rem; margin-left:6px; margin-right:6; }
-    .category-item:hover { background-color:#383838; }
-    .category-item.active { background-color:#1a1a1a; color:var(--text-color); border-left:8px solid var(--accent-color); }
-    .category-item.active:hover { background-color:#1a1a1a; }
-
-    #channelList {
-      display:flex;
-      flex-direction:column;
-      gap:1px;
-      padding:0;
-    }
-    .channel {
-      display:flex;
-      align-items:center;
-      justify-content:flex-start;
-      background:#1a1a1a;
-      padding:10px 15px;
-      cursor:pointer;
-      border-bottom:1px solid #222;
-      height:50px;
-      box-sizing:border-box;
-      text-align:left;
-      transition: background-color 0.2s;
-    }
-    .channel:hover { 
-      background:#3c3c3c;
-    }
-    .channel.active-ch { 
-      background-color: #3c3c3c;
-      color: yellow; 
-    }
-
-    .channel.active-ch span {
-      color: yellow !important;
-    }
-    .channel img { 
-      width:35px; 
-      height:35px;
-      object-fit:contain; 
-      margin-left:2px; 
-      margin-right:12px; 
-      flex-shrink:0; 
-      border-radius:0; 
-    }
-    .channel span { 
-      font-size:1rem; 
-      font-weight:400; 
-      color:#fff; 
-      white-space:nowrap; 
-      overflow:hidden; 
-      text-overflow:ellipsis; 
-      flex-grow:1; 
-      text-align:left; 
-      line-height:1.2;
-    }
-
-    /* Style for the new Login Section */
-    .login-section {
-      position: fixed;
-      top:50%;
-      left:50%;
-      transform: translate(-50%, -50%);
-      display:block;
-      background: #1b1b1b;
-      padding:30px;
-      border-radius:10px;
-      max-width:350px;
-      min-width:300px;
-      z-index:1001;
-      box-shadow:0 10px 25px rgba(0,0,0,0.7);
-      text-align:center;
-    }
-    .login-section input[type="text"], .login-section input[type="url"], .login-section button { 
-        margin:10px auto; 
-        display:block; 
-        width:calc(100% - 20px); 
-        padding: 12px;
-        border: 1px solid #333;
-        border-radius: 5px;
-        background: #252525;
-        color: #fff;
-        font-size: 1.1rem;
-        text-align: center;
-    }
-    .login-section input[type="text"] {
-        letter-spacing: 5px; /* Spacing for code input */
-    }
-    .login-section button {
-        background: var(--accent-color);
-        border: none;
-        cursor: pointer;
-        font-weight: bold;
-        transition: background 0.3s ease;
-        letter-spacing: normal;
-    }
-    .login-section button:hover { background: #e02425; }
-    .error-message { color: #ff5555; margin-top: 15px; font-size: 0.9rem; }
-    
-    /* Hide the old upload section */
-    .upload-section { display: none !important; }
-
-    #player-container .video-js { width:100%; height:100%; }
-  </style>
+        .btn-order { background-color: #25d366; color: white; padding: 15px; border: none; border-radius: 50px; font-weight: bold; font-size: 14pt; cursor: pointer; width: 100%; margin-top: 15px; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); }
+        
+        .footer-info { text-align: center; font-size: 9pt; color: #777; margin-top: 20px; padding-bottom: 20px; }
+    </style>
 </head>
 <body>
-  
-  <div class="main-header" id="mainHeader">
-      <button class="back-btn" id="backButton" onclick="handleBack()"><i class="fas fa-chevron-left"></i></button>
-      <div class="header-title">LokanStore - LSTV</div>
-      <div class="placeholder-div"></div>
-  </div>
 
-  <div class="player-area" id="playerArea">
-      <div class="player-header-info">
-          <span class="channel-title" id="current-channel-title">|LS| Select a Channel</span>
-      </div>
-      <video id="videojs-player" class="video-js vjs-default-skin vjs-big-play-centered" 
-             playsinline controls autoplay preload="auto" crossorigin="anonymous">
-      </video>
-  </div>
-  
-  <div class="main-layout" id="mainLayout">
-      <div id="categories-bar"></div>
-      <div id="channels-list-view">
-          <div id="channelList"></div>
-      </div>
-  </div>
+    <header>
+        <div class="logo">LokanStore <span style="font-size: 12pt;">LS</span></div>
+        <div>🛒</div>
+    </header>
 
-  <div class="login-section" id="loginSection" style="display:none;">
-      <h2>🔒LokanStore - LSTV</h2>
-      <p style="color:#aaa; font-size:0.9rem;">أدخل رمز التحقق</p>
-      <input type="text" id="codeInput" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;" maxlength="8" pattern="[0-9]*" inputmode="numeric">
-      <button onclick="checkCode()" class="main-btn">Load & View Content</button>
-      <div id="errorMessage" class="error-message"></div>
-  </div>
-  
-  <div class="upload-section" id="uploadSection" style="display:none;">
-      <h2>Load Channel List (M3U)</h2>
-      <input type="url" id="urlInput" placeholder="🔗 Enter M3U or M3U8 file URL">
-      <input type="file" id="fileInput" accept=".m3u,.m3u8">
-      <textarea id="m3uContent" rows="4" placeholder="Or paste M3U content here"></textarea><br>
-      <button onclick="loadChannels()" class="main-btn">Load & View Content</button>
-  </div>
-  
-  <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/videojs-contrib-hls@5.15.0/dist/videojs-contrib-hls.min.js"></script> 
+    <div class="container">
+        <h2 style="text-align: center; color: #005696;">طلب أكياس مخصصة</h2>
 
-  <script>
-    let ALL_CHANNELS_BY_CATEGORY = { 'Récents': [], 'bein Sports': [], 'MBC': [], 'OSN': [], 'Algeria': [], 'Canal+ France': [], 'French': [], 'bein Enter...': [], 'Starz Play': [], 'Canal+ Africa': [], 'Other': [] };
-    let ALL_CHANNELS = [];
-    let globalPlayer = null;
-    let currentCategory = null;
-    let currentChannelElement = null;
-    const CUSTOM_CATEGORIES_ORDER = ['Récents', 'bein Sports', 'MBC', 'OSN', 'Algeria', 'Canal+ France', 'French', 'bein Enter...', 'Starz Play', 'Canal+ Africa', 'Other'];
+        <div class="option-group">
+            <span class="option-title">1. اختر المقاس (سم)</span>
+            <div class="size-grid" id="sizeGrid">
+                <div class="size-card active" data-size="20x30">20 × 30</div>
+                <div class="size-card" data-size="30x40">30 × 40</div>
+                <div class="size-card" data-size="40x50">40 × 50</div>
+                <div class="size-card" data-size="50x60">50 × 60</div>
+            </div>
+        </div>
 
-    function initializePlayer() {
-        if (globalPlayer) return;
-        const options = { controls:true, autoplay:false, preload:'auto', fluid:true, sources:[] };
-        globalPlayer = videojs('videojs-player', options, function(){ console.log('Video.js player ready.'); });
-        globalPlayer.on('error', function(){ document.getElementById('current-channel-title').textContent = '|LS| Error Loading Channel'; });
-    }
+        <div class="option-group">
+            <span class="option-title">2. الكمية (قطعة)</span>
+            <select class="custom-select" id="quantitySelect">
+                <option value="100">100 قطعة</option>
+                <option value="300">300 قطعة</option>
+                <option value="500">500 قطعة</option>
+                <option value="1000" selected>1000 قطعة (أفضل سعر)</option>
+            </select>
+        </div>
 
-    function playChannel(url, title, element) {
-        initializePlayer();
-        if (currentChannelElement) currentChannelElement.classList.remove('active-ch');
-        element.classList.add('active-ch');
-        currentChannelElement = element;
-        document.getElementById('current-channel-title').textContent = title;
-        globalPlayer.src({ src: url, type:'application/x-mpegURL' });
-        globalPlayer.play().catch(e=>console.warn('Autoplay failed:',e));
-    }
+        <div class="option-group">
+            <span class="option-title">3. لون الكيس</span>
+            <select class="custom-select" id="colorSelect">
+                <option value="white">أبيض</option>
+                <option value="black">أسود</option>
+                <option value="pink">وردي</option>
+            </select>
+        </div>
 
-    function handleBack() { showLevelOne(); }
-    function updateHeader(level) {
-        const backBtn = document.getElementById('backButton');
-        const headerTitle = document.querySelector('.header-title');
-        headerTitle.textContent = 'LokanStore - LSTV';
-        backBtn.style.visibility = (level===1)?'hidden':'visible';
-    }
+        <div class="option-group">
+            <span class="option-title">4. خيارات إضافية للطباعة</span>
+            <div class="extra-options">
+                <label class="checkbox-item">
+                    <input type="checkbox" class="extra-calc" id="goldPrint" data-extra="2"> طباعة لون ذهبي (+2 د.ج)
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox" class="extra-calc" id="doubleSide" data-extra="10"> طباعة على الوجهين (+10 د.ج)
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox" class="extra-calc" id="multiColor" data-extra="10"> طباعة أكثر من لون (+10 د.ج)
+                </label>
+            </div>
+        </div>
 
-    function showLevelOne() {
-        document.getElementById('loginSection').style.display='block';
-        document.getElementById('mainLayout').style.display='none';
-        document.getElementById('playerArea').style.display='none';
-        document.getElementById('errorMessage').textContent = ''; 
-        updateHeader(1);
-    }
+        <div class="total-section">
+            <span class="unit-price-label">سعر القطعة الواحدة: <span id="unitPriceDisplay">0</span> د.ج</span>
+            <span class="total-price" id="totalPriceDisplay">0 د.ج</span>
+            <small>التوصيل متوفر لـ 58 ولاية 🚚</small>
+        </div>
 
-    function showLevelTwoAndThree() {
-        document.getElementById('loginSection').style.display='none';
-        document.getElementById('mainLayout').style.display='flex';
-        document.getElementById('playerArea').style.display='block';
-        updateCategoriesBar();
-        if(CUSTOM_CATEGORIES_ORDER.length>0) showCategory(CUSTOM_CATEGORIES_ORDER[0]);
-        updateHeader(2);
-    }
-    
-    function showCategory(categoryName) {
-        currentCategory = categoryName;
-        document.querySelectorAll('.category-item').forEach(item => item.classList.remove('active'));
-        document.querySelectorAll('.category-item').forEach(item => {
-            if(item.getAttribute('data-category')===categoryName) item.classList.add('active');
-        });
-        const channelsToDisplay = ALL_CHANNELS_BY_CATEGORY[categoryName] || [];
-        displayChannels(channelsToDisplay);
-    }
+        <button class="btn-order" onclick="sendOrder()">اطلب عبر واتساب ✅</button>
+        
+        <div class="footer-info">
+            LokanStore - Bir Ghbalou - Bouira<br>
+            جودة عالية • سعر المصنع • احترافية
+        </div>
+    </div>
 
-    function updateCategoriesBar() {
-        const bar = document.getElementById('categories-bar');
-        bar.innerHTML = '';
-        const categoryIcons = {
-            'Récents':'fas fa-clock','bein Sports':'fas fa-futbol','MBC':'fas fa-tv',
-            'OSN':'fas fa-film','Algeria':'fas fa-flag','Canal+ France':'fas fa-broadcast-tower',
-            'French':'fas fa-globe-europe','bein Enter...':'fas fa-smile','Starz Play':'fas fa-star',
-            'Canal+ Africa':'fas fa-globe-africa','Other':'fas fa-folder-open'
+    <script>
+        // بيانات الأسعار من الصورة الثانية
+        const priceList = {
+            "20x30": { 100: 30, 300: 24, 500: 22, 1000: 20 },
+            "30x40": { 100: 35, 300: 27, 500: 25, 1000: 23 },
+            "40x50": { 100: 40, 300: 31, 500: 29, 1000: 27 },
+            "50x60": { 100: 45, 300: 37, 500: 35, 1000: 33 }
         };
-        CUSTOM_CATEGORIES_ORDER.forEach(category => {
-            const iconClass = categoryIcons[category] || 'fas fa-list';
-            const div = document.createElement('div');
-            div.className='category-item';
-            div.setAttribute('data-category',category);
-            div.onclick = ()=>showCategory(category);
-            div.innerHTML=`<span class="category-icon"><i class="${iconClass}"></i></span><span style="flex-grow:1;text-align:left;margin-left:5px;">${category}</span>`;
-            bar.appendChild(div);
+
+        let currentSize = "20x30";
+
+        // التعامل مع اختيار المقاس
+        const sizeCards = document.querySelectorAll('.size-card');
+        sizeCards.forEach(card => {
+            card.addEventListener('click', function() {
+                sizeCards.forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+                currentSize = this.getAttribute('data-size');
+                calculateTotal();
+            });
         });
-    }
 
-    // دالة جديدة لتحميل القنوات من الرابط الثابت بعد التحقق
-    async function loadChannelsFromInput(url) {
-      if (!url) {
-          document.getElementById('errorMessage').textContent = '🚫 خطأ: لم يتم تحديد رابط M3U.';
-          return;
-      }
-      try {
-          const content = await fetchM3U(url);
-          parseM3U(content);
-          showLevelTwoAndThree();
-      } catch (e) {
-          document.getElementById('errorMessage').textContent = '❌ فشل تحميل القائمة: تأكد من الرابط أو مشكلة في الخادم.';
-          console.error('Manual load failed:', e);
-      }
-    }
+        // المستمعات لبقية المدخلات
+        document.getElementById('quantitySelect').addEventListener('change', calculateTotal);
+        document.querySelectorAll('.extra-calc').forEach(item => {
+            item.addEventListener('change', calculateTotal);
+        });
 
-    // دالة التحقق من رمز الدخول (تم تعديلها لاستخدام رابط ثابت)
-    function checkCode() {
-        // **الرابط الثابت المطلوب للتحميل**
-        const CHANNEL_URL = 'https://lokans.github.io/Lokan/playlist.m3u'; 
-        
-        const codeInput = document.getElementById('codeInput');
-        const code = codeInput.value.trim();
-        const errorMsg = document.getElementById('errorMessage');
-        errorMsg.textContent = '';
+        function calculateTotal() {
+            const qty = parseInt(document.getElementById('quantitySelect').value);
+            
+            // الحصول على السعر الأساسي من الجدول
+            let basePrice = priceList[currentSize][qty] || 20;
 
-        if (code.length !== 8 || !/^\d+$/.test(code)) {
-            errorMsg.textContent = 'Code Error .';
-            return;
+            // إضافة تكاليف الإضافات
+            let extraCost = 0;
+            document.querySelectorAll('.extra-calc:checked').forEach(item => {
+                extraCost += parseInt(item.getAttribute('data-extra'));
+            });
+
+            const finalUnitPrice = basePrice + extraCost;
+            const finalTotal = finalUnitPrice * qty;
+
+            // تحديث العرض في الصفحة
+            document.getElementById('unitPriceDisplay').innerText = finalUnitPrice;
+            document.getElementById('totalPriceDisplay').innerText = finalTotal.toLocaleString() + " د.ج";
         }
 
-        let sum = 0;
-        for (let i = 0; i < code.length; i++) {
-            sum += parseInt(code[i], 10);
+        function sendOrder() {
+            const qty = document.getElementById('quantitySelect').value;
+            const color = document.getElementById('colorSelect').options[document.getElementById('colorSelect').selectedIndex].text;
+            const total = document.getElementById('totalPriceDisplay').innerText;
+            
+            const message = `مرحباً LokanStore، أريد طلب أكياس:\n- المقاس: ${currentSize}\n- الكمية: ${qty}\n- اللون: ${color}\n- الإجمالي: ${total}`;
+            const whatsappUrl = `https://wa.me/213551976603?text=${encodeURIComponent(message)}`;
+            
+            window.open(whatsappUrl, '_blank');
         }
 
-        if (sum === 20) {
-            errorMsg.textContent = '✅ رمز صحيح! يتم تحميل القنوات...';
-            // إذا كان الرمز صحيحاً، قم بتحميل القنوات من الرابط الثابت
-            loadChannelsFromInput(CHANNEL_URL); 
-        } else {
-            errorMsg.textContent = `الرمز غير صحيح`;
-        }
-    }
-
-    // دالة جلب M3U المعدلة لتجاوز مشكلة CORS
-    async function fetchM3U(url){
-      // استخدام خدمة بروكسي لتجاوز قيود CORS (corsproxy.io)
-      const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(url);
-
-      try{
-        const res=await fetch(proxyUrl,{ headers:{'Cache-Control':'no-cache'}, mode:'cors' });
-        
-        if(!res.ok) throw new Error(`Failed to fetch M3U list via proxy. Status: ${res.status}`);
-        return await res.text();
-      } catch(error){ 
-          console.error('Fetch M3U Error:', error); 
-          throw new Error(`Network Error or CORS issue: ${error.message}`); 
-      }
-    }
-
-    function parseM3U(content){
-        const lines=content.split('\n');
-        ALL_CHANNELS=[];
-        ALL_CHANNELS_BY_CATEGORY=CUSTOM_CATEGORIES_ORDER.reduce((acc,cat)=>{ acc[cat]=[]; return acc; },{});
-        let currentInfo=null;
-        for(let line of lines){
-            line=line.trim();
-            if(line.startsWith('#EXTINF')){
-                const nameMatch=line.match(/,(.*)$/);
-                const logoMatch=line.match(/tvg-logo="(.*?)"/);
-                const groupMatch=line.match(/group-title="(.*?)"/);
-                let groupTitle=groupMatch?groupMatch[1].trim():'Other';
-                let lowerGroup=groupTitle.toLowerCase();
-                let assignedCategory='Other';
-                if(lowerGroup.includes('mbc')) assignedCategory='MBC';
-                else if(lowerGroup.includes('bein')||lowerGroup.includes('beinsports')) assignedCategory='bein Sports';
-                else if(lowerGroup.includes('osn')) assignedCategory='OSN';
-                else if(lowerGroup.includes('algeria')||lowerGroup.includes('dz')) assignedCategory='Algeria';
-                else if(lowerGroup.includes('canal')&&lowerGroup.includes('france')) assignedCategory='Canal+ France';
-                else if(lowerGroup.includes('french')||lowerGroup.includes('fr')) assignedCategory='French';
-                else if(lowerGroup.includes('bein enter')) assignedCategory='bein Enter...';
-                else if(lowerGroup.includes('starz')) assignedCategory='Starz Play';
-                else if(lowerGroup.includes('canal')&&lowerGroup.includes('africa')) assignedCategory='Canal+ Africa';
-                currentInfo={name:nameMatch?nameMatch[1].trim():'Unnamed Channel', logo:logoMatch?logoMatch[1]:null, group:assignedCategory};
-            } else if(line && !line.startsWith('#')){
-                if(currentInfo){
-                    currentInfo.url=line.trim();
-                    if(ALL_CHANNELS_BY_CATEGORY[currentInfo.group]) ALL_CHANNELS_BY_CATEGORY[currentInfo.group].push(currentInfo);
-                    else { ALL_CHANNELS_BY_CATEGORY['Other'].push(currentInfo); currentInfo.group='Other'; }
-                    ALL_CHANNELS.push(currentInfo); currentInfo=null;
-                }
-            }
-        }
-        ALL_CHANNELS_BY_CATEGORY['Récents']=ALL_CHANNELS.slice(0,5);
-    }
-
-    function displayChannels(channels){
-      const list=document.getElementById('channelList');
-      list.innerHTML='';
-      const defaultLogo='https://lokans.github.io/Lokan/IMG_20250905_040549.jpg';
-      if(channels.length===0){ list.innerHTML='<div style="color:#ccc;padding:20px;text-align:center;">No channels found in this category.</div>'; return; }
-      channels.forEach(ch=>{
-        const div=document.createElement('div');
-        div.className='channel';
-        div.innerHTML=`<img src="${ch.logo||defaultLogo}" alt="${ch.name} logo" loading="lazy" onerror="this.onerror=null;this.src='${defaultLogo}';"><span>${ch.name}</span>`;
-        div.onclick=()=>playChannel(ch.url,ch.name,div);
-        list.appendChild(div);
-      });
-    }
-
-    function loadChannels() {
-        // هذه الدالة كانت تستخدم لتحميل القائمة اليدوي، تم إيقافها الآن
-        // والاعتماد على loadChannelsFromInput بعد التحقق
-    }
-
-    document.addEventListener('DOMContentLoaded', showLevelOne);
-  </script>
-
+        // تشغيل الحساب لأول مرة عند تحميل الصفحة
+        calculateTotal();
+    </script>
 </body>
 </html>
