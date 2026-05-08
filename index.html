@@ -1,171 +1,423 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LokanStore - حاسبة الطلبات</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
-        
-        body { font-family: 'Cairo', sans-serif; margin: 0; padding: 0; background-color: #f4f7f6; color: #333; }
-        header { background-color: #fff; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #005696; position: sticky; top: 0; z-index: 1000; }
-        .logo { font-weight: bold; font-size: 20pt; color: #005696; }
-        
-        .container { max-width: 600px; margin: 20px auto; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
-        
-        .option-group { margin-bottom: 20px; }
-        .option-title { font-weight: bold; display: block; margin-bottom: 10px; color: #005696; border-right: 4px solid #005696; padding-right: 10px; }
-        
-        /* تصميم أزرار المقاسات */
-        .size-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        .size-card { border: 2px solid #ddd; padding: 12px; text-align: center; border-radius: 8px; cursor: pointer; transition: 0.3s; font-weight: bold; }
-        .size-card.active { background-color: #005696; color: white; border-color: #005696; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LokanStore</title>
 
-        select, input[type="checkbox"] { cursor: pointer; }
-        .custom-select { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 11pt; font-family: 'Cairo'; }
-        
-        .extra-options { background: #f9f9f9; padding: 15px; border-radius: 8px; }
-        .checkbox-item { display: flex; align-items: center; margin-bottom: 10px; font-size: 10.5pt; }
-        .checkbox-item input { margin-left: 10px; transform: scale(1.2); }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
 
-        .total-section { background: #005696; color: white; padding: 20px; border-radius: 12px; text-align: center; margin-top: 20px; }
-        .total-price { font-size: 24pt; font-weight: bold; display: block; }
-        .unit-price-label { font-size: 10pt; opacity: 0.9; }
+:root{
+    --primary-blue:#005696;
+    --whatsapp-green:#25d366;
+    --bg-gray:#f4f7f6;
+    --price-yellow:#ffc107;
+    --border-color:#eee;
+}
 
-        .btn-order { background-color: #25d366; color: white; padding: 15px; border: none; border-radius: 50px; font-weight: bold; font-size: 14pt; cursor: pointer; width: 100%; margin-top: 15px; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); }
-        
-        .footer-info { text-align: center; font-size: 9pt; color: #777; margin-top: 20px; padding-bottom: 20px; }
-    </style>
+*{ box-sizing:border-box; }
+
+body{
+    font-family:'Cairo',sans-serif;
+    margin:0; padding:0;
+    background-color:var(--bg-gray);
+    color:#333; line-height:1.6;
+}
+
+/* HEADER */
+header{
+    background-color:#fff;
+    padding:15px 20px;
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    border-bottom:3px solid var(--primary-blue);
+    position:sticky; top:0; z-index:1000;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    direction:ltr;
+}
+
+.logo{
+    font-weight:bold; font-size:22pt;
+    color:var(--primary-blue);
+    display:flex; align-items:center; gap:10px;
+    margin-right:auto;
+}
+
+.ls-badge{
+    background:var(--primary-blue);
+    color:white; padding:2px 8px;
+    border-radius:5px; font-size:14pt;
+}
+
+/* CONTAINER */
+.container{
+    max-width:600px;
+    margin:20px auto;
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    position:relative;
+    overflow:hidden;
+}
+
+.best-price-badge{
+    position:absolute; top:20px; left:-35px;
+    background:var(--price-yellow); color:#000;
+    padding:5px 40px; transform:rotate(-45deg);
+    font-weight:bold; font-size:9pt;
+    box-shadow:0 2px 5px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+/* PRODUCT GALLERY */
+.product-gallery { margin-bottom: 25px; }
+
+.main-image-container {
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #f9f9f9;
+    border: 1px solid var(--border-color);
+    margin-bottom: 12px;
+    aspect-ratio: 1 / 1;
+    display: flex; align-items: center; justify-content: center;
+}
+
+.main-image-container img {
+    width: 100%; height: 100%;
+    object-fit: cover; transition: 0.3s;
+}
+
+.thumbnails-grid {
+    display: flex; gap: 10px;
+    justify-content: center; flex-wrap: wrap;
+}
+
+.thumb-item {
+    width: 65px; height: 65px;
+    border-radius: 10px; border: 2px solid #f0f0f0;
+    cursor: pointer; overflow: hidden; transition: 0.2s;
+}
+
+.thumb-item img { width: 100%; height: 100%; object-fit: cover; }
+
+.thumb-item.active-thumb {
+    border-color: var(--primary-blue);
+    transform: scale(1.05);
+}
+
+/* OPTION GROUPS */
+.option-group{ margin-bottom: 25px; }
+
+.option-title{
+    font-weight:bold; display:block;
+    margin-bottom:12px; color:var(--primary-blue);
+    border-right:4px solid var(--primary-blue);
+    padding-right:12px; font-size:13pt;
+}
+
+.size-grid{
+    display:grid; grid-template-columns:repeat(2,1fr); gap:12px;
+}
+
+.size-card{
+    border:2px solid #eee; padding:15px;
+    text-align:center; border-radius:12px;
+    cursor:pointer; transition:0.3s; font-weight:bold;
+}
+
+.size-card.active{
+    background-color:var(--primary-blue);
+    color:white; border-color:var(--primary-blue);
+}
+
+/* CUSTOM DROPDOWN */
+.custom-dropdown{ position:relative; width:100%; user-select:none; }
+
+.dropdown-header{
+    background:#fff; border:2px solid var(--border-color);
+    padding:14px; border-radius:12px; cursor:pointer;
+    display:flex; justify-content:space-between; align-items:center;
+}
+
+.dropdown-options{
+    position:absolute; top:110%; left:0; right:0;
+    background:white; border:1px solid var(--border-color);
+    border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    display:none; z-index:100; max-height:250px; overflow-y:auto; padding:5px;
+}
+
+.custom-dropdown.active .dropdown-options{ display:block; }
+
+.option-item{
+    display:flex; align-items:center; padding:12px 15px;
+    border-radius:8px; cursor:pointer;
+}
+
+.option-item:hover{ background:#f0f4f8; }
+
+.option-item.selected{ background:var(--primary-blue)!important; color:white; }
+
+.color-circle {
+    width: 20px; height: 20px; border-radius: 50%;
+    margin-left: 10px; border: 1px solid #ddd;
+}
+
+.option-price{ font-size:0.9em; opacity:0.8; margin-right:auto; }
+
+.arrow{
+    border:solid #666; border-width:0 2px 2px 0;
+    display:inline-block; padding:3px;
+    transform:rotate(45deg); transition:0.3s;
+}
+
+.custom-dropdown.active .arrow{ transform:rotate(-135deg); }
+
+/* ALERTS & EXTRAS */
+.info-alert{
+    background:#e7f3ff; border-right:5px solid var(--primary-blue);
+    padding:10px; border-radius:8px; margin-bottom:20px;
+    font-size:10pt; color:var(--primary-blue);
+    display:flex; align-items:center; gap:8px;
+}
+
+.extra-options{
+    background:#fcfcfc; padding:15px;
+    border-radius:12px; border:1px dashed #ccc;
+}
+
+.checkbox-item{
+    display:flex; align-items:center; margin-bottom:12px;
+    font-size:11pt; cursor:pointer;
+}
+
+.checkbox-item input{
+    width:20px; height:20px; margin-left:12px;
+    accent-color:var(--primary-blue);
+}
+
+/* TOTAL SECTION */
+.total-section{
+    background:var(--primary-blue); color:white;
+    padding:25px; border-radius:15px; text-align:center; margin-top:25px;
+}
+
+.total-price{ font-size:28pt; font-weight:bold; display:block; margin:10px 0; }
+
+.unit-price-label{
+    font-size:11pt; background:rgba(255,255,255,0.2);
+    padding:4px 12px; border-radius:20px;
+}
+
+.btn-order{
+    background-color:var(--whatsapp-green); color:white;
+    padding:18px; border:none; border-radius:50px;
+    font-weight:bold; font-size:15pt; cursor:pointer;
+    width:100%; margin-top:20px; display:flex;
+    align-items:center; justify-content:center; gap:10px;
+}
+
+.footer-info{
+    text-align:center; font-size:10pt; color:#777;
+    margin-top:30px; padding-top:20px; border-top:1px solid #eee;
+}
+</style>
 </head>
+
 <body>
 
-    <header>
-        <div class="logo">LokanStore <span style="font-size: 12pt;">LS</span></div>
-        <div>🛒</div>
-    </header>
+<header>
+    <div class="logo"><span class="ls-badge">LS</span>LokanStore</div>
+</header>
 
-    <div class="container">
-        <h2 style="text-align: center; color: #005696;">طلب أكياس مخصصة</h2>
+<div class="container">
+    <div class="best-price-badge">MEILLEUR PRIX</div>
 
-        <div class="option-group">
-            <span class="option-title">1. اختر المقاس (سم)</span>
-            <div class="size-grid" id="sizeGrid">
-                <div class="size-card active" data-size="20x30">20 × 30</div>
-                <div class="size-card" data-size="30x40">30 × 40</div>
-                <div class="size-card" data-size="40x50">40 × 50</div>
-                <div class="size-card" data-size="50x60">50 × 60</div>
-            </div>
-        </div>
+    <h2 style="text-align:center;color:var(--primary-blue);margin-top:0;">SAC SHOPPING PERSONNALISÉ</h2>
 
-        <div class="option-group">
-            <span class="option-title">2. الكمية (قطعة)</span>
-            <select class="custom-select" id="quantitySelect">
-                <option value="100">100 قطعة</option>
-                <option value="300">300 قطعة</option>
-                <option value="500">500 قطعة</option>
-                <option value="1000" selected>1000 قطعة (أفضل سعر)</option>
-            </select>
-        </div>
-
-        <div class="option-group">
-            <span class="option-title">3. لون الكيس</span>
-            <select class="custom-select" id="colorSelect">
-                <option value="white">أبيض</option>
-                <option value="black">أسود</option>
-                <option value="pink">وردي</option>
-            </select>
-        </div>
-
-        <div class="option-group">
-            <span class="option-title">4. خيارات إضافية للطباعة</span>
-            <div class="extra-options">
-                <label class="checkbox-item">
-                    <input type="checkbox" class="extra-calc" id="goldPrint" data-extra="2"> طباعة لون ذهبي (+2 د.ج)
-                </label>
-                <label class="checkbox-item">
-                    <input type="checkbox" class="extra-calc" id="doubleSide" data-extra="10"> طباعة على الوجهين (+10 د.ج)
-                </label>
-                <label class="checkbox-item">
-                    <input type="checkbox" class="extra-calc" id="multiColor" data-extra="10"> طباعة أكثر من لون (+10 د.ج)
-                </label>
-            </div>
-        </div>
-
-        <div class="total-section">
-            <span class="unit-price-label">سعر القطعة الواحدة: <span id="unitPriceDisplay">0</span> د.ج</span>
-            <span class="total-price" id="totalPriceDisplay">0 د.ج</span>
-            <small>التوصيل متوفر لـ 58 ولاية 🚚</small>
-        </div>
-
-        <button class="btn-order" onclick="sendOrder()">اطلب عبر واتساب ✅</button>
-        
-        <div class="footer-info">
-            LokanStore - Bir Ghbalou - Bouira<br>
-            جودة عالية • سعر المصنع • احترافية
+    <div class="product-gallery">
+        <div class="main-image-container">
+            <img src="https://lokans.github.io/Lokan/IMG_20260504_181029.jpg" id="mainImage">
         </div>
     </div>
 
-    <script>
-        // بيانات الأسعار من الصورة الثانية
-        const priceList = {
-            "20x30": { 100: 30, 300: 24, 500: 22, 1000: 20 },
-            "30x40": { 100: 35, 300: 27, 500: 25, 1000: 23 },
-            "40x50": { 100: 40, 300: 31, 500: 29, 1000: 27 },
-            "50x60": { 100: 45, 300: 37, 500: 35, 1000: 33 }
+    <div class="option-group">
+        <span class="option-title">اختر المقاس المطلوب (CM)</span>
+        <div class="size-grid">
+            <div class="size-card active" data-size="20x30">20 × 30</div>
+            <div class="size-card" data-size="30x40">30 × 40</div>
+            <div class="size-card" data-size="40x50">40 × 50</div>
+            <div class="size-card" data-size="50x60">50 × 60</div>
+        </div>
+    </div>
+
+    <div class="option-group">
+        <span class="option-title">الكمية المطلوبة</span>
+        <div class="custom-dropdown" id="qtyDropdown">
+            <div class="dropdown-header" onclick="toggleDropdown('qtyDropdown')">
+                <div>
+                    <span id="headerQty">1000 قطعة</span>
+                    <span class="option-price" id="headerPrice" style="margin-right:15px">20 د.ج / للقطعة</span>
+                </div>
+                <i class="arrow"></i>
+            </div>
+            <div class="dropdown-options" id="qtyOptions"></div>
+        </div>
+        <input type="hidden" id="quantityVal" value="1000">
+    </div>
+
+    <div class="option-group">
+        <span class="option-title">لون الكيس</span>
+        <div class="custom-dropdown" id="colorDropdown">
+            <div class="dropdown-header" onclick="toggleDropdown('colorDropdown')">
+                <div style="display:flex; align-items:center;">
+                    <div class="color-circle" id="headerColorCircle" style="background:white;"></div>
+                    <span id="headerColorName">أبيض (Blanc)</span>
+                </div>
+                <i class="arrow"></i>
+            </div>
+            <div class="dropdown-options">
+                <div class="option-item selected" onclick="selectColor('أبيض (Blanc)', '#ffffff', this)">
+                    <div class="color-circle" style="background:white;"></div>
+                    <span>أبيض (Blanc)</span>
+                </div>
+                <div class="option-item" onclick="selectColor('أسود (Noir)', '#000000', this)">
+                    <div class="color-circle" style="background:black;"></div>
+                    <span>أسود (Noir)</span>
+                </div>
+                <div class="option-item" onclick="selectColor('وردي (Rose)', '#ffc0cb', this)">
+                    <div class="color-circle" style="background:pink;"></div>
+                    <span>وردي (Rose)</span>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" id="colorVal" value="أبيض (Blanc)">
+    </div>
+
+    <div class="info-alert">
+        <svg viewBox="0 0 24 24" width="20" fill="currentColor"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg>
+        <span>السعر يشمل طباعة لون واحد وجهة واحدة</span>
+    </div>
+
+    <div class="option-group">
+        <span class="option-title">إضافات الطباعة</span>
+        <div class="extra-options">
+            <label class="checkbox-item"><input type="checkbox" class="extra-calc" data-extra="2"><span>لون ذهبي +2 د.ج</span></label>
+            <label class="checkbox-item"><input type="checkbox" class="extra-calc" data-extra="10"><span>الطباعة على الوجهين +10 د.ج</span></label>
+            <label class="checkbox-item"><input type="checkbox" class="extra-calc" data-extra="10"><span>طباعة عدة ألوان +10 د.ج</span></label>
+        </div>
+    </div>
+
+    <div class="total-section">
+        <span class="unit-price-label">سعر الكيس الواحد: <span id="unitPriceDisplay">0</span> د.ج</span>
+        <span class="total-price" id="totalPriceDisplay">0 د.ج</span>
+        <div style="font-size:10pt;opacity:0.9;">التوصيل متوفر لـ 58 ولاية 🚚</div>
+    </div>
+
+    <button class="btn-order" onclick="sendOrder()">تأكيد الطلب عبر واتساب</button>
+
+    <div class="footer-info">
+        <b>LokanStore</b> - Bir Ghbalou - Bouira<br>
+        0551976603 | Facebook: LokanStore LS
+    </div>
+</div>
+
+<script>
+let currentSize = "20x30";
+let currentQty = 1000;
+const priceList = {
+    "20x30": {100:30, 300:24, 500:22, 1000:20},
+    "30x40": {100:35, 300:27, 500:25, 1000:23},
+    "40x50": {100:40, 300:31, 500:29, 1000:27},
+    "50x60": {100:45, 300:37, 500:35, 1000:33}
+};
+
+/* وظائف الصور */
+function changeImage(src, el) {
+    const main = document.getElementById('mainImage');
+    main.style.opacity = '0.3';
+    setTimeout(() => { main.src = src; main.style.opacity = '1'; }, 200);
+    document.querySelectorAll('.thumb-item').forEach(i => i.classList.remove('active-thumb'));
+    el.classList.add('active-thumb');
+}
+
+/* وظائف القوائم المنسدلة */
+function toggleDropdown(id) {
+    const el = document.getElementById(id);
+    const isOpen = el.classList.contains('active');
+    document.querySelectorAll('.custom-dropdown').forEach(d => d.classList.remove('active'));
+    if(!isOpen) el.classList.add('active');
+}
+
+function populateQtyDropdown() {
+    const container = document.getElementById('qtyOptions');
+    container.innerHTML = '';
+    [100, 300, 500, 1000].forEach(q => {
+        const p = priceList[currentSize][q];
+        const item = document.createElement('div');
+        item.className = `option-item ${q === currentQty ? 'selected' : ''}`;
+        item.onclick = () => {
+            currentQty = q;
+            document.getElementById('quantityVal').value = q;
+            document.getElementById('headerQty').innerText = q + " قطعة";
+            document.getElementById('headerPrice').innerText = p + " د.ج / للقطعة";
+            calculateTotal();
+            populateQtyDropdown();
+            document.getElementById('qtyDropdown').classList.remove('active'); // إغلاق القائمة
         };
+        item.innerHTML = `<span>${q} قطعة</span><span class="option-price">${p} د.ج</span>`;
+        container.appendChild(item);
+    });
+}
 
-        let currentSize = "20x30";
+function selectColor(name, hex, el) {
+    document.getElementById('colorVal').value = name;
+    document.getElementById('headerColorName').innerText = name;
+    document.getElementById('headerColorCircle').style.background = hex;
+    document.querySelectorAll('#colorDropdown .option-item').forEach(i => i.classList.remove('selected'));
+    el.classList.add('selected');
+    document.getElementById('colorDropdown').classList.remove('active'); // تصليح الخطأ: إغلاق القائمة بعد الاختيار
+}
 
-        // التعامل مع اختيار المقاس
-        const sizeCards = document.querySelectorAll('.size-card');
-        sizeCards.forEach(card => {
-            card.addEventListener('click', function() {
-                sizeCards.forEach(c => c.classList.remove('active'));
-                this.classList.add('active');
-                currentSize = this.getAttribute('data-size');
-                calculateTotal();
-            });
-        });
-
-        // المستمعات لبقية المدخلات
-        document.getElementById('quantitySelect').addEventListener('change', calculateTotal);
-        document.querySelectorAll('.extra-calc').forEach(item => {
-            item.addEventListener('change', calculateTotal);
-        });
-
-        function calculateTotal() {
-            const qty = parseInt(document.getElementById('quantitySelect').value);
-            
-            // الحصول على السعر الأساسي من الجدول
-            let basePrice = priceList[currentSize][qty] || 20;
-
-            // إضافة تكاليف الإضافات
-            let extraCost = 0;
-            document.querySelectorAll('.extra-calc:checked').forEach(item => {
-                extraCost += parseInt(item.getAttribute('data-extra'));
-            });
-
-            const finalUnitPrice = basePrice + extraCost;
-            const finalTotal = finalUnitPrice * qty;
-
-            // تحديث العرض في الصفحة
-            document.getElementById('unitPriceDisplay').innerText = finalUnitPrice;
-            document.getElementById('totalPriceDisplay').innerText = finalTotal.toLocaleString() + " د.ج";
-        }
-
-        function sendOrder() {
-            const qty = document.getElementById('quantitySelect').value;
-            const color = document.getElementById('colorSelect').options[document.getElementById('colorSelect').selectedIndex].text;
-            const total = document.getElementById('totalPriceDisplay').innerText;
-            
-            const message = `مرحباً LokanStore، أريد طلب أكياس:\n- المقاس: ${currentSize}\n- الكمية: ${qty}\n- اللون: ${color}\n- الإجمالي: ${total}`;
-            const whatsappUrl = `https://wa.me/213551976603?text=${encodeURIComponent(message)}`;
-            
-            window.open(whatsappUrl, '_blank');
-        }
-
-        // تشغيل الحساب لأول مرة عند تحميل الصفحة
+/* الحسابات والتحكم */
+document.querySelectorAll('.size-card').forEach(card => {
+    card.addEventListener('click', function() {
+        document.querySelectorAll('.size-card').forEach(c => c.classList.remove('active'));
+        this.classList.add('active');
+        currentSize = this.dataset.size;
+        populateQtyDropdown();
         calculateTotal();
-    </script>
+    });
+});
+
+document.querySelectorAll('.extra-calc').forEach(i => i.addEventListener('change', calculateTotal));
+
+function calculateTotal() {
+    const base = priceList[currentSize][currentQty];
+    let extra = 0;
+    document.querySelectorAll('.extra-calc:checked').forEach(i => extra += parseInt(i.dataset.extra));
+    const unit = base + extra;
+    document.getElementById('unitPriceDisplay').innerText = unit;
+    document.getElementById('totalPriceDisplay').innerText = (unit * currentQty).toLocaleString() + " د.ج";
+}
+
+function sendOrder() {
+    const msg = `مرحباً LokanStore،\nأريد طلب أكياس شخصية\n\nالمقاس: ${currentSize}\nالكمية: ${currentQty}\nاللون: ${document.getElementById('colorVal').value}\nالإجمالي: ${document.getElementById('totalPriceDisplay').innerText}`;
+    window.open(`https://wa.me/213551976603?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+window.onclick = (e) => { 
+    if(!e.target.closest('.custom-dropdown')) {
+        document.querySelectorAll('.custom-dropdown').forEach(d => d.classList.remove('active'));
+    }
+};
+
+populateQtyDropdown();
+calculateTotal();
+</script>
+
 </body>
 </html>
