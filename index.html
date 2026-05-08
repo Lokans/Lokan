@@ -6,13 +6,14 @@
 <title>LokanStore</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
 
 :root{
-    --primary-blue:#005696;
+    /* تدرجات الأزرق بناءً على الشعار */
+    --primary-blue:#36b1e6;       
+    --dark-blue:#005696;          
     --whatsapp-green:#25d366;
     --bg-gray:#f4f7f6;
-    --price-yellow:#ffc107;
     --border-color:#eee;
 }
 
@@ -39,17 +40,30 @@ header{
 }
 
 .logo{
-    font-weight:bold; font-size:22pt;
-    color:var(--primary-blue);
+    font-weight:900; font-size:22pt;
     display:flex; align-items:center; gap:10px;
     margin-right:auto;
 }
 
+/* شعار LS الدائري */
 .ls-badge{
-    background:var(--primary-blue);
-    color:white; padding:2px 8px;
-    border-radius:5px; font-size:14pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2.5px solid var(--primary-blue);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 16pt;
+    font-weight: 900;
+    background: #fff;
 }
+
+.ls-badge .l-char { color: var(--dark-blue); }
+.ls-badge .s-char { color: var(--primary-blue); }
+
+.logo-text .l-part { color: var(--dark-blue); }
+.logo-text .s-part { color: var(--primary-blue); }
 
 /* CONTAINER */
 .container{
@@ -65,7 +79,7 @@ header{
 
 .best-price-badge{
     position:absolute; top:20px; left:-35px;
-    background:var(--price-yellow); color:#000;
+    background: var(--primary-blue); color:#fff;
     padding:5px 40px; transform:rotate(-45deg);
     font-weight:bold; font-size:9pt;
     box-shadow:0 2px 5px rgba(0,0,0,0.2);
@@ -91,30 +105,12 @@ header{
     object-fit: cover; transition: 0.3s;
 }
 
-.thumbnails-grid {
-    display: flex; gap: 10px;
-    justify-content: center; flex-wrap: wrap;
-}
-
-.thumb-item {
-    width: 65px; height: 65px;
-    border-radius: 10px; border: 2px solid #f0f0f0;
-    cursor: pointer; overflow: hidden; transition: 0.2s;
-}
-
-.thumb-item img { width: 100%; height: 100%; object-fit: cover; }
-
-.thumb-item.active-thumb {
-    border-color: var(--primary-blue);
-    transform: scale(1.05);
-}
-
 /* OPTION GROUPS */
 .option-group{ margin-bottom: 25px; }
 
 .option-title{
     font-weight:bold; display:block;
-    margin-bottom:12px; color:var(--primary-blue);
+    margin-bottom:12px; color:var(--dark-blue);
     border-right:4px solid var(--primary-blue);
     padding-right:12px; font-size:13pt;
 }
@@ -158,7 +154,6 @@ header{
 }
 
 .option-item:hover{ background:#f0f4f8; }
-
 .option-item.selected{ background:var(--primary-blue)!important; color:white; }
 
 .color-circle {
@@ -180,7 +175,7 @@ header{
 .info-alert{
     background:#e7f3ff; border-right:5px solid var(--primary-blue);
     padding:10px; border-radius:8px; margin-bottom:20px;
-    font-size:10pt; color:var(--primary-blue);
+    font-size:10pt; color:var(--dark-blue);
     display:flex; align-items:center; gap:8px;
 }
 
@@ -201,15 +196,22 @@ header{
 
 /* TOTAL SECTION */
 .total-section{
-    background:var(--primary-blue); color:white;
+    background:var(--dark-blue); color:white;
     padding:25px; border-radius:15px; text-align:center; margin-top:25px;
 }
 
-.total-price{ font-size:28pt; font-weight:bold; display:block; margin:10px 0; }
+.total-price{ font-size:28pt; font-weight:bold; display:block; margin:10px 0; color:var(--primary-blue); }
 
 .unit-price-label{
-    font-size:11pt; background:rgba(255,255,255,0.2);
+    font-size:11pt; background:rgba(255,255,255,0.15);
     padding:4px 12px; border-radius:20px;
+}
+
+/* زر الواتساب النابض */
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
 .btn-order{
@@ -218,6 +220,7 @@ header{
     font-weight:bold; font-size:15pt; cursor:pointer;
     width:100%; margin-top:20px; display:flex;
     align-items:center; justify-content:center; gap:10px;
+    animation: pulse 2s infinite;
 }
 
 .footer-info{
@@ -230,13 +233,20 @@ header{
 <body>
 
 <header>
-    <div class="logo"><span class="ls-badge">LS</span>LokanStore</div>
+    <div class="logo">
+        <div class="ls-badge">
+            <span class="l-char">L</span><span class="s-char">S</span>
+        </div>
+        <div class="logo-text">
+            <span class="l-part">Lokan</span><span class="s-part">Store</span>
+        </div>
+    </div>
 </header>
 
 <div class="container">
-    <div class="best-price-badge">MEILLEUR PRIX</div>
+    <div class="best-price-badge">أفضل سعر</div>
 
-    <h2 style="text-align:center;color:var(--primary-blue);margin-top:0;">SAC SHOPPING PERSONNALISÉ</h2>
+    <h2 style="text-align:center;color:var(--dark-blue);margin-top:0;">SAC SHOPPING PERSONNALISÉ</h2>
 
     <div class="product-gallery">
         <div class="main-image-container">
@@ -260,7 +270,7 @@ header{
             <div class="dropdown-header" onclick="toggleDropdown('qtyDropdown')">
                 <div>
                     <span id="headerQty">1000 قطعة</span>
-                    <span class="option-price" id="headerPrice" style="margin-right:15px">20 د.ج / للقطعة</span>
+                    <span class="option-price" id="headerPrice" style="margin-right:15px; color:var(--primary-blue)">20 د.ج / للقطعة</span>
                 </div>
                 <i class="arrow"></i>
             </div>
@@ -274,22 +284,22 @@ header{
         <div class="custom-dropdown" id="colorDropdown">
             <div class="dropdown-header" onclick="toggleDropdown('colorDropdown')">
                 <div style="display:flex; align-items:center;">
-                    <div class="color-circle" id="headerColorCircle" style="background:white;"></div>
+                    <div id="headerColorCircle" style="width:20px; height:20px; border-radius:50%; margin-left:10px; border:1px solid #ddd; background:white;"></div>
                     <span id="headerColorName">أبيض (Blanc)</span>
                 </div>
                 <i class="arrow"></i>
             </div>
             <div class="dropdown-options">
                 <div class="option-item selected" onclick="selectColor('أبيض (Blanc)', '#ffffff', this)">
-                    <div class="color-circle" style="background:white;"></div>
+                    <div style="width:20px; height:20px; border-radius:50%; margin-left:10px; border:1px solid #ddd; background:white;"></div>
                     <span>أبيض (Blanc)</span>
                 </div>
                 <div class="option-item" onclick="selectColor('أسود (Noir)', '#000000', this)">
-                    <div class="color-circle" style="background:black;"></div>
+                    <div style="width:20px; height:20px; border-radius:50%; margin-left:10px; border:1px solid #ddd; background:black;"></div>
                     <span>أسود (Noir)</span>
                 </div>
                 <div class="option-item" onclick="selectColor('وردي (Rose)', '#ffc0cb', this)">
-                    <div class="color-circle" style="background:pink;"></div>
+                    <div style="width:20px; height:20px; border-radius:50%; margin-left:10px; border:1px solid #ddd; background:pink;"></div>
                     <span>وردي (Rose)</span>
                 </div>
             </div>
@@ -297,17 +307,12 @@ header{
         <input type="hidden" id="colorVal" value="أبيض (Blanc)">
     </div>
 
-    <div class="info-alert">
-        <svg viewBox="0 0 24 24" width="20" fill="currentColor"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg>
-        <span>السعر يشمل طباعة لون واحد وجهة واحدة</span>
-    </div>
-
     <div class="option-group">
         <span class="option-title">إضافات الطباعة</span>
         <div class="extra-options">
-            <label class="checkbox-item"><input type="checkbox" class="extra-calc" data-extra="2"><span>لون ذهبي +2 د.ج</span></label>
-            <label class="checkbox-item"><input type="checkbox" class="extra-calc" data-extra="10"><span>الطباعة على الوجهين +10 د.ج</span></label>
-            <label class="checkbox-item"><input type="checkbox" class="extra-calc" data-extra="10"><span>طباعة عدة ألوان +10 د.ج</span></label>
+            <label class="checkbox-item"><input type="checkbox" id="goldOpt" class="extra-calc" data-extra="2"><span>لون ذهبي +2 د.ج</span></label>
+            <label class="checkbox-item"><input type="checkbox" id="sidesOpt" class="extra-calc" data-extra="10"><span>الطباعة على الوجهين +10 د.ج</span></label>
+            <label class="checkbox-item"><input type="checkbox" id="colorsOpt" class="extra-calc" data-extra="10"><span>طباعة عدة ألوان +10 د.ج</span></label>
         </div>
     </div>
 
@@ -317,7 +322,7 @@ header{
         <div style="font-size:10pt;opacity:0.9;">التوصيل متوفر لـ 58 ولاية 🚚</div>
     </div>
 
-    <button class="btn-order" onclick="sendOrder()">تأكيد الطلب عبر واتساب</button>
+    <button class="btn-order" onclick="sendOrder()">تأكيد الطلب</button>
 
     <div class="footer-info">
         <b>LokanStore</b> - Bir Ghbalou - Bouira<br>
@@ -335,16 +340,6 @@ const priceList = {
     "50x60": {100:45, 300:37, 500:35, 1000:33}
 };
 
-/* وظائف الصور */
-function changeImage(src, el) {
-    const main = document.getElementById('mainImage');
-    main.style.opacity = '0.3';
-    setTimeout(() => { main.src = src; main.style.opacity = '1'; }, 200);
-    document.querySelectorAll('.thumb-item').forEach(i => i.classList.remove('active-thumb'));
-    el.classList.add('active-thumb');
-}
-
-/* وظائف القوائم المنسدلة */
 function toggleDropdown(id) {
     const el = document.getElementById(id);
     const isOpen = el.classList.contains('active');
@@ -366,9 +361,9 @@ function populateQtyDropdown() {
             document.getElementById('headerPrice').innerText = p + " د.ج / للقطعة";
             calculateTotal();
             populateQtyDropdown();
-            document.getElementById('qtyDropdown').classList.remove('active'); // إغلاق القائمة
+            document.getElementById('qtyDropdown').classList.remove('active');
         };
-        item.innerHTML = `<span>${q} قطعة</span><span class="option-price">${p} د.ج</span>`;
+        item.innerHTML = `<span>${q} قطعة</span><span class="option-price" style="margin-right:auto; opacity:0.6;">${p} د.ج</span>`;
         container.appendChild(item);
     });
 }
@@ -379,10 +374,9 @@ function selectColor(name, hex, el) {
     document.getElementById('headerColorCircle').style.background = hex;
     document.querySelectorAll('#colorDropdown .option-item').forEach(i => i.classList.remove('selected'));
     el.classList.add('selected');
-    document.getElementById('colorDropdown').classList.remove('active'); // تصليح الخطأ: إغلاق القائمة بعد الاختيار
+    document.getElementById('colorDropdown').classList.remove('active');
 }
 
-/* الحسابات والتحكم */
 document.querySelectorAll('.size-card').forEach(card => {
     card.addEventListener('click', function() {
         document.querySelectorAll('.size-card').forEach(c => c.classList.remove('active'));
@@ -405,8 +399,22 @@ function calculateTotal() {
 }
 
 function sendOrder() {
-    const msg = `مرحباً LokanStore،\nأريد طلب أكياس شخصية\n\nالمقاس: ${currentSize}\nالكمية: ${currentQty}\nاللون: ${document.getElementById('colorVal').value}\nالإجمالي: ${document.getElementById('totalPriceDisplay').innerText}`;
-    window.open(`https://wa.me/213551976603?text=${encodeURIComponent(msg)}`, '_blank');
+    const isGold = document.getElementById('goldOpt').checked;
+    const isSides = document.getElementById('sidesOpt').checked;
+    const isMulti = document.getElementById('colorsOpt').checked;
+
+    // الشرط: إذا اختار ذهبي أو جهتين أو عدة ألوان يرسل لواتساب
+    if (isGold || isSides || isMulti) {
+        let extras = [];
+        if (isGold) extras.push("ذهبى");
+        if (isSides) extras.push("وجهين");
+        if (isMulti) extras.push("عدة ألوان");
+        const msg = `طلب جديد LokanStore:\nالمقاس: ${currentSize}\nالكمية: ${currentQty}\nاللون: ${document.getElementById('colorVal').value}\nالإضافات: ${extras.join(' + ')}\nالإجمالي: ${document.getElementById('totalPriceDisplay').innerText}`;
+        window.open(`https://wa.me/213551976603?text=${encodeURIComponent(msg)}`, '_blank');
+    } else {
+        // إذا لم يختار أي منهم تظهر رسالة طلب عادي
+        alert("تم تسجيل طلبك العادي بنجاح! شكراً لاختياركم LokanStore.");
+    }
 }
 
 window.onclick = (e) => { 
@@ -421,3 +429,4 @@ calculateTotal();
 
 </body>
 </html>
+
