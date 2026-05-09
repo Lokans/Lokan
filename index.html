@@ -3,13 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LokanStore</title>
+<title>LokanStore - Sac Shopping</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
 
 :root{
-    /* تدرجات الأزرق بناءً على الشعار */
     --primary-blue:#36b1e6;       
     --dark-blue:#005696;          
     --whatsapp-green:#25d366;
@@ -26,7 +25,6 @@ body{
     color:#333; line-height:1.6;
 }
 
-/* HEADER */
 header{
     background-color:#fff;
     padding:15px 20px;
@@ -45,7 +43,6 @@ header{
     margin-right:auto;
 }
 
-/* شعار LS الدائري */
 .ls-badge{
     display: flex;
     align-items: center;
@@ -61,11 +58,9 @@ header{
 
 .ls-badge .l-char { color: var(--dark-blue); }
 .ls-badge .s-char { color: var(--primary-blue); }
-
 .logo-text .l-part { color: var(--dark-blue); }
 .logo-text .s-part { color: var(--primary-blue); }
 
-/* CONTAINER */
 .container{
     max-width:600px;
     margin:20px auto;
@@ -86,9 +81,7 @@ header{
     z-index: 10;
 }
 
-/* PRODUCT GALLERY */
 .product-gallery { margin-bottom: 25px; }
-
 .main-image-container {
     width: 100%;
     border-radius: 15px;
@@ -99,15 +92,9 @@ header{
     aspect-ratio: 1 / 1;
     display: flex; align-items: center; justify-content: center;
 }
+.main-image-container img { width: 100%; height: 100%; object-fit: cover; }
 
-.main-image-container img {
-    width: 100%; height: 100%;
-    object-fit: cover; transition: 0.3s;
-}
-
-/* OPTION GROUPS */
 .option-group{ margin-bottom: 25px; }
-
 .option-title{
     font-weight:bold; display:block;
     margin-bottom:12px; color:var(--dark-blue);
@@ -115,53 +102,45 @@ header{
     padding-right:12px; font-size:13pt;
 }
 
-.size-grid{
-    display:grid; grid-template-columns:repeat(2,1fr); gap:12px;
+/* بطاقة الشحن */
+.shipping-card {
+    background: #fdfdfd;
+    padding: 18px;
+    border-radius: 15px;
+    border: 1px solid #ebf0f3;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
+    margin-bottom: 25px;
 }
 
+.size-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
 .size-card{
     border:2px solid #eee; padding:15px;
     text-align:center; border-radius:12px;
     cursor:pointer; transition:0.3s; font-weight:bold;
 }
+.size-card.active{ background-color:var(--primary-blue); color:white; border-color:var(--primary-blue); }
 
-.size-card.active{
-    background-color:var(--primary-blue);
-    color:white; border-color:var(--primary-blue);
-}
-
-/* CUSTOM DROPDOWN */
 .custom-dropdown{ position:relative; width:100%; user-select:none; }
-
 .dropdown-header{
     background:#fff; border:2px solid var(--border-color);
     padding:14px; border-radius:12px; cursor:pointer;
     display:flex; justify-content:space-between; align-items:center;
 }
-
 .dropdown-options{
     position:absolute; top:110%; left:0; right:0;
     background:white; border:1px solid var(--border-color);
     border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.1);
     display:none; z-index:100; max-height:250px; overflow-y:auto; padding:5px;
 }
-
 .custom-dropdown.active .dropdown-options{ display:block; }
+.custom-dropdown.active .arrow{ transform:rotate(-135deg); }
 
 .option-item{
     display:flex; align-items:center; padding:12px 15px;
     border-radius:8px; cursor:pointer;
 }
-
 .option-item:hover{ background:#f0f4f8; }
 .option-item.selected{ background:var(--primary-blue)!important; color:white; }
-
-.color-circle {
-    width: 20px; height: 20px; border-radius: 50%;
-    margin-left: 10px; border: 1px solid #ddd;
-}
-
-.option-price{ font-size:0.9em; opacity:0.8; margin-right:auto; }
 
 .arrow{
     border:solid #666; border-width:0 2px 2px 0;
@@ -169,50 +148,24 @@ header{
     transform:rotate(45deg); transition:0.3s;
 }
 
-.custom-dropdown.active .arrow{ transform:rotate(-135deg); }
-
-/* ALERTS & EXTRAS */
-.info-alert{
-    background:#e7f3ff; border-right:5px solid var(--primary-blue);
-    padding:10px; border-radius:8px; margin-bottom:20px;
-    font-size:10pt; color:var(--dark-blue);
-    display:flex; align-items:center; gap:8px;
+.input-field {
+    width: 100%; padding: 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 12px; font-family: 'Cairo', sans-serif;
+    outline: none; transition: 0.3s;
 }
+.input-field:focus { border-color: var(--primary-blue); }
 
-.extra-options{
-    background:#fcfcfc; padding:15px;
-    border-radius:12px; border:1px dashed #ccc;
-}
+.extra-options{ background:#fcfcfc; padding:15px; border-radius:12px; border:1px dashed #ccc; }
+.checkbox-item{ display:flex; align-items:center; margin-bottom:12px; font-size:11pt; cursor:pointer; }
+.checkbox-item input{ width:20px; height:20px; margin-left:12px; accent-color:var(--primary-blue); }
 
-.checkbox-item{
-    display:flex; align-items:center; margin-bottom:12px;
-    font-size:11pt; cursor:pointer;
-}
-
-.checkbox-item input{
-    width:20px; height:20px; margin-left:12px;
-    accent-color:var(--primary-blue);
-}
-
-/* TOTAL SECTION */
 .total-section{
     background:var(--dark-blue); color:white;
     padding:25px; border-radius:15px; text-align:center; margin-top:25px;
 }
-
 .total-price{ font-size:28pt; font-weight:bold; display:block; margin:10px 0; color:var(--primary-blue); }
-
-.unit-price-label{
-    font-size:11pt; background:rgba(255,255,255,0.15);
-    padding:4px 12px; border-radius:20px;
-}
-
-/* زر الواتساب النابض */
-@keyframes pulse {
-    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-    70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-}
+.unit-price-label{ font-size:11pt; background:rgba(255,255,255,0.15); padding:4px 12px; border-radius:20px; }
 
 .btn-order{
     background-color:var(--whatsapp-green); color:white;
@@ -223,29 +176,38 @@ header{
     animation: pulse 2s infinite;
 }
 
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
 .footer-info{
     text-align:center; font-size:10pt; color:#777;
     margin-top:30px; padding-top:20px; border-top:1px solid #eee;
 }
+
+.delivery-flex {
+    display: flex; gap: 10px; margin-bottom: 15px;
+}
+.delivery-flex label {
+    flex: 1; margin-bottom: 0; 
+    background: #fff; border: 1px solid var(--border-color);
+    padding: 10px; border-radius: 10px;
+}
 </style>
 </head>
-
 <body>
 
 <header>
     <div class="logo">
-        <div class="ls-badge">
-            <span class="l-char">L</span><span class="s-char">S</span>
-        </div>
-        <div class="logo-text">
-            <span class="l-part">Lokan</span><span class="s-part">Store</span>
-        </div>
+        <div class="ls-badge"><span class="l-char">L</span><span class="s-char">S</span></div>
+        <div class="logo-text"><span class="l-part">Lokan</span><span class="s-part">Store</span></div>
     </div>
 </header>
 
 <div class="container">
     <div class="best-price-badge">أفضل سعر</div>
-
     <h2 style="text-align:center;color:var(--dark-blue);margin-top:0;">SAC SHOPPING PERSONNALISÉ</h2>
 
     <div class="product-gallery">
@@ -276,7 +238,6 @@ header{
             </div>
             <div class="dropdown-options" id="qtyOptions"></div>
         </div>
-        <input type="hidden" id="quantityVal" value="1000">
     </div>
 
     <div class="option-group">
@@ -307,6 +268,32 @@ header{
         <input type="hidden" id="colorVal" value="أبيض (Blanc)">
     </div>
 
+    <div class="shipping-card">
+        <span class="option-title" style="border-right-color: var(--dark-blue);">📍 معلومات الشحن (Livraison)</span>
+        
+        <div class="delivery-flex">
+            <label class="checkbox-item">
+                <input type="radio" name="delType" value="Au Bureau" checked>
+                <span style="font-size: 10pt;">Au Bureau (المكتب)</span>
+            </label>
+            <label class="checkbox-item">
+                <input type="radio" name="delType" value="À Domicile">
+                <span style="font-size: 10pt;">À Domicile (المنزل)</span>
+            </label>
+        </div>
+
+        <div class="custom-dropdown" id="wilayaDropdown" style="margin-bottom:12px;">
+            <div class="dropdown-header" onclick="toggleDropdown('wilayaDropdown')">
+                <span id="headerWilaya">10 - Bouira</span>
+                <i class="arrow"></i>
+            </div>
+            <div class="dropdown-options" id="wilayaOptions" style="direction:ltr; text-align:left;"></div>
+        </div>
+        
+        <input type="hidden" id="wilayaVal" value="10 - Bouira">
+        <input type="text" id="communeVal" class="input-field" placeholder="البلدية (Commune) - إدخال يدوي">
+    </div>
+
     <div class="option-group">
         <span class="option-title">إضافات الطباعة</span>
         <div class="extra-options">
@@ -322,7 +309,7 @@ header{
         <div style="font-size:10pt;opacity:0.9;">التوصيل متوفر لـ 58 ولاية 🚚</div>
     </div>
 
-    <button class="btn-order" onclick="sendOrder()">تأكيد الطلب</button>
+    <button class="btn-order" onclick="sendOrder()">تأكيد الطلب عبر WhatsApp</button>
 
     <div class="footer-info">
         <b>LokanStore</b> - Bir Ghbalou - Bouira<br>
@@ -333,12 +320,22 @@ header{
 <script>
 let currentSize = "20x30";
 let currentQty = 1000;
+
 const priceList = {
     "20x30": {100:30, 300:24, 500:22, 1000:20},
     "30x40": {100:35, 300:27, 500:25, 1000:23},
     "40x50": {100:40, 300:31, 500:29, 1000:27},
     "50x60": {100:45, 300:37, 500:35, 1000:33}
 };
+
+const wilayas = [
+    "01 - Adrar", "02 - Chlef", "03 - Laghouat", "04 - Oum El Bouaghi", "05 - Batna", "06 - Béjaïa", "07 - Biskra", "08 - Béchar", "09 - Blida", "10 - Bouira",
+    "11 - Tamanrasset", "12 - Tébessa", "13 - Tlemcen", "14 - Tiaret", "15 - Tizi Ouzou", "16 - Alger", "17 - Djelfa", "18 - Jijel", "19 - Sétif", "20 - Saïda",
+    "21 - Skikda", "22 - Sidi Bel Abbès", "23 - Annaba", "24 - Guelma", "25 - Constantine", "26 - Médéa", "27 - Mostaganem", "28 - M'Sila", "29 - Mascara", "30 - Ouargla",
+    "31 - Oran", "32 - El Bayadh", "33 - Illizi", "34 - Bordj Bou Arreridj", "35 - Boumerdès", "36 - El Tarf", "37 - Tindouf", "38 - Tissemsilt", "39 - El Oued", "40 - Khenchela",
+    "41 - Souk Ahras", "42 - Tipaza", "43 - Mila", "44 - Aïn Defla", "45 - Naâma", "46 - Aïn Témouchent", "47 - Ghardaïa", "48 - Relizane", "49 - El M'Ghair", "50 - El Meniaa",
+    "51 - Ouled Djellal", "52 - Bordj Baji Mokhtar", "53 - Béni Abbès", "54 - Timimoun", "55 - Touggourt", "56 - Djanet", "57 - In Salah", "58 - In Guezzam"
+];
 
 function toggleDropdown(id) {
     const el = document.getElementById(id);
@@ -350,20 +347,46 @@ function toggleDropdown(id) {
 function populateQtyDropdown() {
     const container = document.getElementById('qtyOptions');
     container.innerHTML = '';
-    [100, 300, 500, 1000].forEach(q => {
+    const quantities = [100, 300, 500, 1000];
+    
+    quantities.forEach(q => {
         const p = priceList[currentSize][q];
         const item = document.createElement('div');
         item.className = `option-item ${q === currentQty ? 'selected' : ''}`;
-        item.onclick = () => {
+        item.onclick = (e) => {
+            e.stopPropagation(); // منع إغلاق الـ dropdown قبل تحديث البيانات
             currentQty = q;
-            document.getElementById('quantityVal').value = q;
-            document.getElementById('headerQty').innerText = q + " قطعة";
-            document.getElementById('headerPrice').innerText = p + " د.ج / للقطعة";
+            updateQtyHeader();
             calculateTotal();
             populateQtyDropdown();
             document.getElementById('qtyDropdown').classList.remove('active');
         };
         item.innerHTML = `<span>${q} قطعة</span><span class="option-price" style="margin-right:auto; opacity:0.6;">${p} د.ج</span>`;
+        container.appendChild(item);
+    });
+    updateQtyHeader();
+}
+
+function updateQtyHeader() {
+    const p = priceList[currentSize][currentQty];
+    document.getElementById('headerQty').innerText = currentQty + " قطعة";
+    document.getElementById('headerPrice').innerText = p + " د.ج / للقطعة";
+}
+
+function populateWilayas() {
+    const container = document.getElementById('wilayaOptions');
+    wilayas.forEach(w => {
+        const item = document.createElement('div');
+        item.className = 'option-item';
+        item.innerText = w;
+        item.onclick = (e) => {
+            e.stopPropagation();
+            document.getElementById('wilayaVal').value = w;
+            document.getElementById('headerWilaya').innerText = w;
+            document.querySelectorAll('#wilayaDropdown .option-item').forEach(i => i.classList.remove('selected'));
+            item.classList.add('selected');
+            document.getElementById('wilayaDropdown').classList.remove('active');
+        };
         container.appendChild(item);
     });
 }
@@ -382,7 +405,7 @@ document.querySelectorAll('.size-card').forEach(card => {
         document.querySelectorAll('.size-card').forEach(c => c.classList.remove('active'));
         this.classList.add('active');
         currentSize = this.dataset.size;
-        populateQtyDropdown();
+        populateQtyDropdown(); 
         calculateTotal();
     });
 });
@@ -399,30 +422,42 @@ function calculateTotal() {
 }
 
 function sendOrder() {
+    const wilaya = document.getElementById('wilayaVal').value;
+    const commune = document.getElementById('communeVal').value;
+    const delivery = document.querySelector('input[name="delType"]:checked').value;
+    
+    if(!commune) { alert("يرجى كتابة البلدية"); return; }
+
     const isGold = document.getElementById('goldOpt').checked;
     const isSides = document.getElementById('sidesOpt').checked;
     const isMulti = document.getElementById('colorsOpt').checked;
 
-    // الشرط: إذا اختار ذهبي أو جهتين أو عدة ألوان يرسل لواتساب
-    if (isGold || isSides || isMulti) {
-        let extras = [];
-        if (isGold) extras.push("ذهبى");
-        if (isSides) extras.push("وجهين");
-        if (isMulti) extras.push("عدة ألوان");
-        const msg = `طلب جديد LokanStore:\nالمقاس: ${currentSize}\nالكمية: ${currentQty}\nاللون: ${document.getElementById('colorVal').value}\nالإضافات: ${extras.join(' + ')}\nالإجمالي: ${document.getElementById('totalPriceDisplay').innerText}`;
-        window.open(`https://wa.me/213551976603?text=${encodeURIComponent(msg)}`, '_blank');
-    } else {
-        // إذا لم يختار أي منهم تظهر رسالة طلب عادي
-        alert("تم تسجيل طلبك العادي بنجاح! شكراً لاختياركم LokanStore.");
-    }
+    let extras = [];
+    if (isGold) extras.push("ذهبى");
+    if (isSides) extras.push("وجهين");
+    if (isMulti) extras.push("عدة ألوان");
+    
+    const msg = `طلب جديد LokanStore:\n` +
+                `المقاس: ${currentSize}\n` +
+                `الكمية: ${currentQty}\n` +
+                `اللون: ${document.getElementById('colorVal').value}\n` +
+                `التوصيل: ${delivery}\n` +
+                `الولاية: ${wilaya}\n` +
+                `البلدية: ${commune}\n` +
+                `الإضافات: ${extras.length > 0 ? extras.join(' + ') : 'لا يوجد'}\n` +
+                `الإجمالي: ${document.getElementById('totalPriceDisplay').innerText}`;
+
+    window.open(`https://wa.me/213551976603?text=${encodeURIComponent(msg)}`, '_blank');
 }
 
+// تعديل دالة الإغلاق عند الضغط خارج الـ Dropdown
 window.onclick = (e) => { 
     if(!e.target.closest('.custom-dropdown')) {
         document.querySelectorAll('.custom-dropdown').forEach(d => d.classList.remove('active'));
     }
 };
 
+populateWilayas();
 populateQtyDropdown();
 calculateTotal();
 </script>
