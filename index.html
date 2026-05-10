@@ -12,6 +12,7 @@
     --primary-blue:#36b1e6;       
     --dark-blue:#005696;          
     --whatsapp-green:#25d366;
+    --price-yellow:#ffc107;
     --bg-gray:#f4f7f6;
     --border-color:#eee;
 }
@@ -74,14 +75,16 @@ header{
 
 .best-price-badge{
     position:absolute; top:20px; left:-35px;
-    background: var(--primary-blue); color:#fff;
+    background:var(--price-yellow); color:#000;
     padding:5px 40px; transform:rotate(-45deg);
     font-weight:bold; font-size:9pt;
     box-shadow:0 2px 5px rgba(0,0,0,0.2);
     z-index: 10;
 }
-
+    
+/* PRODUCT GALLERY */
 .product-gallery { margin-bottom: 25px; }
+
 .main-image-container {
     width: 100%;
     border-radius: 15px;
@@ -92,8 +95,29 @@ header{
     aspect-ratio: 1 / 1;
     display: flex; align-items: center; justify-content: center;
 }
-.main-image-container img { width: 100%; height: 100%; object-fit: cover; }
 
+.main-image-container img {
+    width: 100%; height: 100%;
+    object-fit: cover; transition: 0.3s;
+}
+
+.thumbnails-grid {
+    display: flex; gap: 10px;
+    justify-content: center; flex-wrap: wrap;
+}
+
+.thumb-item {
+    width: 65px; height: 65px;
+    border-radius: 10px; border: 2px solid #f0f0f0;
+    cursor: pointer; overflow: hidden; transition: 0.2s;
+}
+
+.thumb-item img { width: 100%; height: 100%; object-fit: cover; }
+
+.thumb-item.active-thumb {
+    border-color: var(--primary-blue);
+    transform: scale(1.05);
+}
 .option-group{ margin-bottom: 25px; }
 .option-title{
     font-weight:bold; display:block;
@@ -207,12 +231,23 @@ header{
 </header>
 
 <div class="container">
-    <div class="best-price-badge">أفضل سعر</div>
+    <div class="best-price-badge">MEILLEUR PRIX</div>
     <h2 style="text-align:center;color:var(--dark-blue);margin-top:0;">SAC SHOPPING PERSONNALISÉ</h2>
 
     <div class="product-gallery">
         <div class="main-image-container">
             <img src="https://lokans.github.io/Lokan/IMG_20260504_181029.jpg" id="mainImage">
+        </div>
+          <div class="thumbnails-grid">
+            <div class="thumb-item active-thumb" onclick="changeImage('https://lokans.github.io/Lokan/IMG_20260504_181029.jpg', this)">
+                <img src="https://lokans.github.io/Lokan/IMG_20260504_181029.jpg">
+            </div>
+            <div class="thumb-item" onclick="changeImage('https://lokans.github.io/Lokan/1778427070489.png', this)">
+                <img src="https://lokans.github.io/Lokan/1778427070489.png">
+            </div>
+            <div class="thumb-item" onclick="changeImage('https://lokans.github.io/Lokan/file_00000000ae4471fdaedcb5027d80a083.png', this)">
+                <img src="https://lokans.github.io/Lokan/file_00000000ae4471fdaedcb5027d80a083.png">
+            </div>
         </div>
     </div>
 
@@ -291,7 +326,7 @@ header{
         </div>
         
         <input type="hidden" id="wilayaVal" value="10 - Bouira">
-        <input type="text" id="communeVal" class="input-field" placeholder="البلدية (Commune) - إدخال يدوي">
+        <input type="text" id="communeVal" class="input-field" placeholder="البلدية - العنوان">
     </div>
 
     <div class="option-group">
@@ -336,6 +371,15 @@ const wilayas = [
     "41 - Souk Ahras", "42 - Tipaza", "43 - Mila", "44 - Aïn Defla", "45 - Naâma", "46 - Aïn Témouchent", "47 - Ghardaïa", "48 - Relizane", "49 - El M'Ghair", "50 - El Meniaa",
     "51 - Ouled Djellal", "52 - Bordj Baji Mokhtar", "53 - Béni Abbès", "54 - Timimoun", "55 - Touggourt", "56 - Djanet", "57 - In Salah", "58 - In Guezzam"
 ];
+
+function changeImage(src, el) {
+    const main = document.getElementById('mainImage');
+    main.style.opacity = '0.3';
+    setTimeout(() => { main.src = src; main.style.opacity = '1'; }, 200);
+    document.querySelectorAll('.thumb-item').forEach(i => i.classList.remove('active-thumb'));
+    el.classList.add('active-thumb');
+}
+
 
 function toggleDropdown(id) {
     const el = document.getElementById(id);
