@@ -177,6 +177,7 @@ header{
     border: 2px solid var(--border-color);
     border-radius: 12px; font-family: 'Cairo', sans-serif;
     outline: none; transition: 0.3s;
+    margin-bottom: 10px;
 }
 .input-field:focus { border-color: var(--primary-blue); }
 
@@ -220,7 +221,6 @@ header{
     padding: 10px; border-radius: 10px;
 }
 
-/* تنسيق صورة قائمة الأسعار */
 .price-list-img {
     width: 100%;
     border-radius: 15px;
@@ -315,6 +315,10 @@ header{
     <div class="shipping-card">
         <span class="option-title" style="border-right-color: var(--dark-blue);">📍 معلومات الشحن (Livraison)</span>
         
+        <!-- حقول الاسم والهاتف الجديدة -->
+        <input type="text" id="userName" class="input-field" placeholder="الاسم">
+        <input type="tel" id="userPhone" class="input-field" placeholder="رقم الهاتف">
+
         <div class="delivery-flex">
             <label class="checkbox-item">
                 <input type="radio" name="delType" value="Au Bureau" checked>
@@ -355,7 +359,6 @@ header{
 
     <button class="btn-order" onclick="sendOrder()">تأكيد الطلب عبر WhatsApp</button>
     
-    <!-- إضافة صورة قائمة الأسعار -->
     <img src="https://lokans.github.io/Lokan/file_00000000ae4471fdaedcb5027d80a083.png" class="price-list-img" alt="قائمة الأسعار">
 
     <div class="footer-info">
@@ -377,9 +380,9 @@ const priceList = {
 
 const wilayas = [
     "01 - Adrar", "02 - Chlef", "03 - Laghouat", "04 - Oum El Bouaghi", "05 - Batna", "06 - Béjaïa", "07 - Biskra", "08 - Béchar", "09 - Blida", "10 - Bouira",
-    "11 - Tamanrasset", "12 - Téبessa", "13 - Tlemcen", "14 - Tiaret", "15 - Tizi Ouzou", "16 - Alger", "17 - Djelfa", "18 - Jijel", "19 - Sétif", "20 - Saïda",
+    "11 - Tamanrasset", "12 - Tébessa", "13 - Tlemcen", "14 - Tiaret", "15 - Tizi Ouzou", "16 - Alger", "17 - Djelfa", "18 - Jijel", "19 - Sétif", "20 - Saïda",
     "21 - Skikda", "22 - Sidi Bel Abbès", "23 - Annaba", "24 - Guelma", "25 - Constantine", "26 - Médéa", "27 - Mostaganem", "28 - M'Sila", "29 - Mascara", "30 - Ouargla",
-    "31 - Oran", "32 - El Bayadh", "33 - Illizi", "34 - Bordj Bou Arreridj", "35 - Boumerdès", "36 - El Tarf", "37 - Tindouf", "38 - Tissemsilt", "39 - El Oued", "40 - Khenchela",
+    "31 - Oran", "32 - El Bayadh", "33 - Illizi", "34 - Bordj Bou Arreridj", "35 - Boumerدès", "36 - El Tarf", "37 - Tindouf", "38 - Tissemsilt", "39 - El Oued", "40 - Khenchela",
     "41 - Souk Ahras", "42 - Tipaza", "43 - Mila", "44 - Aïn Defla", "45 - Naâma", "46 - Aïn Témouchent", "47 - Ghardaïa", "48 - Relizane", "49 - El M'Ghair", "50 - El Meniaa",
     "51 - Ouled Djellal", "52 - Bordj Baji Mokhtar", "53 - Béni Abbès", "54 - Timimoun", "55 - Touggourt", "56 - Djanet", "57 - In Salah", "58 - In Guezzam"
 ];
@@ -410,7 +413,7 @@ function populateQtyDropdown() {
         const item = document.createElement('div');
         item.className = `option-item ${q === currentQty ? 'selected' : ''}`;
         item.onclick = (e) => {
-            e.stopPropagation(); // منع إغلاق الـ dropdown قبل تحديث البيانات
+            e.stopPropagation();
             currentQty = q;
             updateQtyHeader();
             calculateTotal();
@@ -478,11 +481,16 @@ function calculateTotal() {
 }
 
 function sendOrder() {
+    const name = document.getElementById('userName').value;
+    const phone = document.getElementById('userPhone').value;
     const wilaya = document.getElementById('wilayaVal').value;
     const commune = document.getElementById('communeVal').value;
     const delivery = document.querySelector('input[name="delType"]:checked').value;
     
-    if(!commune) { alert("يرجى كتابة البلدية"); return; }
+    // التحقق من المدخلات الأساسية
+    if(!name) { alert("يرجى كتابة الاسم واللقب"); return; }
+    if(!phone) { alert("يرجى كتابة رقم الهاتف"); return; }
+    if(!commune) { alert("يرجى كتابة العنوان (البلدية)"); return; }
 
     const isGold = document.getElementById('goldOpt').checked;
     const isSides = document.getElementById('sidesOpt').checked;
@@ -493,20 +501,22 @@ function sendOrder() {
     if (isSides) extras.push("وجهين");
     if (isMulti) extras.push("عدة ألوان");
     
-    const msg = `طلب جديد LokanStore:\n` +
-                `المقاس: ${currentSize}\n` +
-                `الكمية: ${currentQty}\n` +
-                `اللون: ${document.getElementById('colorVal').value}\n` +
-                `التوصيل: ${delivery}\n` +
-                `الولاية: ${wilaya}\n` +
-                `البلدية: ${commune}\n` +
-                `الإضافات: ${extras.length > 0 ? extras.join(' + ') : 'لا يوجد'}\n` +
-                `الإجمالي: ${document.getElementById('totalPriceDisplay').innerText}`;
+    const msg = `طلب جديد LokanStore:\n\n` +
+                `👤 الإسم: ${name}\n` +
+                `📞 الهاتف: ${phone}\n` +
+                `----------------------\n` +
+                `• المقاس: ${currentSize}\n` +
+                `• الكمية: ${currentQty}\n` +
+                `• لون الكيس: ${document.getElementById('colorVal').value}\n` +
+                `• التوصيل: ${delivery}\n` +
+                `• الولاية: ${wilaya}\n` +
+                `• العنوان: ${commune}\n` +
+                `• الإضافات: ${extras.length > 0 ? extras.join(' + ') : 'لا يوجد'}\n\n` +
+                `• الإجمالي: ${document.getElementById('totalPriceDisplay').innerText}`;
 
     window.open(`https://wa.me/213551976603?text=${encodeURIComponent(msg)}`, '_blank');
 }
 
-// تعديل دالة الإغلاق عند الضغط خارج الـ Dropdown
 window.onclick = (e) => { 
     if(!e.target.closest('.custom-dropdown')) {
         document.querySelectorAll('.custom-dropdown').forEach(d => d.classList.remove('active'));
