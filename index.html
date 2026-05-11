@@ -219,6 +219,15 @@ header{
     background: #fff; border: 1px solid var(--border-color);
     padding: 10px; border-radius: 10px;
 }
+
+/* تنسيق صورة قائمة الأسعار */
+.price-list-img {
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
 </style>
 </head>
 <body>
@@ -345,6 +354,9 @@ header{
     </div>
 
     <button class="btn-order" onclick="sendOrder()">تأكيد الطلب عبر WhatsApp</button>
+    
+    <!-- إضافة صورة قائمة الأسعار -->
+    <img src="https://lokans.github.io/Lokan/file_00000000ae4471fdaedcb5027d80a083.png" class="price-list-img" alt="قائمة الأسعار">
 
     <div class="footer-info">
         <b>LokanStore</b> - Bir Ghbalou - Bouira<br>
@@ -365,7 +377,7 @@ const priceList = {
 
 const wilayas = [
     "01 - Adrar", "02 - Chlef", "03 - Laghouat", "04 - Oum El Bouaghi", "05 - Batna", "06 - Béjaïa", "07 - Biskra", "08 - Béchar", "09 - Blida", "10 - Bouira",
-    "11 - Tamanrasset", "12 - Tébessa", "13 - Tlemcen", "14 - Tiaret", "15 - Tizi Ouzou", "16 - Alger", "17 - Djelfa", "18 - Jijel", "19 - Sétif", "20 - Saïda",
+    "11 - Tamanrasset", "12 - Téبessa", "13 - Tlemcen", "14 - Tiaret", "15 - Tizi Ouzou", "16 - Alger", "17 - Djelfa", "18 - Jijel", "19 - Sétif", "20 - Saïda",
     "21 - Skikda", "22 - Sidi Bel Abbès", "23 - Annaba", "24 - Guelma", "25 - Constantine", "26 - Médéa", "27 - Mostaganem", "28 - M'Sila", "29 - Mascara", "30 - Ouargla",
     "31 - Oran", "32 - El Bayadh", "33 - Illizi", "34 - Bordj Bou Arreridj", "35 - Boumerdès", "36 - El Tarf", "37 - Tindouf", "38 - Tissemsilt", "39 - El Oued", "40 - Khenchela",
     "41 - Souk Ahras", "42 - Tipaza", "43 - Mila", "44 - Aïn Defla", "45 - Naâma", "46 - Aïn Témouchent", "47 - Ghardaïa", "48 - Relizane", "49 - El M'Ghair", "50 - El Meniaa",
