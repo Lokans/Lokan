@@ -82,7 +82,6 @@ header{
     z-index: 10;
 }
     
-/* PRODUCT GALLERY */
 .product-gallery { margin-bottom: 25px; }
 
 .main-image-container {
@@ -126,7 +125,6 @@ header{
     padding-right:12px; font-size:13pt;
 }
 
-/* بطاقة الشحن */
 .shipping-card {
     background: #fdfdfd;
     padding: 18px;
@@ -315,17 +313,16 @@ header{
     <div class="shipping-card">
         <span class="option-title" style="border-right-color: var(--dark-blue);">📍 معلومات الشحن (Livraison)</span>
         
-        <!-- حقول الاسم والهاتف الجديدة -->
         <input type="text" id="userName" class="input-field" placeholder="الاسم">
         <input type="tel" id="userPhone" class="input-field" placeholder="رقم الهاتف">
 
         <div class="delivery-flex">
             <label class="checkbox-item">
-                <input type="radio" name="delType" value="Au Bureau" checked>
+                <input type="radio" name="delType" value="Stop Desk" checked onchange="calculateTotal()">
                 <span style="font-size: 10pt;">Au Bureau (المكتب)</span>
             </label>
             <label class="checkbox-item">
-                <input type="radio" name="delType" value="À Domicile">
+                <input type="radio" name="delType" value="Domicile" onchange="calculateTotal()">
                 <span style="font-size: 10pt;">À Domicile (المنزل)</span>
             </label>
         </div>
@@ -353,6 +350,7 @@ header{
 
     <div class="total-section">
         <span class="unit-price-label">سعر الكيس الواحد: <span id="unitPriceDisplay">0</span> د.ج</span>
+        <div style="font-size:11pt; margin-top:10px;">سعر التوصيل: <span id="shippingPriceDisplay">0</span> د.ج</div>
         <span class="total-price" id="totalPriceDisplay">0 د.ج</span>
         <div style="font-size:10pt;opacity:0.9;">التوصيل متوفر لـ 58 ولاية 🚚</div>
     </div>
@@ -369,7 +367,8 @@ header{
 
 <script>
 let currentSize = "20x30";
-let currentQty = 1000;
+let currentQty = 100;
+let selectedWilayaCode = "10";
 
 const priceList = {
     "20x30": {100:30, 300:24, 500:22, 1000:20},
@@ -378,14 +377,66 @@ const priceList = {
     "50x60": {100:45, 300:37, 500:35, 1000:33}
 };
 
-const wilayas = [
-    "01 - Adrar", "02 - Chlef", "03 - Laghouat", "04 - Oum El Bouaghi", "05 - Batna", "06 - Béjaïa", "07 - Biskra", "08 - Béchar", "09 - Blida", "10 - Bouira",
-    "11 - Tamanrasset", "12 - Tébessa", "13 - Tlemcen", "14 - Tiaret", "15 - Tizi Ouzou", "16 - Alger", "17 - Djelfa", "18 - Jijel", "19 - Sétif", "20 - Saïda",
-    "21 - Skikda", "22 - Sidi Bel Abbès", "23 - Annaba", "24 - Guelma", "25 - Constantine", "26 - Médéa", "27 - Mostaganem", "28 - M'Sila", "29 - Mascara", "30 - Ouargla",
-    "31 - Oran", "32 - El Bayadh", "33 - Illizi", "34 - Bordj Bou Arreridj", "35 - Boumerدès", "36 - El Tarf", "37 - Tindouf", "38 - Tissemsilt", "39 - El Oued", "40 - Khenchela",
-    "41 - Souk Ahras", "42 - Tipaza", "43 - Mila", "44 - Aïn Defla", "45 - Naâma", "46 - Aïn Témouchent", "47 - Ghardaïa", "48 - Relizane", "49 - El M'Ghair", "50 - El Meniaa",
-    "51 - Ouled Djellal", "52 - Bordj Baji Mokhtar", "53 - Béni Abbès", "54 - Timimoun", "55 - Touggourt", "56 - Djanet", "57 - In Salah", "58 - In Guezzam"
-];
+const shippingData = {
+    "01": { name: "Adrar", home: 1500, desk: 1000 },
+    "02": { name: "Chlef", home: 800, desk: 500 },
+    "03": { name: "Laghouat", home: 1000, desk: 600 },
+    "04": { name: "Oum El Bouaghi", home: 800, desk: 500 },
+    "05": { name: "Batna", home: 800, desk: 500 },
+    "06": { name: "Béjaïa", home: 800, desk: 500 },
+    "07": { name: "Biskra", home: 1000, desk: 600 },
+    "08": { name: "Béchar", home: 1200, desk: 800 },
+    "09": { name: "Blida", home: 600, desk: 400 },
+    "10": { name: "Bouira", home: 500, desk: 300 },
+    "11": { name: "Tamanrasset", home: 2000, desk: 1500 },
+    "12": { name: "Tébessa", home: 900, desk: 600 },
+    "13": { name: "Tlemcen", home: 800, desk: 500 },
+    "14": { name: "Tiaret", home: 900, desk: 600 },
+    "15": { name: "Tizi Ouzou", home: 700, desk: 450 },
+    "16": { name: "Alger", home: 650, desk: 400 },
+    "17": { name: "Djelfa", home: 1000, desk: 600 },
+    "18": { name: "Jijel", home: 850, desk: 500 },
+    "19": { name: "Sétif", home: 800, desk: 500 },
+    "20": { name: "Saïda", home: 900, desk: 600 },
+    "21": { name: "Skikda", home: 800, desk: 500 },
+    "22": { name: "Sidi Bel Abbès", home: 800, desk: 500 },
+    "23": { name: "Annaba", home: 800, desk: 500 },
+    "24": { name: "Guelma", home: 900, desk: 600 },
+    "25": { name: "Constantine", home: 800, desk: 500 },
+    "26": { name: "Médéa", home: 700, desk: 450 },
+    "27": { name: "Mostaganem", home: 800, desk: 500 },
+    "28": { name: "M'Sila", home: 800, desk: 500 },
+    "29": { name: "Mascara", home: 800, desk: 500 },
+    "30": { name: "Ouargla", home: 1100, desk: 700 },
+    "31": { name: "Oran", home: 800, desk: 500 },
+    "32": { name: "El Bayadh", home: 1200, desk: 800 },
+    "33": { name: "Illizi", home: 1900, desk: 1500 },
+    "34": { name: "Bordj Bou Arreridj", home: 800, desk: 500 },
+    "35": { name: "Boumerdès", home: 600, desk: 400 },
+    "36": { name: "El Tarf", home: 900, desk: 600 },
+    "37": { name: "Tindouf", home: 1700, desk: 1000 },
+    "38": { name: "Tissemsilt", home: 800, desk: 500 },
+    "39": { name: "El Oued", home: 1100, desk: 700 },
+    "40": { name: "Khenchela", home: 900, desk: 600 },
+    "41": { name: "Souk Ahras", home: 900, desk: 600 },
+    "42": { name: "Tipaza", home: 600, desk: 400 },
+    "43": { name: "Mila", home: 800, desk: 500 },
+    "44": { name: "Aïn Defla", home: 800, desk: 500 },
+    "45": { name: "Naâma", home: 1200, desk: 800 },
+    "46": { name: "Aïn Témouchent", home: 800, desk: 500 },
+    "47": { name: "Ghardaïa", home: 1100, desk: 700 },
+    "48": { name: "Relizane", home: 800, desk: 500 },
+    "49": { name: "Timimoun", home: 1500, desk: 1000 },
+    "50": { name: "Bordj Baji Mokhtar", home: 1100, desk: 700 },
+    "51": { name: "Ouled Djellal", home: 1000, desk: 600 },
+    "52": { name: "Béni Abbès", home: 1200, desk: 800 },
+    "53": { name: "In Salah", home: 1800, desk: 1200 },
+    "54": { name: "In Guezzam", home: 1500, desk: 1000 },
+    "55": { name: "Touggourt", home: 1100, desk: 700 },
+    "56": { name: "Djanet", home: 1900, desk: 1500 },
+    "57": { name: "El M'Ghair", home: 1100, desk: 700  },
+    "58": { name: "El Meniaa", home: 1100, desk: 700 }
+};
 
 function changeImage(src, el) {
     const main = document.getElementById('mainImage');
@@ -394,7 +445,6 @@ function changeImage(src, el) {
     document.querySelectorAll('.thumb-item').forEach(i => i.classList.remove('active-thumb'));
     el.classList.add('active-thumb');
 }
-
 
 function toggleDropdown(id) {
     const el = document.getElementById(id);
@@ -405,6 +455,7 @@ function toggleDropdown(id) {
 
 function populateQtyDropdown() {
     const container = document.getElementById('qtyOptions');
+    if(!container) return;
     container.innerHTML = '';
     const quantities = [100, 300, 500, 1000];
     
@@ -434,14 +485,17 @@ function updateQtyHeader() {
 
 function populateWilayas() {
     const container = document.getElementById('wilayaOptions');
-    wilayas.forEach(w => {
+    Object.keys(shippingData).sort().forEach(code => {
+        const w = shippingData[code];
         const item = document.createElement('div');
         item.className = 'option-item';
-        item.innerText = w;
+        item.innerText = `${code} - ${w.name}`;
         item.onclick = (e) => {
             e.stopPropagation();
-            document.getElementById('wilayaVal').value = w;
-            document.getElementById('headerWilaya').innerText = w;
+            selectedWilayaCode = code;
+            document.getElementById('wilayaVal').value = `${code} - ${w.name}`;
+            document.getElementById('headerWilaya').innerText = `${code} - ${w.name}`;
+            calculateTotal();
             document.querySelectorAll('#wilayaDropdown .option-item').forEach(i => i.classList.remove('selected'));
             item.classList.add('selected');
             document.getElementById('wilayaDropdown').classList.remove('active');
@@ -476,45 +530,87 @@ function calculateTotal() {
     let extra = 0;
     document.querySelectorAll('.extra-calc:checked').forEach(i => extra += parseInt(i.dataset.extra));
     const unit = base + extra;
+    const bagsTotal = unit * currentQty;
+
+    const deliveryType = document.querySelector('input[name="delType"]:checked').value;
+    const shipPrice = (deliveryType === 'Stop Desk') ? shippingData[selectedWilayaCode].desk : shippingData[selectedWilayaCode].home;
+
     document.getElementById('unitPriceDisplay').innerText = unit;
-    document.getElementById('totalPriceDisplay').innerText = (unit * currentQty).toLocaleString() + " د.ج";
+    document.getElementById('shippingPriceDisplay').innerText = shipPrice;
+    document.getElementById('totalPriceDisplay').innerText = (bagsTotal + shipPrice).toLocaleString() + " د.ج";
 }
 
-function sendOrder() {
+async function sendOrder() {
     const name = document.getElementById('userName').value;
     const phone = document.getElementById('userPhone').value;
     const wilaya = document.getElementById('wilayaVal').value;
     const commune = document.getElementById('communeVal').value;
     const delivery = document.querySelector('input[name="delType"]:checked').value;
     
-    // التحقق من المدخلات الأساسية
-    if(!name) { alert("يرجى كتابة الاسم واللقب"); return; }
-    if(!phone) { alert("يرجى كتابة رقم الهاتف"); return; }
-    if(!commune) { alert("يرجى كتابة العنوان (البلدية)"); return; }
+    if(!name || !phone || !commune) { alert("يرجى ملء كافة المعلومات"); return; }
 
     const isGold = document.getElementById('goldOpt').checked;
     const isSides = document.getElementById('sidesOpt').checked;
     const isMulti = document.getElementById('colorsOpt').checked;
-
-    let extras = [];
-    if (isGold) extras.push("ذهبى");
-    if (isSides) extras.push("وجهين");
-    if (isMulti) extras.push("عدة ألوان");
     
-    const msg = `طلب جديد LokanStore:\n\n` +
-                `👤 الإسم: ${name}\n` +
-                `📞 الهاتف: ${phone}\n` +
-                `----------------------\n` +
-                `• المقاس: ${currentSize}\n` +
-                `• الكمية: ${currentQty}\n` +
-                `• لون الكيس: ${document.getElementById('colorVal').value}\n` +
-                `• التوصيل: ${delivery}\n` +
-                `• الولاية: ${wilaya}\n` +
-                `• العنوان: ${commune}\n` +
-                `• الإضافات: ${extras.length > 0 ? extras.join(' + ') : 'لا يوجد'}\n\n` +
-                `• الإجمالي: ${document.getElementById('totalPriceDisplay').innerText}`;
+    let extrasArray = [];
+    if (isGold) extrasArray.push("ذهبي");
+    if (isSides) extrasArray.push("وجهين");
+    if (isMulti) extrasArray.push("ألوان");
+    
+    const extrasText = extrasArray.length > 0 ? extrasArray.join(' + ') : "لا يوجد";
+    const deliveryText = delivery === 'Stop Desk' ? 'Au Bureau' : 'À Domicile';
+    const totalPrice = document.getElementById('totalPriceDisplay').innerText;
 
-    window.open(`https://wa.me/213551976603?text=${encodeURIComponent(msg)}`, '_blank');
+    const data = {
+        name: name,
+        phone: phone,
+        size: currentSize,
+        qty: currentQty,
+        color: document.getElementById('colorVal').value,
+        delivery: deliveryText,
+        wilaya: wilaya,
+        address: commune,
+        extras: extrasText,
+        total: totalPrice
+    };
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwZg4ycAUeV1bbir1QWcZTzGxtE7vbvTT4PQmeUWnKoj2PBuR9VDTFPplOPedzDRTuWBg/exec';
+
+    const btn = document.querySelector('.btn-order');
+    const originalText = btn.innerText;
+    btn.innerText = "جاري الحفظ... انتظر قليلاً";
+    btn.disabled = true;
+
+    try {
+        await fetch(scriptURL, { method: 'POST', mode: 'no-cors', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data) });
+        
+        const msg = `طلب جديد LokanStore:
+
+👤 الإسم: ${name}
+📞 الهاتف: ${phone}
+--------------------------
+• المقاس: ${currentSize}
+• الكمية: ${currentQty}
+• لون الكيس: ${data.color}
+• التوصيل: ${deliveryText}
+• الولاية: ${wilaya}
+• العنوان: ${commune}
+• الإضافات: ${extrasText}
+
+• الإجمالي: ${totalPrice}`;
+        
+        window.open(`https://wa.me/213551976603?text=${encodeURIComponent(msg)}`, '_blank');
+        
+        btn.innerText = originalText;
+        btn.disabled = false;
+    } catch (error) {
+        console.error('Error!', error.message);
+        btn.innerText = originalText;
+        btn.disabled = false;
+        alert("حدث خطأ في الإرسال، سيتم فتح واتساب فقط");
+        window.open(`https://wa.me/213551976603?text=${encodeURIComponent("طلب جديد من " + name)}`, '_blank');
+    }
 }
 
 window.onclick = (e) => { 
