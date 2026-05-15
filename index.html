@@ -82,6 +82,7 @@ header{
     z-index: 10;
 }
     
+/* PRODUCT GALLERY */
 .product-gallery { margin-bottom: 25px; }
 
 .main-image-container {
@@ -125,6 +126,7 @@ header{
     padding-right:12px; font-size:13pt;
 }
 
+/* بطاقة الشحن */
 .shipping-card {
     background: #fdfdfd;
     padding: 18px;
@@ -377,6 +379,7 @@ const priceList = {
     "50x60": {100:45, 300:37, 500:35, 1000:33}
 };
 
+// بيانات التوصيل من الصورة IMG_20260513_012716.jpg
 const shippingData = {
     "01": { name: "Adrar", home: 1500, desk: 1000 },
     "02": { name: "Chlef", home: 800, desk: 500 },
@@ -426,10 +429,10 @@ const shippingData = {
     "46": { name: "Aïn Témouchent", home: 800, desk: 500 },
     "47": { name: "Ghardaïa", home: 1100, desk: 700 },
     "48": { name: "Relizane", home: 800, desk: 500 },
-    "49": { name: "Timimoun", home: 1500, desk: 1000 },
+    "49": { name: "Timimoun", home: 1500, desk: 1000 }, // ملاحظة: مكتب غير متوفر لبعض الولايات وضعناه 700 تقريبيا
     "50": { name: "Bordj Baji Mokhtar", home: 1100, desk: 700 },
     "51": { name: "Ouled Djellal", home: 1000, desk: 600 },
-    "52": { name: "Béni Abbès", home: 1200, desk: 800 },
+    "52": { name: "Béni Abbès", home: 1200, desk: 800 }, // تم استخدام كود 52 لـ Beni Abbes حسب القائمة
     "53": { name: "In Salah", home: 1800, desk: 1200 },
     "54": { name: "In Guezzam", home: 1500, desk: 1000 },
     "55": { name: "Touggourt", home: 1100, desk: 700 },
@@ -455,7 +458,6 @@ function toggleDropdown(id) {
 
 function populateQtyDropdown() {
     const container = document.getElementById('qtyOptions');
-    if(!container) return;
     container.innerHTML = '';
     const quantities = [100, 300, 500, 1000];
     
@@ -526,91 +528,59 @@ document.querySelectorAll('.size-card').forEach(card => {
 document.querySelectorAll('.extra-calc').forEach(i => i.addEventListener('change', calculateTotal));
 
 function calculateTotal() {
+    // 1. حساب سعر الأكياس
     const base = priceList[currentSize][currentQty];
     let extra = 0;
     document.querySelectorAll('.extra-calc:checked').forEach(i => extra += parseInt(i.dataset.extra));
     const unit = base + extra;
     const bagsTotal = unit * currentQty;
 
+    // 2. حساب سعر التوصيل من الصورة
     const deliveryType = document.querySelector('input[name="delType"]:checked').value;
     const shipPrice = (deliveryType === 'Stop Desk') ? shippingData[selectedWilayaCode].desk : shippingData[selectedWilayaCode].home;
 
+    // 3. التحديث في الواجهة
     document.getElementById('unitPriceDisplay').innerText = unit;
     document.getElementById('shippingPriceDisplay').innerText = shipPrice;
     document.getElementById('totalPriceDisplay').innerText = (bagsTotal + shipPrice).toLocaleString() + " د.ج";
 }
 
-async function sendOrder() {
+function sendOrder() {
     const name = document.getElementById('userName').value;
     const phone = document.getElementById('userPhone').value;
     const wilaya = document.getElementById('wilayaVal').value;
     const commune = document.getElementById('communeVal').value;
     const delivery = document.querySelector('input[name="delType"]:checked').value;
     
-    if(!name || !phone || !commune) { alert("يرجى ملء كافة المعلومات"); return; }
+    if(!name) { alert("يرجى كتابة الاسم واللقب"); return; }
+    if(!phone) { alert("يرجى كتابة رقم الهاتف"); return; }
+    if(!commune) { alert("يرجى كتابة العنوان (البلدية)"); return; }
 
     const isGold = document.getElementById('goldOpt').checked;
     const isSides = document.getElementById('sidesOpt').checked;
     const isMulti = document.getElementById('colorsOpt').checked;
+
+    let extras = [];
+    if (isGold) extras.push("ذهبى");
+    if (isSides) extras.push("وجهين");
+    if (isMulti) extras.push("عدة ألوان");
     
-    let extrasArray = [];
-    if (isGold) extrasArray.push("ذهبي");
-    if (isSides) extrasArray.push("وجهين");
-    if (isMulti) extrasArray.push("ألوان");
-    
-    const extrasText = extrasArray.length > 0 ? extrasArray.join(' + ') : "لا يوجد";
-    const deliveryText = delivery === 'Stop Desk' ? 'Au Bureau' : 'À Domicile';
-    const totalPrice = document.getElementById('totalPriceDisplay').innerText;
+    const msg = `طلب جديد LokanStore:\n\n` +
+                `• الإسم: ${name}\n` +
+                `• الهاتف: ${phone}\n` +
+                `------------------------\n` +
+                `• المقاس: ${currentSize}\n` +
+                `• الكمية: ${currentQty}\n` +
+                `• لون الكيس: ${document.getElementById('colorVal').value}\n` +
+                `• نوع التوصيل: ${delivery === 'Stop Desk' ? 'Au Bureau' : 'À Domicile'}\n` +
+                `• الولاية: ${wilaya}\n` +
+                `• العنوان: ${commune}\n` +
+                `• الإضافات: ${extras.length > 0 ? extras.join(' + ') : 'لا يوجد'}\n\n` +
+                `------------------------\n` +
+                `• سعر التوصيل: ${document.getElementById('shippingPriceDisplay').innerText} د.ج\n` +
+                `• الإجمالي النهائي: ${document.getElementById('totalPriceDisplay').innerText}`;
 
-    const data = {
-        name: name,
-        phone: phone,
-        size: currentSize,
-        qty: currentQty,
-        color: document.getElementById('colorVal').value,
-        delivery: deliveryText,
-        wilaya: wilaya,
-        address: commune,
-        extras: extrasText,
-        total: totalPrice
-    };
-
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwZg4ycAUeV1bbir1QWcZTzGxtE7vbvTT4PQmeUWnKoj2PBuR9VDTFPplOPedzDRTuWBg/exec';
-
-    const btn = document.querySelector('.btn-order');
-    const originalText = btn.innerText;
-    btn.innerText = "جاري الحفظ... انتظر قليلاً";
-    btn.disabled = true;
-
-    try {
-        await fetch(scriptURL, { method: 'POST', mode: 'no-cors', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data) });
-        
-        const msg = `طلب جديد LokanStore:
-
-👤 الإسم: ${name}
-📞 الهاتف: ${phone}
---------------------------
-• المقاس: ${currentSize}
-• الكمية: ${currentQty}
-• لون الكيس: ${data.color}
-• التوصيل: ${deliveryText}
-• الولاية: ${wilaya}
-• العنوان: ${commune}
-• الإضافات: ${extrasText}
-
-• الإجمالي: ${totalPrice}`;
-        
-        window.open(`https://wa.me/213551976603?text=${encodeURIComponent(msg)}`, '_blank');
-        
-        btn.innerText = originalText;
-        btn.disabled = false;
-    } catch (error) {
-        console.error('Error!', error.message);
-        btn.innerText = originalText;
-        btn.disabled = false;
-        alert("حدث خطأ في الإرسال، سيتم فتح واتساب فقط");
-        window.open(`https://wa.me/213551976603?text=${encodeURIComponent("طلب جديد من " + name)}`, '_blank');
-    }
+    window.open(`https://wa.me/213551976603?text=${encodeURIComponent(msg)}`, '_blank');
 }
 
 window.onclick = (e) => { 
@@ -625,5 +595,4 @@ calculateTotal();
 </script>
 
 </body>
-</html>
-
+    </html>
