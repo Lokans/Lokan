@@ -429,10 +429,10 @@ const shippingData = {
     "46": { name: "Aïn Témouchent", home: 800, desk: 500 },
     "47": { name: "Ghardaïa", home: 1100, desk: 700 },
     "48": { name: "Relizane", home: 800, desk: 500 },
-    "49": { name: "Timimoun", home: 1500, desk: 1000 }, // ملاحظة: مكتب غير متوفر لبعض الولايات وضعناه 700 تقريبيا
+    "49": { name: "Timimoun", home: 1500, desk: 1000 }, 
     "50": { name: "Bordj Baji Mokhtar", home: 1100, desk: 700 },
     "51": { name: "Ouled Djellal", home: 1000, desk: 600 },
-    "52": { name: "Béni Abbès", home: 1200, desk: 800 }, // تم استخدام كود 52 لـ Beni Abbes حسب القائمة
+    "52": { name: "Béni Abbès", home: 1200, desk: 800 }, 
     "53": { name: "In Salah", home: 1800, desk: 1200 },
     "54": { name: "In Guezzam", home: 1500, desk: 1000 },
     "55": { name: "Touggourt", home: 1100, desk: 700 },
@@ -565,6 +565,35 @@ function sendOrder() {
     if (isSides) extras.push("وجهين");
     if (isMulti) extras.push("عدة ألوان");
     
+    // ======== بداية الإضافة الخاصة بـ Google Sheets ========
+    // استخراج اسم الولاية فقط (مثلاً Bouira بدلاً من 10 - Bouira) لتطابق الصورة
+    const wilayaName = wilaya.split('-')[1] ? wilaya.split('-')[1].trim() : wilaya;
+    const unitPrice = document.getElementById('unitPriceDisplay').innerText;
+    // تنظيف رقم الإجمالي من الحروف والرموز (مثل د.ج) ليدخل كرقم في الشيت
+    const totalString = document.getElementById('totalPriceDisplay').innerText.replace(/[^\d]/g, '');
+
+    const orderData = {
+        nom: name,
+        telephone: phone,
+        wilaya: wilayaName,
+        taille: currentSize,
+        prix_da: unitPrice,
+        qty: currentQty,
+        total: totalString
+    };
+
+    // ضع رابط الـ Web App الذي ستحصل عليه من جوجل شيت هنا
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwPzDeXwg5FWHE0y8C2hNzVR-PznVEcctVLkSPFwPVICCXSUW8WJQiTBkE9D7FJwQ8t/exec';
+
+    fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify(orderData),
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' }
+    }).then(response => console.log('تم تسجيل الطلب'))
+      .catch(error => console.error('حدث خطأ في التسجيل:', error));
+    // ======== نهاية الإضافة ========
+
+    // رسالة الواتساب الأصلية (بدون أي تغيير)
     const msg = `طلب جديد LokanStore:\n\n` +
                 `• الإسم: ${name}\n` +
                 `• الهاتف: ${phone}\n` +
@@ -595,4 +624,5 @@ calculateTotal();
 </script>
 
 </body>
-    </html>
+</html>
+
